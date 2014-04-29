@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <script type="text/javascript">
+            $(document).ready( function() {
+                var managerLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsManager').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsManager" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsManager').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsManager" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsManager', 			
+                    onresize_end:	function () { 
+                        $('#mainForm\\:listManager\\:edtManagerList').height($('#mainContentItsManager').height() - 25);
+                        $('#mainForm\\:listManager\\:edtManagerList\\:b').height($('#mainForm\\:listManager\\:edtManagerList').height() - 64);
+                    }
+                  }
+                });
+                
+                createTabLayout('ItsManager', managerLayoutOptions);
+            });
+    </script>
+
+    <div id="tabItsManager" style="height: 432px;">
+        <div class="ui-layout-north" id="northItsManager">
+            <div class="its-header">Search</div>
+            <div class="content">
+            </div>
+
+        </div>
+        <div class="ui-layout-south" id="southItsManager">
+            <div class="its-header">Details</div>
+            <div class="content" style="margin-bottom: 10px;">
+            </div>
+        </div>
+        <div id="mainContentItsManager" >
+                    <h:panelGrid columns="2" columnClasses="col1,col2" width="100%" border="0"  >
+                            <rich:extendedDataTable id="edtManagerList" style="width: 906px; height: 170px;"   
+                                                    value="#{managerController.entityList}" var="manager"
+                                                    iterationStatusVar="it" 
+                                                    selectionMode="single" 
+                                                    selection="#{managerController.selection}"
+                                                    rowClasses="odd-row, even-row" 
+                                                    onrowdblclick="doubleClick()" 
+                                                    rowKeyVar="row" keepSaved="true" rows="4" frozenColumns="0"  >
+                                <a4j:ajax execute="@this" 
+                                          event="selectionchange"
+                                          listener="#{managerController.selectionListener}" 
+                                          render=":details1" />
+
+                                <f:facet name="header" >
+                                    <a4j:outputPanel >
+                                        <h:panelGrid rendered="#{!empty managerController.entityList and empty managerController.searchName}" columns="2">
+                                            <h:outputText value="All" />
+                                            <h:panelGroup/>
+                                        </h:panelGrid>
+                                        <h:panelGrid rendered="#{!empty managerController.entityList and !empty managerController.searchName}" columns="2">
+                                            <h:outputText value="Last search:" />
+                                            <h:outputText value="name = '#{managerController.searchName}'" style="font-style: italic; font-weight: normal !important;" />
+                                        </h:panelGrid>
+                                        <h:panelGrid rendered="#{empty managerController.entityList}" columns="2">
+                                            <h:outputText value="Empty" style="color: red;" />
+                                            <h:panelGroup/>
+                                        </h:panelGrid>
+                                    </a4j:outputPanel>
+                                </f:facet>
+
+                                <rich:column width="#{managerController.nameWidth}"    >
+                                    <f:facet name="header">
+                                        <h:outputText value="Name" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{manager.itsUser.name}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="Login name" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{manager.itsUser.loginName}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="Added" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{manager.itsUser.addingDateTime}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="ITS Email" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{manager.itsUser.itsEmail}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="Work email" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{manager.itsUser.workEmail}"/>
+                                </rich:column>
+                            </rich:extendedDataTable>
+
+                        <h:commandButton value="Add" action="#{managerController.insert}" 
+                                         styleClass="imagebutton" 
+                                         image="./../resources/images/new.png"
+                                         ></h:commandButton>
+                         <rich:dataScroller for="edtManagerList" maxPages="5" />
+
+                    </h:panelGrid>
+                    <h:panelGrid columns="2" columnClasses="col1b,col2b" width="100%" border="0" >
+                        <h:outputText value="Double click to select..."/>
+                        <h:panelGroup>
+
+                        </h:panelGroup>
+                    </h:panelGrid>
+                    <a4j:jsFunction name="doubleClick" immediate="true"  action="#{managerController.select(manager)}"  />
+
+        </div>
+    </div>
+
+
+</ui:composition>

@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml"
+                xmlns:itscomp="http://java.sun.com/jsf/composite/itscomp">
+
+    <ui:define name="extraHead">
+        <a4j:jsFunction name="selectEntity" action="#{regLicQualController.select}" render="apDetails" >
+            <a4j:param name="id" assignTo="#{regLicQualController.selectedId}" />
+        </a4j:jsFunction>
+        <ui:include src="/pages/masterdata/include/extraHead.xhtml" />
+
+        <script>
+            $(document).ready( function(){
+                $('#masterDataGrid').jqGrid({
+                    url:'#{facesContext.externalContext.requestContextPath}/pages/RegLicQualListServlet',
+                    caption: '#{regLicQualBundle.gridTitle}',
+                    colNames:[
+                        '#{regLicQualBundle.id}', 
+                        '#{regLicQualBundle.colName}',
+                        '#{regLicQualBundle.colRegLicQualType}',
+                        '#{regLicQualBundle.colRegion}'
+                    ],
+                    colModel :[ 
+                        {name:'id', index:'id', key: true, sortable: false},   
+                        {name:'name', index:'name'},
+                        {name:'regLicQualType', index:'regLicQualType', sortable: false},
+                        {name:'region', index:'region', sortable: false}
+                    ]
+                });
+            }); 
+            
+        </script>
+
+    </ui:define>
+
+
+    <ui:define name="contentPanel">
+        <div class="content-wrapper" id="idContentWrapper">
+            <div id="leftPart" class="masterdata-left-part" >
+                <ui:include src="/pages/masterdata/include/navigator.xhtml" />
+            </div>
+            <div id="masterData" class="masterdata-center-part">
+                <h:form id="frmMasterData">
+                    <div class="ui-layout-south" id="south" style="z-index: 2000 !important;position: absolute;">
+                        <div class="its-header">
+                            <div style="margin-top: 6px;">
+                                Details
+                            </div>  
+                        </div>
+                        <div class="content" >
+
+                            <a4j:outputPanel id="apDetails" rendered="true" ajaxRendered="true">
+                                <div class="masterdata-details-left-part" >
+                                    <h:panelGrid columns="3" rendered="#{not regLicQualController.modeHandler.editButtonEnabled}" >
+                                        <h:outputLabel styleClass="label" value="#{regLicQualBundle.name}" />
+                                        <h:inputText id="itName" styleClass="input-required" 
+                                                     value="#{regLicQualController.selectedEntity.name}"  >
+                                        </h:inputText>
+                                        <rich:message for="itName"  />
+                                        <h:outputLabel styleClass="label" value="#{regLicQualBundle.regLicQualType}" />
+                                        <rich:select id="seRegLicQualType"  defaultLabel="#{applicationBundle.pleaseSelectOne}" converter="regLicQualTypeConverter" value="#{regLicQualController.selectedEntity.regLicQualType}">
+                                            <f:attribute name="regLicQualTypeList" value="#{regLicQualTypeController.entityList}"/>
+                                            <f:selectItems value="#{regLicQualTypeController.entityList}" 
+                                                           var="regLicQualType" itemLabel="#{regLicQualType.name}" itemValue="#{regLicQualType}"/> 
+                                        </rich:select>
+                                        <rich:message for="seRegLicQualType"/>
+                                        <h:outputLabel styleClass="label" value="#{regLicQualBundle.region}" />
+                                        <rich:select id="seRegion"  defaultLabel="#{applicationBundle.pleaseSelectOne}" converter="regionConverter" value="#{regLicQualController.selectedEntity.region}">
+                                            <f:attribute name="regionList" value="#{regionController.entityList}"/>
+                                            <f:selectItems value="#{regionController.entityList}" 
+                                                           var="region" itemLabel="#{region.name}" itemValue="#{region}"/> 
+                                        </rich:select>
+                                        <rich:message for="seRegion"/>
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2" rendered="#{regLicQualController.modeHandler.editButtonEnabled}">
+                                        <h:outputLabel styleClass="label" value="#{regLicQualBundle.name}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{regLicQualController.selectedEntity.name}" />
+                                        <h:outputLabel styleClass="label" value="#{regLicQualBundle.regLicQualType}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{regLicQualController.selectedEntity.regLicQualType.name}" />
+                                        <h:outputLabel styleClass="label" value="#{regLicQualBundle.region}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{regLicQualController.selectedEntity.region.name}" />
+                                    </h:panelGrid>
+                                </div>
+                                <div class="masterdata-details-right-part" >
+                                    <h:panelGrid columns="1" >
+                                        <a4j:commandButton 
+                                            style="#{regLicQualController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                            disabled="#{not regLicQualController.modeHandler.editButtonEnabled}" 
+                                            value="#{applicationBundle.editButton}" 
+                                            render="apDetails, apAdd"
+                                            action="#{regLicQualController.edit}"  styleClass="button"
+                                            oncomplete="blockComponents();"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not regLicQualController.modeHandler.saveButtonEnabled}"  
+                                            value="#{applicationBundle.saveButton}" 
+                                            styleClass="button" 
+                                            render="apDetails, apAdd"
+                                            oncomplete="if( #{facesContext.maximumSeverity!='ERROR 2'}){unblockComponents();#{rich:component('saveDialog')}.show();}"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not regLicQualController.modeHandler.cancelButtonEnabled}"  
+                                            value="#{applicationBundle.cancelButton}" 
+                                            styleClass="button"
+                                            immediate="true"
+                                            render="apDetails, apAdd"
+                                            onclick="unblockComponents();#{rich:component('cancelDialog')}.show();return false;"
+                                            /> 
+                                    </h:panelGrid>
+                                </div>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContent" >
+                        <div class="masterdata-main-content">
+                            <div style="float: left; width: 95%; height: 98%;z-index: 2;">
+                                <table id="masterDataGrid" ></table> 
+                            </div>
+                            <div style="float:right;width: 4%; height: 98%;">
+                                <a4j:outputPanel id="apInsert" rendered="true" ajaxRendered="true">
+                                    <a4j:commandButton id="btnInsert"
+                                                       disabled="#{not regLicQualController.modeHandler.editButtonEnabled}" 
+                                                       action="#{regLicQualController.insert}" 
+                                                       styleClass="image-button" 
+                                                       render="apDetails, apAdd"
+                                                       style="float: right;"
+                                                       oncomplete="onInsertComplete()"
+                                                       image="/resources/images/new.png"/>
+                                </a4j:outputPanel>
+                            </div>
+                        </div>
+                        <div class="masterdata-main-content-blocked"></div>
+                    </div>
+                </h:form>
+                <itscomp:cancelDialog onCancelRevoke="blockComponents()" onCancelComplete="onCancelComplete()" cancelAction="#{regLicQualController.cancel}" />                
+                <itscomp:saveDialog onSaveRevoke="blockComponents()" onSaveComplete="onSaveComplete();" saveAction="#{regLicQualController.save}" />                
+
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="navigator.xhtml" x="650" y="1050" zoom="true"/>
+        <Node id="templates/mainTemplate_2.xhtml" x="900" y="900" zoom="true"/>
+        <Node id="tabdemo.html" x="1400" y="450" zoom="true"/>
+        <Node id="pages/masterdata/language.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="complex.html" x="150" y="1050" zoom="true"/>
+        <Node id="pages/testList.xhtml" x="900" y="750" zoom="true"/>
+        <Node id="pages/navigatorBar.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="pages/include/managerList.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="pages/masterdata/bodyRegion.xhtml" x="1150" y="1050" zoom="true"/>
+        <Node id="empty1.html" x="900" y="1200" zoom="true"/>
+        <Node id="pages/main.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="pages/masterdata/currency_2_2.xhtml" x="2150" y="600" zoom="true"/>
+        <Node id="pages/masterdata/regLicQual.xhtml" x="2400" y="450" zoom="true"/>
+        <Node id="pages/editManager2.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="pages/masterdata/navigator.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="aurora.xhtml" x="1400" y="600" zoom="true"/>
+        <Node id="pages/userList4_2.xhtml" x="2150" y="150" zoom="true"/>
+        <Node id="pages/masterdata/modality.xhtml" x="650" y="1350" zoom="true"/>
+        <Node id="demo2.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="pages/confirmPopup.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="pages/masterdata/masterdata.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="pages/managerEdit.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="empty2.html" x="1400" y="900" zoom="true"/>
+        <Node id="jqgrid.html" x="1650" y="600" zoom="true"/>
+        <Node id="templates/masterDataTemplate.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="pages/masterdata/modeOfAcquisition.xhtml" x="400" y="1500" zoom="true"/>
+        <Node id="pages/managerList.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="pages/managerList2.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="pages/main_1.xhtml" x="150" y="1500" zoom="true"/>
+        <Node id="pages/ajaxTest.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="demo.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="login_1.xhtml" x="1900" y="300" zoom="true"/>
+        <Node id="pages/masterdata/currency.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="pages/userList.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="pages/masterdata/wayOfClosing.xhtml" x="2900" y="150" zoom="true"/>
+        <Node id="pages/managerList4.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="pages/userList4.xhtml" x="400" y="1050" zoom="true"/>
+        <Node id="templates/mainTemplate_1.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="pages/user/userList.xhtml" x="1900" y="750" zoom="true"/>
+        <Node id="pages/include/ajaxTest.xhtml" x="1400" y="750" zoom="true"/>
+        <Node id="pages/masterdata/currency_2.xhtml" x="900" y="1050" zoom="true"/>
+        <Node id="tabdemo_1.html" x="900" y="600" zoom="true"/>
+        <Node id="pages/caseStatus.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="templates/mainTemplate.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="pages/userList4_1.xhtml" x="650" y="900" zoom="true"/>
+        <Node id="pages/masterdata/region.xhtml" x="2150" y="450" zoom="true"/>
+        <Node id="pages/masterdata/country.xhtml" x="2650" y="150" zoom="true"/>
+        <Node id="pages/masterdata/caseStatus.xhtml" x="1900" y="600" zoom="true"/>
+        <Node id="pages/include/hospitalStaffList_1.xhtml" x="1150" y="900" zoom="true"/>
+        <Node id="pages/userList4_rf.xhtml" x="400" y="1350" zoom="true"/>
+        <Node id="pages/complex.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="pages/managerList3.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="pages/userList4_pf_1.xhtml" x="400" y="1200" zoom="true"/>
+        <Node id="pages/include/hospitalStaffList.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="pages/masterdata/itsConstant.xhtml" x="1650" y="750" zoom="true"/>
+        <Node id="pages/masterdata/regLicQualType.xhtml" x="2650" y="300" zoom="true"/>
+        <Node id="pages/userList4_jq.xhtml" x="1650" y="450" zoom="true"/>
+        <Node id="login.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="pages/masterdata/hospContrOption.xhtml" x="150" y="1650" zoom="true"/>
+        <Node id="pages/complex_1.xhtml" x="150" y="1200" zoom="true"/>
+        <Node id="pages/userList4_pf.xhtml" x="1900" y="450" zoom="true"/>
+        <Node id="pages/include/managerList_1.xhtml" x="1150" y="750" zoom="true"/>
+        <Node id="pages/include/managerList_2.xhtml" x="150" y="1350" zoom="true"/>
+        <Node id="pages/testPage.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="pages/userList2.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="pages/masterdata/currency_2_1.xhtml" x="650" y="1200" zoom="true"/>
+        <Node id="pages/masterdata/scenario.xhtml" x="1650" y="900" zoom="true"/>
+        <Node id="pages/masterdata/country_1.xhtml" x="2400" y="300" zoom="true"/>
+        <Node id="pages/masterdata/currency_1.xhtml" x="2400" y="150" zoom="false"/>
+        <Node id="pages/managerEdit2.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="jqgrid.xhtml" x="2150" y="300" zoom="true"/>
+        <Node id="pages/masterdata/itsConstant_1.xhtml" x="1400" y="1050" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

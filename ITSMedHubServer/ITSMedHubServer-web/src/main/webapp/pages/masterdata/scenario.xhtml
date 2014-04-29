@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml"
+                xmlns:itscomp="http://java.sun.com/jsf/composite/itscomp">
+
+    <ui:define name="extraHead">
+        <a4j:jsFunction name="selectEntity" action="#{scenarioController.select}" render="apDetails" >
+            <a4j:param name="id" assignTo="#{scenarioController.selectedId}" />
+        </a4j:jsFunction>
+        <ui:include src="/pages/masterdata/include/extraHead.xhtml" />
+
+        <script>
+            $(document).ready( function(){
+                $('#masterDataGrid').jqGrid({
+                    url:'#{facesContext.externalContext.requestContextPath}/pages/ScenarioListServlet',
+                    caption: '#{scenarioBundle.gridTitle}',
+                    colNames:[
+                        '#{scenarioBundle.id}', 
+                        '#{scenarioBundle.colEnglishName}',
+                        '#{scenarioBundle.colHungarianName}'
+                    ],
+                    colModel :[ 
+                        {name:'id', index:'id', key: true, sortable: false},   
+                        {name:'englishName', index:'englishName'},
+                        {name:'hungarianName', index:'hungarianName'}
+                    ]
+                });
+            }); 
+            
+        </script>
+
+    </ui:define>
+
+
+    <ui:define name="contentPanel">
+        <div class="content-wrapper" id="idContentWrapper">
+            <div id="leftPart" class="masterdata-left-part" >
+                <ui:include src="/pages/masterdata/include/navigator.xhtml" />
+            </div>
+            <div id="masterData" class="masterdata-center-part">
+                <h:form id="frmMasterData">
+                    <div class="ui-layout-south" id="south" style="z-index: 2000 !important;position: absolute;">
+                        <div class="its-header">
+                            <div style="margin-top: 6px;">
+                                Details
+                            </div>  
+                        </div>
+                        <div class="content" >
+
+                            <a4j:outputPanel id="apDetails" rendered="true" ajaxRendered="true">
+                                <div class="masterdata-details-left-part" >
+                                    <h:panelGrid columns="3" rendered="#{not scenarioController.modeHandler.editButtonEnabled}" >
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.englishName}" />
+                                        <h:inputText id="itEnglishName" styleClass="input-required" style="width: 480px;" 
+                                                     value="#{scenarioController.selectedEntity.englishName}"  >
+                                        </h:inputText>
+                                        <rich:message for="itEnglishName"  />
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.hungarianName}" />
+                                        <h:inputText id="itHungarianName" styleClass="input-required"  style="width: 480px;" 
+                                                     value="#{scenarioController.selectedEntity.hungarianName}">
+                                        </h:inputText>
+                                        <rich:message for="itHungarianName"   />
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.category}" />
+                                        <h:inputText styleClass="input" 
+                                                     value="#{scenarioController.selectedEntity.category}"  >
+                                        </h:inputText>
+                                        <rich:message/>
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.behaviour}" />
+                                        <h:inputText  styleClass="input" validatorMessage="!" converterMessage="!"
+                                                      value="#{scenarioController.selectedEntity.behaviour}"  >
+                                        </h:inputText>
+                                        <rich:message/>
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.radiologistStarts}" />
+                                        <h:selectBooleanCheckbox styleClass="checkbox" value="#{scenarioController.selectedEntity.radiologistStarts}" />
+                                        <h:inputHidden/>
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2" rendered="#{scenarioController.modeHandler.editButtonEnabled}">
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.englishName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{scenarioController.selectedEntity.englishName}"  style="width: 480px;"/>
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.hungarianName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{scenarioController.selectedEntity.hungarianName}"  style="width: 480px;"/>
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.category}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{scenarioController.selectedEntity.category}" />
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.behaviour}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{scenarioController.selectedEntity.behaviour}" />
+                                        <h:outputLabel styleClass="label" value="#{scenarioBundle.radiologistStarts}" />
+                                        <h:selectBooleanCheckbox styleClass="checkbox" value="#{scenarioController.selectedEntity.radiologistStarts}" disabled="true" />
+                                    </h:panelGrid>
+                                </div>
+                                <div class="masterdata-right-part" >
+                                    <h:panelGrid columns="1" >
+                                        <a4j:commandButton 
+                                            style="#{scenarioController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                            disabled="#{not scenarioController.modeHandler.editButtonEnabled}" 
+                                            value="#{applicationBundle.editButton}" 
+                                            render="apDetails, apAdd"
+                                            action="#{scenarioController.edit}"  
+                                            styleClass="button"
+                                            oncomplete="blockComponents();"/>
+                                        <a4j:commandButton 
+                                            disabled="#{not scenarioController.modeHandler.saveButtonEnabled}"  
+                                            value="#{applicationBundle.saveButton}" 
+                                            styleClass="button" 
+                                            render="apDetails, apAdd"
+                                            oncomplete="if( #{facesContext.maximumSeverity!='ERROR 2'}){unblockComponents();#{rich:component('saveDialog')}.show();}"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not scenarioController.modeHandler.cancelButtonEnabled}"  
+                                            value="#{applicationBundle.cancelButton}" 
+                                            styleClass="button"
+                                            immediate="true"
+                                            render="apDetails, apAdd"
+                                            onclick="unblockComponents();#{rich:component('cancelDialog')}.show();return false;"
+                                            /> 
+                                    </h:panelGrid>
+                                </div>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContent" >
+                         <div class="masterdata-main-content">
+                            <div style="float: left; width: 95%; height: 98%;z-index: 2;">
+                                <table id="masterDataGrid" ></table> 
+                            </div>
+                            <div style="float:right;width: 4%; height: 98%;">
+                                <a4j:outputPanel id="apInsert" rendered="true" ajaxRendered="true">
+                                    <a4j:commandButton id="btnInsert"
+                                                       disabled="#{not scenarioController.modeHandler.editButtonEnabled}" 
+                                                       action="#{scenarioController.insert}" 
+                                                       styleClass="image-button" 
+                                                       render="apDetails, apAdd"
+                                                       style="float: right;"
+                                                       oncomplete="onInsertComplete()"
+                                                       image="/resources/images/new.png"/>
+                                </a4j:outputPanel>
+                            </div>
+                        </div>
+                        <div class="masterdata-main-content-blocked"></div>
+                    </div>
+                </h:form>
+                <itscomp:cancelDialog onCancelRevoke="blockComponents()" onCancelComplete="onCancelComplete()" cancelAction="#{scenarioController.cancel}" />                
+                <itscomp:saveDialog onSaveRevoke="blockComponents()" onSaveComplete="onSaveComplete();" saveAction="#{scenarioController.save}" />                
+
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml"
+                xmlns:itscomp="http://java.sun.com/jsf/composite/itscomp">
+
+   <ui:define name="extraHead">
+          <a4j:jsFunction name="selectEntity" action="#{itsLanguageController.select}" render="apDetails" >
+            <a4j:param name="id" assignTo="#{itsLanguageController.selectedId}" />
+        </a4j:jsFunction>
+        <ui:include src="/pages/masterdata/include/extraHead.xhtml" />
+
+        <script>
+            $(document).ready( function(){
+                $('#masterDataGrid').jqGrid({
+                    url:'#{facesContext.externalContext.requestContextPath}/pages/ITSLanguageListServlet',
+                    caption: '#{itsLanguageBundle.gridTitle}',
+                    colNames:[
+                        '#{itsLanguageBundle.id}', 
+                        '#{itsLanguageBundle.colEnglishName}',
+                        '#{itsLanguageBundle.colHungarianName}'
+                    ],
+                    colModel :[ 
+                        {name:'id', index:'id', key: true, sortable: false},   
+                        {name:'englishName', index:'englishName'},
+                        {name:'hungarianName', index:'hungarianName'}
+                    ]
+                });
+            }); 
+            
+        </script>
+
+    </ui:define>
+
+   
+    <ui:define name="contentPanel">
+        <div class="content-wrapper" id="idContentWrapper">
+            <div id="leftPart" class="masterdata-left-part" >
+                <ui:include src="/pages/masterdata/include/navigator.xhtml" />
+            </div>
+            <div id="masterData" class="masterdata-center-part">
+                <h:form id="frmMasterData">
+                    <div class="ui-layout-south" id="south" style="z-index: 2000 !important;position: absolute;">
+                        <div class="its-header">
+                            <div style="margin-top: 6px;">
+                                Details
+                            </div>  
+                        </div>
+                        <div class="content" >
+
+                            <a4j:outputPanel id="apDetails" rendered="true" ajaxRendered="true">
+                                <div class="masterdata-details-left-part" >
+                                    <h:panelGrid columns="3" rendered="#{not itsLanguageController.modeHandler.editButtonEnabled}" >
+                                        <h:outputLabel styleClass="label" value="#{itsLanguageBundle.englishName}" />
+                                        <h:inputText id="itEnglishName" styleClass="input-required" 
+                                                     value="#{itsLanguageController.selectedEntity.englishName}"  >
+                                        </h:inputText>
+                                        <rich:message for="itEnglishName"  />
+                                        <h:outputLabel styleClass="label" value="#{itsLanguageBundle.hungarianName}" />
+                                        <h:inputText id="itHungarianName" styleClass="input-required" 
+                                                     value="#{itsLanguageController.selectedEntity.hungarianName}"  >
+                                        </h:inputText>
+                                        <rich:message for="itHungarianName"  />
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2" rendered="#{itsLanguageController.modeHandler.editButtonEnabled}">
+                                        <h:outputLabel styleClass="label" value="#{itsLanguageBundle.englishName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{itsLanguageController.selectedEntity.englishName}" />
+                                        <h:outputLabel styleClass="label" value="#{itsLanguageBundle.hungarianName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{itsLanguageController.selectedEntity.hungarianName}" />
+                                    </h:panelGrid>
+                                </div>
+                                <div class="masterdata-details-right-part" >
+                                    <h:panelGrid columns="1" >
+                                        <a4j:commandButton 
+                                            style="#{itsLanguageController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                            disabled="#{not itsLanguageController.modeHandler.editButtonEnabled}" 
+                                            value="#{applicationBundle.editButton}" 
+                                            render="apDetails, apAdd"
+                                            action="#{itsLanguageController.edit}"  
+                                            styleClass="button"
+                                            oncomplete="blockComponents();"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not itsLanguageController.modeHandler.saveButtonEnabled}"  
+                                            value="#{applicationBundle.saveButton}" 
+                                            styleClass="button" 
+                                            render="apDetails, apAdd"
+                                            oncomplete="if( #{facesContext.maximumSeverity!='ERROR 2'}){unblockComponents();#{rich:component('saveDialog')}.show();}"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not itsLanguageController.modeHandler.cancelButtonEnabled}"  
+                                            value="#{applicationBundle.cancelButton}" 
+                                            styleClass="button"
+                                            immediate="true"
+                                            render="apDetails, apAdd"
+                                            onclick="unblockComponents();#{rich:component('cancelDialog')}.show();return false;"
+                                            /> 
+                                    </h:panelGrid>
+                                </div>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContent" >
+                        <div class="masterdata-main-content">
+                            <div style="float: left; width: 95%; height: 98%;z-index: 2;">
+                                <table id="masterDataGrid" ></table> 
+                            </div>
+                            <div style="float:right;width: 4%; height: 98%;">
+                                <a4j:outputPanel id="apInsert" rendered="true" ajaxRendered="true">
+                                    <a4j:commandButton id="btnInsert"
+                                                       disabled="#{not itsLanguageController.modeHandler.editButtonEnabled}" 
+                                                       action="#{itsLanguageController.insert}" 
+                                                       styleClass="image-button" 
+                                                       render="apDetails, apAdd"
+                                                       style="float: right;"
+                                                       oncomplete="onInsertComplete()"
+                                                       image="/resources/images/new.png"/>
+                                </a4j:outputPanel>
+                            </div>
+                        </div>
+                        <div class="masterdata-main-content-blocked"></div>
+                    </div>
+                </h:form>
+                <itscomp:cancelDialog onCancelRevoke="blockComponents()" onCancelComplete="onCancelComplete()" cancelAction="#{itsLanguageController.cancel}" />                
+                <itscomp:saveDialog onSaveRevoke="blockComponents()" onSaveComplete="onSaveComplete();" saveAction="#{itsLanguageController.save}" />                
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

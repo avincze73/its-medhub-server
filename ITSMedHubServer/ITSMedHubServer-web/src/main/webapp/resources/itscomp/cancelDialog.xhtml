@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:cc="http://java.sun.com/jsf/composite"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      >
+
+    <!-- INTERFACE -->
+    <cc:interface>
+        <cc:attribute name="title" default="Confirmation"/>
+        <cc:attribute name="message" default="#{applicationBundle.cancelQuestion}" />
+        <cc:attribute name="onCancelComplete" default="" />
+        <cc:attribute name="onBeforeCancel" default="" />
+        <cc:attribute name="onCancelRevoke" default="" />
+        <cc:attribute name="cancelAction" method-signature="void action()" />
+    </cc:interface>
+
+    <!-- IMPLEMENTATION -->
+    <cc:implementation>
+        <h:form>
+            <a4j:outputPanel>
+                <rich:popupPanel zindex="11000"  id="cancelDialog" modal="true" resizeable="false" height="110" >
+                    <f:facet name="header">
+                        <h:outputText value="#{cc.attrs.title}"/>
+                    </f:facet>
+                    <div>
+                        <h:outputText value="#{cc.attrs.message}" />
+                    </div>
+                    <div style="margin-top: 20px;" align="center" >
+                        <h:panelGrid columns="2" >
+                            <a4j:commandButton value="#{applicationBundle.yesButton}" 
+                                               onclick="submitCancel();"
+                                               oncomplete="#{rich:component('cancelDialog')}.hide();#{cc.attrs.onCancelComplete};return true;" />
+                            <a4j:commandButton value="#{applicationBundle.noButton}" 
+                                               onclick="#{rich:component('cancelDialog')}.hide();#{cc.attrs.onCancelRevoke};return false;" />
+                        </h:panelGrid>
+                    </div>
+                    <a4j:jsFunction name="submitCancel" action="#{cc.attrs.cancelAction}" >
+                    </a4j:jsFunction>
+                </rich:popupPanel>
+
+            </a4j:outputPanel>  
+        </h:form>
+
+    </cc:implementation>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <!--property name="hibernate.connection.url">jdbc:mysql://109.74.51.253:3306/tds</property>
+        <property name="hibernate.connection.password">tds1</property-->
+    <!--property name="hibernate.connection.url">jdbc:mysql://localhost:3306/tds</property>
+        <property name="hibernate.connection.password">attila1</property-->
+    <property name="hibernate.connection.url">jdbc:mysql://its-1:3306/itsmedhub</property>
+    <property name="hibernate.connection.password">titkos</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.hbm2ddl.auto">create-drop</property>
+    <!--property name="hibernate.connection.charSet">iso-8859-1</property-->
+    <property name="hibernate.connection.charSet">cp1250</property>
+    <!--property name="hibernate.connection.characterEncoding">UTF-8</property>
+        <property name="hibernate.connection.useUnicode">true</property-->
+    <mapping resource="MasterData.hbm.xml"/>
+    <mapping resource="User.hbm.xml"/>
+    <mapping resource="Common.hbm.xml"/>
+    <mapping resource="Hospital.hbm.xml"/>
+    <mapping resource="Case.hbm.xml"/>
+    <mapping resource="Radiologist.hbm.xml"/>
+    <mapping resource="Reporting.hbm.xml"/>
+    <mapping resource="System.hbm.xml"/>
+    <mapping resource="Integration.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

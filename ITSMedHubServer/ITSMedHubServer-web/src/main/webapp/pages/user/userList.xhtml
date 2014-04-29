@@ -1,0 +1,296 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml">
+
+    <ui:define name="extraHead">
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/ui.jqgrid.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterDataNavigator.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterData.css" />
+
+
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.jqGrid.min.js" ></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListViewWithSearch.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.blockUI.js"/>
+
+        <style>
+            .ui-widget {
+                /*font-size: 0.9em;*/
+            }
+
+            .ui-tabs {
+                border-width: 0px !important;
+                padding: 0px;
+            }
+            .ui-layout-container, ui-tabs-panel {
+                padding: 20px !important;
+                background: #EEF3FA !important;
+                border-left-width: 1px !important;
+                border-right-width: 1px !important;
+                border-bottom-width: 1px !important;
+            }
+
+            .ui-tabs-nav {
+                border-top-width: 0px !important;
+                border-left-width: 0px !important;
+                border-right-width: 0px !important;
+                background: #CEE1F4 !important;
+                padding-left: 0px !important;
+
+            }
+
+            .colStyle1 { 
+                width: 110px;padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle2 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 15px;
+            }
+            .colStyle2ro { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 37px;
+            }
+            .colStyle3 { 
+                width: 110px; padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle4 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 15px; 
+            }
+            .colStyle4ro { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px; 
+            }
+            .colStyle5 { 
+                text-align:center; padding-left:23px; 
+            }
+            .colValidaiton { 
+                width: 20px !important;
+            }
+
+        </style>
+
+        <script>
+            var isSelected = false;
+            var isItsManagerSelected = false;
+            $(document).ready( function(){
+                initBlockUI();
+
+                var managerLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                    south: {
+                        onclose_end: function () { 
+                            if ($('#detailsItsManager').length==0){
+                                $('.resizer-south-closed').append('<div id="detailsItsManager" style="font-size: 11px; font-weight: bold; padding: 5px 5px;margin-top: 1px;">Details</div>');
+                            }
+                        }
+                    },
+                    north: {
+                        onclose_end: function () { 
+                            if ($('#searchItsManager').length==0){
+                                $('.resizer-north-closed').append('<div id="searchItsManager" style="font-size: 11px; font-weight: bold; padding: 5px 5px;margin-top: 1px;">Search</div>');
+                            }
+                            
+                        }
+                    },
+                    center: {
+                        paneSelector: '#mainContentItsManager', 			
+                        onresize_end:	function () { 
+                            $('#jqgItsManager').setGridHeight($('#mainContentItsManager').height() - 74);
+                        }
+                    }
+                });
+
+                createLayout('ItsManager', managerLayoutOptions);
+                $('#tabs').tabs();
+
+             
+                $('#jqgItsManager').jqGrid({
+                    url:'#{facesContext.externalContext.requestContextPath}/pages/ManagerListServlet',
+                    datatype: 'json',
+                    mtype: 'GET',
+                    colNames:['ID', 'Name','Login name', 'Added', 'ITS email', 'Work email'],
+                    colModel :[ 
+                        {name:'id', index:'id', key: true, hidden: true },   
+                        {name:'name', index:'name', width:170}, 
+                        {name:'loginName', index:'loginName', width:170}, 
+                        {name:'added', index:'added', sortable:false, width:180} ,
+                        {name:'itsEmail', index:'itsEmail', sortable:false, width:170}, 
+                        {name:'workEmail', index:'workEmail', sortable:false, width:170} 
+                    ],
+                    loadtext: '#{managerBundle.gridLoading}',
+                    emptyrecords: 'empty',
+                    shrinkToFit: false,
+                    viewrecords: true,
+                    hidegrid: false,
+                    height: 226,
+                    autowidth: true,
+                    scrollrows : true,
+                    sortable: true,
+                    /*loadonce: true,*/
+                    rowNum: -1,
+                    caption: '#{managerBundle.gridTitle}',
+                    onSelectRow: function(ids) { 
+                        selectItsManager(ids);
+                        isItsManagerSelected = true;
+                    } ,
+                    loadComplete: function(data) {
+                        jQuery('#jqgItsManager').setSelection (data.userdata.selId, true);
+                        isItsManagerSelected = true;
+                    },
+                    ondblClickRow: function (rowid,iRow,iCol,e) {
+                        var data = $('#jqgItsManager').getRowData(rowid);
+                        navigateToManager(rowid);
+                    }
+                });
+            
+            }); 
+            
+            function initBlockUI(){
+                /*$.blockUI.defaults.overlayCSS.backgroundColor = '#EEF3FA';*/
+                $.blockUI.defaults.overlayCSS.opacity = .1;
+                $.blockUI.defaults.overlayCSS.cursor = 'default';
+                $.blockUI.defaults.css.cursor = 'default';
+                $.blockUI.defaults.message = null;
+            }
+            
+            function setGridCaption(){
+                if ($('#frmSearch\\:itSearchName').val().length) {
+                    $('#jqgItsManager').jqGrid('setCaption', '#{managerBundle.gridTitle} (name: "' + $('#frmSearch\\:itSearchName').val()  +  '")'); 
+                } else {
+                    $('#jqgItsManager').jqGrid('setCaption', '#{managerBundle.gridTitle}'); 
+                }
+                
+                $('#jqgItsManager').trigger('reloadGrid');
+            }
+                        
+        </script>
+
+        <a4j:jsFunction name="selectItsManager" action="#{managerController.select}" render="apDetails,apInsert" >
+            <a4j:param name="id" assignTo="#{managerController.selectedId}" />
+        </a4j:jsFunction>
+        <a4j:jsFunction name="navigateToManager" action="#{managerController.navigateToEdit}">
+            <a4j:param name="id" assignTo="#{managerController.selectedId}" />
+        </a4j:jsFunction>
+    </ui:define>
+
+
+
+    <ui:define name="contentPanel">
+        <div class="content-wrapper-tab" style="border: 0px solid #707070 !important; background: #CEE1F4 !important;">
+            <div id="tabs" style="width: 984px; height: 616px; ">
+                <ul>
+                    <li><a href="#tabItsManager" style="stylewidth: 100px;">ITS Managers</a></li>
+                </ul>
+                <div id="tabItsManager" style="height: 545px;">
+                    <div class="ui-layout-north" id="northItsManager">
+                        <div class="its-header" >
+                            <div style="margin-top: 6px;">
+                                Search
+                            </div>  
+                        </div>
+                        <div class="content">
+                            <h:form id="frmSearch">
+                                <h:panelGrid columns="3" >
+                                    <h:panelGroup>
+                                        <h:panelGrid columns="2"  >
+                                            <h:outputLabel value="#{managerBundle.searchName}" styleClass="label" />
+                                            <h:inputText id="itSearchName" value="#{managerController.searchName}" styleClass="input"/>
+                                        </h:panelGrid>
+                                    </h:panelGroup>
+                                    <h:panelGroup>
+                                        <a4j:commandButton value="Search" action="#{managerController.search}" 
+                                                           styleClass="imagebutton" render="details1" 
+                                                           image="./../../resources/images/search.png"
+                                                           oncomplete="setGridCaption();">
+                                        </a4j:commandButton>
+                                    </h:panelGroup>
+                                    <h:panelGroup>
+                                        <a4j:commandButton value="All" action="#{managerController.getAll}" 
+                                                           styleClass="button" style="width: 30px; margin-left: 10px;" 
+                                                           render="details1" 
+                                                           oncomplete="$('#jqgItsManager').trigger('reloadGrid');"/>
+                                    </h:panelGroup>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+
+                    </div>
+                    <div class="ui-layout-south" id="southItsManager">
+                        <div class="its-header" >
+                            <div style="margin-top: 6px;">
+                                Details
+                            </div>  
+                        </div>
+                        <div class="content" >
+                            <a4j:outputPanel id="details1" rendered="true" ajaxRendered="true">
+                                <h:form>
+                                    <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2ro,colStyle3,colStyle4ro">
+                                        <h:outputLabel styleClass="label" value="#{managerBundle.name}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.name}" />
+                                        <h:outputLabel styleClass="label" value="#{managerBundle.loginName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.loginName}" />
+                                        <h:outputLabel styleClass="label" value="#{managerBundle.sex}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.sex}" />
+                                        <h:outputLabel styleClass="label" value="#{managerBundle.addingDateTime}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.addingDateTime}" />
+                                        <h:outputLabel styleClass="label" value="#{managerBundle.itsEmail}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.itsEmail}" />
+                                        <h:outputLabel styleClass="label" value="#{managerBundle.workEmail}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.workEmail}" />
+                                    </h:panelGrid>
+                                </h:form>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContentItsManager" style="float: left; width: 95%; height: 98%; padding-top: 6px !important;" >
+
+                        <div style="float: left; width: 95%; height: 95%;">
+                            <table id="jqgItsManager" ></table> 
+                        </div>
+                        <div style="float:right;width: 4%; height: 95%;">
+                            <h:form>
+
+                                <a4j:outputPanel id="apInsert" rendered="true" ajaxRendered="true">
+                                    <div>
+                                        <a4j:commandButton id="btnInsert"
+                                                           action="#{managerController.insert}" 
+                                                           styleClass="image-button" 
+                                                           render="apDetails, apInsert"
+                                                           style="float: right;"
+                                                           image="/resources/images/new.png"/>
+                                    </div>
+                                    <div>
+                                        <a4j:commandButton id="btnEdit"
+                                                           styleClass="image-button" 
+                                                           render="apDetails, apInsert"
+                                                           style="float: right;"
+                                                           image="/resources/images/listedit.gif"
+                                                           oncomplete="navigateToManager(#{managerController.selectedId});"
+                                                           />
+                                    </div>
+                                </a4j:outputPanel>
+
+
+                            </h:form>
+                        </div>
+                        <div style="float: right; padding-right: 50px;">
+                            <!--div>
+                                Double click to select...
+                            </div-->
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="window-footer"></div>
+    </ui:define>
+
+</ui:composition>

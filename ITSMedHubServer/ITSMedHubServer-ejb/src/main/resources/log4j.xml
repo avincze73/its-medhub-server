@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="consapp" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout"> 
+            <param name="ConversionPattern" value="%d [%-5p - %c{1}:%L] %m"/> 
+        </layout> 
+    </appender>
+    <logger name="org.springframework">
+        <level value="INFO"/>
+        <appender-ref ref="consapp"/>
+    </logger>
+    <logger name="com.ish">
+        <level value="DEBUG"/>
+        <appender-ref ref="consapp"/>
+    </logger>
+    <logger name="org.hibernate">
+        <level value="DEBUG"/>
+        <appender-ref ref="consapp"/>
+    </logger>  
+	<!-- appender name="logfile" class="org.apache.log4j.DailyRollingFileAppender">
+	   <param name="File"   value="c://swicon_aszt.log" />
+	   <param name="Append" value="true" />
+	   <param name="DatePattern" value=".yyyy-MM-dd" />
+	   <layout class="org.apache.log4j.PatternLayout">
+	     <param name="ConversionPattern" value="%d [%-5p - %c{1}][%X{userInSession}] %m%n"/>
+	  </layout>
+	</appender>
+	  <logger name="org.springframework" additivity="false">
+	      <level value="WARN"/>
+	      <appender-ref ref="logfile"/>
+	  </logger>
+	  <logger name="com.ish" additivity="false">
+	      <level value="DEBUG"/>
+	      <appender-ref ref="logfile"/>
+	  </logger-->
+    <root>  
+        <level value="INFO"/>
+    <!-- appender-ref ref="logfile" / -->
+        <appender-ref ref="consapp" />
+    </root>
+</log4j:configuration>

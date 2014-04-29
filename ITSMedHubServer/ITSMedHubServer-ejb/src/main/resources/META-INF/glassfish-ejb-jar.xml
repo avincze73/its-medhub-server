@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glassfish-ejb-jar PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 EJB 3.1//EN" "http://glassfish.org/dtds/glassfish-ejb-jar_3_1-1.dtd">
+<glassfish-ejb-jar>
+    <enterprise-beans>
+        <ejb>
+            <ejb-name>UserSessionService</ejb-name>
+            <ior-security-config>
+                <transport-config>
+                    <confidentiality>none</confidentiality>
+                </transport-config>
+                <as-context>
+                    <auth-method>username_password</auth-method>
+                    <realm>itsRealm</realm>
+                    <required>true</required>
+                </as-context>
+                <sas-context>
+                    <caller-propagation>none</caller-propagation>
+                </sas-context>
+            </ior-security-config>
+        </ejb>
+        <ejb>
+            <ejb-name>GatewayServerSessionService</ejb-name>
+            <!--ior-security-config>
+                <transport-config>
+                    <confidentiality>none</confidentiality>
+                </transport-config>
+                <as-context>
+                    <auth-method>username_password</auth-method>
+                    <realm>itsRealm</realm>
+                    <required>true</required>
+                </as-context>
+                <sas-context>
+                    <caller-propagation>none</caller-propagation>
+                </sas-context>
+            </ior-security-config-->
+        </ejb>
+    </enterprise-beans>
+</glassfish-ejb-jar>

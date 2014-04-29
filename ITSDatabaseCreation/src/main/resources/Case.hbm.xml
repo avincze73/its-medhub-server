@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="casemodule.dto.CaseDTO" table="TDSCase">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="tdsCaseUniqueId" not-null="true"/>
+        <property access="field" name="transferStarted" not-null="true"/>
+        <property access="field" name="transferredToServer" not-null="true"/>
+        <property access="field" name="acceptedAndAssigned"/>
+        <property access="field" name="opened"/>
+        <property access="field" name="inProgress"/>
+        <property access="field" name="done"/>
+        <property access="field" name="confirmedDone"/>
+        <property access="field" name="madeReady"/>
+        <property access="field" name="readyDisplayedOnHC"/>
+        <property access="field" name="reportFirstViewed"/>
+        <property access="field" name="reportFirstDownloaded"/>
+        <property access="field" name="reportTransferFirstTried"/>
+        <property access="field" name="reportTransferSuccessful"/>
+        <property access="field" name="hospTakes"/>
+        <property access="field" name="rejectedByTDS"/>
+        <property access="field" name="deadLine"/>
+        <property access="field" name="hospitalCaseIdDicomAttributeCode"/>
+        <property access="field" name="hospitalCaseIdDicomAttributeValue"/>
+        <property access="field" name="finalizedReport" type="blob"/>
+        <property access="field" name="urgency"/>
+        <many-to-one access="field" column="caseStatusId" name="caseStatus" not-null="true"/>
+        <many-to-one access="field" column="modeOfAcquisitionId" name="modeOfAcquisition" not-null="true"/>
+        <many-to-one access="field" column="hospitalContractId" name="hospitalContract" not-null="true"/>
+        <many-to-one access="field" column="senderHospitalStaffId" name="senderHospitalStaff"/>
+        <many-to-one access="field" column="receiverHospitalStaffId" name="receiverHospitalStaff"/>
+    <!--many-to-one name="patientAndReferralInfo" column="patientAndReferralInfoId" access="field" unique="true"/-->
+        <many-to-one access="field" cascade="save-update" column="dataProcLogId" name="dataProcLog" not-null="true" unique="true"/>
+        <bag access="field" cascade="save-update" inverse="true" name="reportingList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="reportingmodule.dto.ReportingDTO"/>
+        </bag>
+        <bag access="field" cascade="save-update" inverse="true" name="consultationList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="reportingmodule.dto.ConsultationDTO"/>
+        </bag>
+        <bag access="field" cascade="save-update" inverse="true" name="commentList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="reportingmodule.dto.CommentDTO"/>
+        </bag>
+        <bag access="field" cascade="save-update" inverse="true" name="workScrutinyList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="reportingmodule.dto.WorkScrutinyDTO"/>
+        </bag>
+        <bag access="field" cascade="save-update" inverse="true" name="scenarioInstanceList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="casemodule.dto.ScenarioInstanceDTO"/>
+        </bag>
+        <bag access="field" cascade="save-update" inverse="true" name="flagAssignmentList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="casemodule.dto.FlagAssignmentDTO"/>
+        </bag>
+        <bag access="field" name="referralInfoList"  inverse="true">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="casemodule.dto.ReferralInfoDTO"/>
+        </bag>
+        <property access="field" name="nonDicomCaseIdInHospital1Name"/>
+        <property access="field" name="nonDicomCaseIdInHospital1ShortName"/>
+        <property access="field" name="nonDicomCaseIdInHospital1Value"/>
+        <property access="field" name="nonDicomCaseIdInHospital2Name"/>
+        <property access="field" name="nonDicomCaseIdInHospital2ShortName"/>
+        <property access="field" name="nonDicomCaseIdInHospital2Value"/>
+        <property access="field" name="agreementTest" not-null="true"/>
+        <property access="field" name="agreementTestDateTime" not-null="true"/>
+        <property access="field" name="agreementTestNotes"/>
+        <many-to-one access="field" cascade="save-update" column="dicomPatientDataId" name="dicomPatientData"/>
+        <many-to-one access="field" cascade="save-update" column="electronicPatientDataId" name="electronicPatientData"/>
+        <many-to-one access="field" cascade="save-update" column="imagePatientDataId" name="imagePatientData"/>
+        <bag name="itsCaseHistoryList" access="field" cascade="all" table="ITSCaseHistories">
+            <key column="caseId"/>
+            <many-to-many class="casemodule.dto.CaseDTO" column="historyCaseId"/>
+        </bag>
+        <bag access="field" cascade="save-update" inverse="true" name="hospitalCaseHistoryList">
+            <key column="caseId" not-null="true"/>
+            <one-to-many class="casemodule.dto.HistoryCaseDTO"/>
+        </bag>
+
+        <!--bag name="hospitalCaseHistoryList" access="field" cascade="all" table="HospitalCaseHistories">
+            <key column="caseId"/>
+            <many-to-many class="casemodule.dto.HistoryCaseDTO" column="historyCaseId"/>
+        </bag-->
+
+    </class>
+
+    <class name="casemodule.dto.HistoryCaseDTO" table="HistoryCase">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="finalizedReport" type="blob"/>
+        <many-to-one access="field" cascade="save-update" column="imageReportId" name="imageReport"/>
+        <many-to-one access="field" cascade="save-update" column="dicomPatientDataId" name="dicomPatientData"/>
+        <bag access="field" name="referralInfoList" inverse="true">
+            <key column="historyCaseId" not-null="true"/>
+            <one-to-many class="casemodule.dto.ReferralInfoDTO"/>
+        </bag>
+    </class>
+
+    <class name="casemodule.dto.StudyDTO" table="TDSStudy">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="instanceUid"/>
+        <property access="field" name="studyId"/>
+        <property access="field" name="studyDate" type="date"/>
+        <property access="field" name="studyTime" type="time"/>
+        <property access="field" name="description"/>
+        <property access="field" name="referringPhysyciansDicomName"/>
+        <property access="field" name="admittingDiagnoseDescription"/>
+        <property access="field" name="additionalPatientHistory"/>
+        <property access="field" name="patientMedicalAlerts"/>
+        <property access="field" name="smokingStatus"/>
+        <property access="field" name="accessionNumber"/>
+        <property access="field" name="numberInList" not-null="true"/>
+    <!--many-to-one name="caseItBelongsTo" column="caseId" access="field" not-null="true"/-->
+        <many-to-one access="field" column="referralInfoId" name="referralInfo" not-null="true"/>
+        <bag access="field" inverse="true" name="seriesList">
+            <key column="studyId" not-null="true"/>
+            <one-to-many class="casemodule.dto.SeriesDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.SeriesDTO" table="Series">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="initialWorkValue"/>
+        <property access="field" name="initialWorkTimeHospital"/>
+        <property access="field" name="initialWorkTimeRadiologist"/>
+        <property access="field" name="initialCalculated"/>
+        <property access="field" name="finalWorkValue"/>
+        <property access="field" name="finalWorkTimeHospital"/>
+        <property access="field" name="finalWorkTimeRadiologist"/>
+        <property access="field" name="finalCalculated"/>
+        <property access="field" name="instanceUid"/>
+        <property access="field" name="seriesNumberValue"/>
+        <property access="field" name="seriesNumberState"/>
+        <property access="field" name="laterality"/>
+        <property access="field" name="seriesDate" type="date"/>
+        <property access="field" name="seriesTime" type="time"/>
+        <property access="field" name="performingPhysiciansDicomName"/>
+        <property access="field" name="protocolName"/>
+        <property access="field" name="description"/>
+        <property access="field" name="operatorsDicomName"/>
+        <property access="field" name="bodyPartExamined"/>
+        <property access="field" name="clinicalTrialSeriesId"/>
+        <property access="field" name="clinicalTrialSeriesDescription"/>
+        <property access="field" name="frameOfReferenceUid"/>
+        <property access="field" name="equipmentManufacturer"/>
+        <property access="field" name="equipmentLocationInstitutionName"/>
+        <property access="field" name="equipmentStationName"/>
+        <property access="field" name="equipmentInstitutionalDepartmentName"/>
+        <property access="field" name="equipmentManufacturersModelName"/>
+        <property access="field" name="equipmentDeviceSerialNumber"/>
+        <property access="field" name="equipmentDateOfLastCalibration" type="date"/>
+        <property access="field" name="equipmentTimeOfLastCalibration" type="time"/>
+        <property access="field" name="radiologistBodyRegionAdded"/>
+        <property access="field" name="supervisorBodyRegionAdded"/>
+        <property access="field" name="seriesMinRawValue"/>
+        <property access="field" name="seriesMaxRawValue"/>
+        <property access="field" name="numberInList" not-null="true"/>
+        <many-to-one access="field" column="studyId" name="study" not-null="true"/>
+        <many-to-one access="field" column="modalityId" name="modality" not-null="true"/>
+        <many-to-one access="field" column="hospitalBodyRegionId" name="hospitalBodyRegion"/>
+        <many-to-one access="field" column="radiologistBodyRegionId" name="radiologistBodyRegion"/>
+        <many-to-one access="field" column="supervisorBodyRegionId" name="supervisorBodyRegion"/>
+        <bag access="field" cascade="save-update" inverse="true" name="dicomImageList">
+            <key column="seriesId" not-null="true"/>
+            <one-to-many class="casemodule.dto.DicomImageDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.DicomImageDTO" table="DicomImage">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="dicomUniqueId" not-null="true"/>
+        <property access="field" name="instanceUid"/>
+        <property access="field" name="sopClassUid"/>
+        <property access="field" name="timeZoneOffsetFromUtc"/>
+        <property access="field" name="instanceNumber"/>
+        <property access="field" name="sopInstanceStatus"/>
+        <property access="field" name="sopAuthorizationDateTime"/>
+        <property access="field" name="sopAuthorizationComment"/>
+        <property name="dicomDataSetArray" not-null="true">
+            <column name="dicomDataSet" sql-type="longblob"/>
+        </property>
+        <property name="dicomDataSetIconArray">
+            <column name="dicomDataSetIcon" sql-type="longblob"/>
+        </property>
+        <many-to-one access="field" column="seriesId" name="series" not-null="true"/>
+    </class>
+
+    <class name="casemodule.dto.ScannedReferralImageDTO" table="ScannedReferralImage">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <!--property access="field" name="fileName" not-null="true"/-->
+        <property access="field" name="scannedImage" not-null="true">
+            <column name="scannedImage" sql-type="longblob"/>
+        </property>
+        <!--property access="field" name="numInList" not-null="true"/-->
+        <many-to-one access="field" column="imageReferralId" name="imageReferral" not-null="true"/>
+    </class>
+    
+    <class name="casemodule.dto.ScannedPatientDataImageDTO" table="ScannedPatientDataImage">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="scannedImage" not-null="true">
+            <column name="scannedImage" sql-type="longblob"/>
+        </property>
+        <many-to-one access="field" column="imagePatientDataId" name="imagePatientData" not-null="true"/>
+    </class>
+
+    <class name="casemodule.dto.ScannedReportImageDTO" table="ScannedReportImage">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="scannedImage" not-null="true">
+            <column name="scannedImage" sql-type="longblob"/>
+        </property>
+        <many-to-one access="field" column="imageReportId" name="imageReport" not-null="true"/>
+    </class>
+  <!--class name="casemodule.dto.PatientAndReferralInfoDTO" table="PatientAndReferralInfo">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="idInHospital" access="field" not-null="true"/>
+        <property name="agreementTest" access="field" not-null="true"/>
+        <property name="agreementTestDateTime" access="field" not-null="true"/>
+        <many-to-one name="caseItBelongsTo" column="caseId" access="field" not-null="true" unique="true"/>
+        <many-to-one name="dicomPatientData" column="dicomPatientDataId" access="field" unique="true" />
+        <many-to-one name="electronicPatientData" column="electronicPatientDataId" access="field" unique="true"/>
+        <many-to-one name="imageReferral" column="imageReferralId" access="field" unique="true"/>
+        <many-to-one name="electronicReferral" column="electronicReferralId" access="field" unique="true" />
+    </class-->
+    <class name="casemodule.dto.DicomPatientDataDTO" table="DicomPatientData">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="patientName"/>
+        <property access="field" name="patientId"/>
+        <property access="field" name="issuerOfPatientId"/>
+        <property access="field" name="typeOfPatientId"/>
+        <property access="field" name="dob" type="date"/>
+        <property access="field" name="sex"/>
+        <property access="field" name="otherPatientId"/>
+        <property column="otherPatientIdRecords" name="otherPatientIdRecordsArray"/>
+        <property access="field" name="otherPatientNames"/>
+        <property access="field" name="comments"/>
+        <property access="field" name="mothersBirthName"/>
+    </class>
+    <class name="casemodule.dto.ElectronicPatientDataDTO" table="ElectronicPatientData">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="patientIdInHospital"/>
+        <property access="field" name="patientName"/>
+        <property access="field" name="gender"/>
+        <property access="field" name="idOrSimilar"/>
+        <property access="field" name="tbOrNiOrSimilar"/>
+        <property access="field" name="dob" type="date"/>
+        <property access="field" name="address"/>
+        <property access="field" name="contactInfo"/>
+        <property access="field" name="contactTel"/>
+        <property access="field" name="mothersName"/>
+        <property access="field" name="nationality"/>
+        <property access="field" name="other"/>
+        <property access="field" name="patientIdInHospital1Name"/>
+        <property access="field" name="patientIdInHospital1ShortName"/>
+        <property access="field" name="patientIdInHospital1Value"/>
+        <property access="field" name="patientIdInHospital2Name"/>
+        <property access="field" name="patientIdInHospital2ShortName"/>
+        <property access="field" name="patientIdInHospital2Value"/>
+    <!--many-to-one name="patientInfo" column="patientInfoId" access="field" not-null="true"/-->
+    </class>
+    <class name="casemodule.dto.ReferralInfoDTO" table="ReferralInfo">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one access="field" column="electronicReferralId" name="electronicReferral"/>
+        <many-to-one access="field" column="imageReferralId" name="imageReferral"/>
+        <many-to-one access="field" column="hisReferralId" name="hisReferral"/>
+        <many-to-one access="field" column="risReferralId" name="risReferral"/>
+        <many-to-one access="field" column="caseId" name="caseItBelongsTo"/>
+        <many-to-one access="field" column="historyCaseId" name="historyCaseItBelongsTo"/>
+        <bag access="field" inverse="true" name="studyList">
+            <key column="referralInfoId" not-null="true"/>
+            <one-to-many class="casemodule.dto.StudyDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.ElectronicReferralDTO" table="ElectronicReferral">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="placeOfReferral"/>
+        <property access="field" name="dateOfReferral" type="date"/>
+        <property access="field" name="referralText"/>
+        <property access="field" name="referringInstitutionName"/>
+        <property access="field" name="referringInstitutionAddress"/>
+        <property access="field" name="referringInstitutionCode"/>
+        <property access="field" name="referringInstitutionContacts"/>
+        <property access="field" name="referringInstitutionTel"/>
+        <property access="field" name="referringInstitutionFax"/>
+        <property access="field" name="referringUnitName"/>
+        <property access="field" name="referringUnitAddress"/>
+        <property access="field" name="referringUnitCode"/>
+        <property access="field" name="referringUnitContacts"/>
+        <property access="field" name="referringUnitTel"/>
+        <property access="field" name="referringUnitFax"/>
+        <property access="field" name="referringDoctorName"/>
+        <property access="field" name="referringDoctorCode"/>
+        <property access="field" name="referringDoctorContacts"/>
+        <property access="field" name="referringDoctorTel"/>
+        <property access="field" name="referringDoctorFax"/>
+        <property access="field" name="referralCodeAndDescriptionList"/>
+        <property access="field" name="referralCodeList"/>
+        <property access="field" name="referralDescriptionList"/>
+        <property access="field" name="referralNumber1Name"/>
+        <property access="field" name="referralNumber1ShortName"/>
+        <property access="field" name="referralNumber1Value"/>
+        <property access="field" name="referralNumber2Name"/>
+        <property access="field" name="referralNumber2ShortName"/>
+        <property access="field" name="referralNumber2Value"/>
+    </class>
+    <class name="casemodule.dto.ImageReferralDTO" table="ImageReferral">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <bag access="field" cascade="save-update" inverse="true" name="imageList">
+            <key column="imageReferralId" not-null="true"/>
+            <one-to-many class="casemodule.dto.ScannedReferralImageDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.HISReferralDTO" table="HISReferral">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+    </class>
+    <class name="casemodule.dto.RISReferralDTO" table="RISReferral">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+    </class>
+    <class name="casemodule.dto.ImagePatientDataDTO" table="ImagePatientData">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <bag access="field" cascade="save-update" inverse="true" name="imageList">
+            <key column="imagePatientDataId" not-null="true"/>
+            <one-to-many class="casemodule.dto.ScannedPatientDataImageDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.ImageReportDTO" table="ImageReport">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <bag access="field" cascade="save-update" inverse="true" name="imageList">
+            <key column="imageReportId" not-null="true"/>
+            <one-to-many class="casemodule.dto.ScannedReportImageDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.DataProcLogEntryDTO" table="DataProcLogEntry">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="entryGeneration" not-null="true"/>
+        <property access="field" name="entry"/>
+        <property access="field" name="entryType"/>
+        <property access="field" name="sender"/>
+        <property access="field" name="note"/>
+        <property access="field" name="displayedByUser"/>
+        <property access="field" name="displayedByClient"/>
+        <property access="field" name="recordUid"/>
+        <property access="field" name="tableName"/>
+        <property access="field" name="columnName"/>
+        <property access="field" name="fromValue"/>
+        <property access="field" name="toValue"/>
+        <many-to-one access="field" column="dataProcLogId" name="dataProcLog" not-null="true"/>
+    </class>
+    <class name="casemodule.dto.DataProcLogDTO" table="DataProcLog">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="started" not-null="true"/>
+        <bag access="field" cascade="save-update" inverse="true" name="entryList">
+            <key column="dataProcLogId" not-null="true"/>
+            <one-to-many class="casemodule.dto.DataProcLogEntryDTO"/>
+        </bag>
+    </class>
+    <class name="casemodule.dto.SystemMessageTypeDTO" table="SystemMessageType">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="messageType" not-null="true"/>
+        <property access="field" name="messageClass" not-null="true"/>
+        <property access="field" name="priority" not-null="true"/>
+    </class>
+    <class name="casemodule.dto.SystemMessageDTO" table="SystemMessage">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="emailWasSent" not-null="true"/>
+        <property access="field" name="emailAddress"/>
+        <property access="field" name="messageText" not-null="true"/>
+        <property access="field" name="sent" not-null="true"/>
+        <many-to-one access="field" column="systemMessageTypeId" name="messageType" not-null="true"/>
+        <many-to-one access="field" column="userId" name="recipient"/>
+        <many-to-one access="field" column="caseId" name="relatedCase"/>
+        <many-to-one access="field" column="tdsRadiologistId" name="relatedRadiologist"/>
+    </class>
+    <class name="casemodule.dto.ScenarioInstanceDTO" table="ScenarioInstance">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="added" not-null="true"/>
+        <property access="field" name="note"/>
+        <property access="field" name="deactivated"/>
+        <many-to-one access="field" column="scenarioId" name="scenario" not-null="true"/>
+        <many-to-one access="field" column="caseId" name="tdsCase" not-null="true"/>
+    </class>
+    <class name="casemodule.dto.FlagAssignmentDTO" table="FlagAssignment">
+        <id access="field" name="id">
+            <generator class="native"/>
+        </id>
+        <property access="field" name="added" not-null="true"/>
+        <property access="field" name="active" not-null="true"/>
+        <many-to-one access="field" column="caseFlagId" name="flag" not-null="true"/>
+        <many-to-one access="field" column="caseId" name="caseItBelongsTo" not-null="true"/>
+    </class>
+  <!--class name="casemodule.ModeOfAcquisition" table="ModeOfAcquisition">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="modeName" access="field" not-null="true"/>
+    </class>
+
+
+
+
+   
+
+
+
+
+
+    
+
+  
+
+
+   
+
+
+    <class name="casemodule.ElectronicPatientRecord" table="ElectronicPatientRecord">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="patientInfoItBelongsTo" column="patientInfoId" access="field" not-null="true"/>
+        <property name="patientIDInHospital" access="field"/>
+        <property name="patientName" access="field"/>
+        <property name="gender" access="field"/>
+        <property name="IDorSimilar" access="field"/>
+        <property name="TBorNIorSimilar" access="field"/>
+        <property name="dob" type="date" access="field"/>
+        <property name="address" access="field"/>
+        <property name="contactInfo" access="field"/>
+        <property name="contactTel" access="field"/>
+        <property name="mothersName" access="field"/>
+        <property name="nationality" access="field"/>
+        <property name="other" access="field"/>
+    </class>
+
+    <class name="casemodule.ReferralInfo" table="ReferralInfo">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="caseInfoItIsPartOf" column="caseInfoId" access="field" not-null="true"/>
+        <property name="type" access="field" not-null="true"/>
+    </class>
+
+    <class name="casemodule.ReferralImage" table="ReferralImage">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="isa" column="referralInfoId" access="field" not-null="true"/>
+    </class>
+
+
+    
+
+
+    <class name="casemodule.ManuallyTDSEnteredReferral" table="ManuallyTDSEnteredReferral">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="isa" column="electonicReferralId" access="field" not-null="true"/>
+        <property name="manualEntryAtTDS" access="field" not-null="true"/>
+    </class>
+
+
+    <class name="casemodule.CaseHistoryRecord" table="CaseHistoryRecord">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="caseItBelongsTo" column="caseId" access="field" not-null="true"/>
+    </class>
+
+    <class name="casemodule.ImagingHistoryRecord" table="ImagingHistoryRecord">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="isa" column="caseHistoryRecordId" access="field" not-null="true"/>
+    </class>
+
+    <class name="casemodule.ReportOnlyHistoryRecord" table="ReportOnlyHistoryRecord">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="isa" column="caseHistoryRecordId" access="field" not-null="true"/>
+    </class>
+
+
+    <class name="casemodule.HistoryReport" table="HistoryReport">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="belongsTo" column="caseHistoryRecordId" access="field" not-null="true"/>
+    </class>
+
+    <class name="casemodule.ImageHistoryReport" table="ImageHistoryReport">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="isa" column="historyReportId" access="field" not-null="true"/>
+    </class>
+
+    <class name="casemodule.TextHistoryReport" table="TextHistoryReport">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="isa" column="historyReportId" access="field" not-null="true"/>
+        <property name="reportingHospitalNAme" access="field"/>
+        <property name="reportingUnitName" access="field"/>
+        <property name="reportingDoctorName" access="field"/>
+        <property name="contact" access="field"/>
+        <property name="reportingDate" access="field" type="date" />
+        <property name="reportingText" access="field" not-null="true"/>
+    </class>
+
+
+    <class name="casemodule.OtherMaterial" table="OtherMaterial">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="caseItBelongsTo" column="caseId" access="field" not-null="true"/>
+        <property name="nameOrTitle" access="field"/>
+        <property name="note" access="field"/>
+    </class-->
+</hibernate-mapping>

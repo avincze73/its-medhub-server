@@ -1,0 +1,17 @@
+/* 
+    Document   : newcss1
+    Created on : Jan 24, 2012, 1:31:16 PM
+    Author     : tds
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+body { 
+    display: none !important;
+}
+

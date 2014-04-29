@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../templates/mainTemplate.xhtml">
+
+    <ui:define name="infoPanel">
+        infoPanel
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="patientDataForm">
+            <a4j:outputPanel id="patientDataGrid" ajaxRendered="true">
+
+                <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3">
+                    <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.skype}" />
+                </h:panelGrid>
+                <h:panelGrid columns="1" columnClasses="colStyle5">
+                    <a4j:commandButton style="#{managerController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                       disabled="#{not managerController.modeHandler.editButtonEnabled}" value="#{managerBundle.edit}" 
+                                       action="#{managerController.edit}"  styleClass="button" render="out4" />
+                    <a4j:commandButton 
+                        disabled="#{not managerController.modeHandler.saveButtonEnabled}"  
+                        value="#{managerBundle.save}" 
+                        styleClass="button" 
+                        oncomplete="#{rich:component('confirmSavePopup')}.show();return false"   >
+
+                    </a4j:commandButton>
+
+
+                    <a4j:commandButton disabled="#{not managerController.modeHandler.cancelButtonEnabled}"  value="#{managerBundle.cancel}" 
+                                       action="#{managerController.cancel}" styleClass="button" render="out4"
+                                       onclick="#{rich:component('confirmCancelPopup')}.show();return false" />
+                    <a4j:jsFunction name="submitCancel" action="#{managerController.cancel}" render="out4" immediate="true"/>
+                    <div>&nbsp;</div>
+                    <h:commandButton type="submit" action="#{managerController.save}"  value="#{managerBundle.function1}" styleClass="button"/>
+
+                </h:panelGrid>
+
+            </a4j:outputPanel>
+            <a4j:jsFunction name="submitSave" action="#{managerController.save}" execute="@this" render="patientDataGrid" />
+            <rich:popupPanel id="confirmSavePopup" modal="true" resizeable="true"
+                             onmaskclick="#{rich:component('confirmSavePopup')}.hide()">
+                <f:facet name="header">
+                    <h:outputText value="Confirmation" />
+                </f:facet>
+                <h:panelGrid>
+                    <h:outputText value="Are you sure to save?" style="FONT-SIZE: large;" />
+                    <h:panelGroup>
+                        <a4j:commandButton value="OK" oncomplete="#{rich:component('confirmSavePopup')}.hide();submitSave();return false;" />
+                        <a4j:commandButton value="Cancel" oncomplete="#{rich:component('confirmSavePopup')}.hide();return false;" />
+                    </h:panelGroup>
+                </h:panelGrid>
+            </rich:popupPanel>
+        </h:form>
+
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:outputScript name="jsf.js" library="javax.faces" />
+    <h:outputScript name="jquery.js" />
+    <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/ui.jqgrid.css" />
+    <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+    <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterDataNavigator.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterData.css" />
+
+
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/i18n/grid.locale-hr1250.js"/>
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/>
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.jqGrid.min.js" ></script>
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListViewWithoutSearch.js"></script>
+    <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.blockUI.js"/>
+
+    <script>
+        var isSelected = false;
+        var masterDataLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+            south: {
+                onclose_end: function () { 
+                    if ($('#details').length==0){
+                        $('.resizer-south-closed').append('<div id="details" style="font-size: 11px; font-weight: bold; padding: 5px 5px;margin-top: 1px;">Details</div>');
+                    }
+                }
+            },
+            center: {
+                paneSelector: '#mainContent', 			
+                onresize_end:	function () { 
+                    $('#masterDataGrid').setGridHeight($('#mainContent').height() - 54);
+                }
+            }
+        });
+           
+        function initBlockUI(){
+            $.blockUI.defaults.overlayCSS.backgroundColor = 'green';
+            $.blockUI.defaults.overlayCSS.opacity = 0.5;
+            $.blockUI.defaults.overlayCSS.cursor = 'default';
+            $.blockUI.defaults.css.cursor = 'default';
+            $.blockUI.defaults.message = null;
+        }
+            
+        function blockComponents() {
+            /*$('#mainContent').attr('class', 'pane-center-blocked');*/
+            
+            $('.content-container-blocked').css('z-index','1');
+             $('.masterdata-main-content-blocked').css('z-index','1');
+             $('.main-bar-blocked').css('z-index','1');
+            
+            /*$('#mainContent').block();*/
+            /*$('#menubarMain').block();
+            $('#toolbarMain').block();*/
+            /*$('#masterData').css('z-index','0');
+            $('#mainContent').css('z-index','111111');*/
+            /*$('#itsContentContainer').block();*/
+            /*$('#mainContent').css('z-index','0');*/
+            /*$('#masterData').css('z-index','0');*/
+            /*$('#south').css('z-index','5');*/
+            /*$('#mainContent').block();*/
+            /*$('#leftPart').block();*/
+            /*$('#south').block();*/
+            
+            /*$('#idContentTitle').block();*/
+            /*$('#itsContentContainer').attr('class', 'content-container-blocked');*/
+            
+            /*$('#south').css('z-index', '1001');*/
+            /*$('#idContentWrapper').attr('class', 'content-wrapper-blocked');*/
+        }
+            
+        function unblockComponents() {
+            /*$('#itsContentContainer').unblock();*/
+            /*$('#mainContent').unblock();*/
+            /*$('#leftPart').unblock();*/
+            /*$('#menubarMain').unblock();
+            $('#toolbarMain').unblock();*/
+            /*$('#south').unblock();*/
+            /*$('#mainContent').css('background-color', '#eef3fa');*/
+            /*$('#mainContent').attr('class', 'pane-center');
+            $('#idContentTitle').unblock();
+            $('#itsContentContainer').attr('class', 'content-container');
+            $('#idContentWrapper').attr('class', 'content-wrapper');*/
+            $('.content-container-blocked').css('z-index','-1');
+             $('.masterdata-main-content-blocked').css('z-index','-1');
+             $('.main-bar-blocked').css('z-index','-1');
+        }
+        
+        function onSaveComplete(){
+                unblockComponents();
+                $('#masterDataGrid').trigger('reloadGrid');
+         }
+            
+        function onCancelComplete(){
+            unblockComponents();
+            if (!isSelected){
+                $('#masterDataGrid').trigger('reloadGrid');
+            } 
+        }
+        
+        function onInsertComplete(){
+            blockComponents();
+            $('#masterDataGrid').resetSelection();
+            isSelected = false;
+        }
+        
+        $.extend($.jgrid.defaults, 
+            { 
+                /*altRows:true,*/
+                height: 360,
+                datatype: 'json',
+                mtype: 'GET',
+                shrinkToFit: false,
+                viewrecords: true,
+                hidegrid: false,
+                autowidth: true,
+                scrollrows : true,
+                rowNum: -1,
+                loadtext: '#{applicationBundle.gridLoading}',
+                onSelectRow: function(ids) { 
+                    selectEntity(ids);
+                    isSelected = true;
+                } ,
+                loadComplete: function(data) {
+                    $('#masterDataGrid').setSelection (data.userdata.selId, true);
+                    isSelected = true;
+                }
+                /*,
+                gridComplete: function() {
+                    $('#' + "masterDataGrid" + ' tr:nth-child(even)').addClass("jqgrow evenTableRow");
+                    $('#' + "masterDataGrid" + ' tr:nth-child(odd)').addClass("jqgrow oddTableRow");
+                }*/
+            }
+            );
+        
+        $(document).ready( function(){
+            initBlockUI();
+            createLayout('masterData', masterDataLayoutOptions);
+        }); 
+    </script>
+
+
+</ui:composition>
+

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                template="./../../templates/mainTemplate_2.xhtml">
+
+    <ui:define name="extraHead">
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <link rel="stylesheet" type="text/css" ref="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/ui.jqgrid.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterDataNavigator.css" />
+
+
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.jqGrid.min.js" ></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListViewWithoutSearch.js"></script>
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.i18n.properties.js"></script-->        
+
+        <script>
+            
+            $(document).ready( function(){
+              var userLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                    south: {
+                        onclose_end: function () { 
+                            if ($('#details').length==0){
+                                $('.resizer-south-closed').append('<div id="details" style="font-size: 11px; font-weight: bold; padding: 5px 5px;">Details</div>');
+                            }
+                        }
+                    },
+                    center: {
+                        paneSelector: '#mainContent', 			
+                        onresize_end:	function () { 
+                            //$('#gview_list2').height($('#mainContent').height() - 25);
+                            $('#list2').setGridHeight($('#mainContent').height() - 54);
+                        //$('#gview_list2').height($('#listUser\\:edtUserList').height() - 64);
+                        }
+                    }
+                });
+
+             createLayout('currency', userLayoutOptions);
+             
+
+             $('#list2').jqGrid({
+              url:'#{facesContext.externalContext.requestContextPath}/pages/CurrencyListServlet',
+              datatype: 'json',
+              mtype: 'GET',
+              colNames:['Id', 'Name'],
+              colModel :[ 
+                {name:'id', index:'id', key: true},   
+                {name:'name', index:'name'}, 
+              ],
+              loadtext: 'Loading...',
+              shrinkToFit: false,
+              viewrecords: true,
+              hidegrid: false,
+              height: 140,
+              width: 733,
+              caption: 'Currencies',
+              onSelectRow: function(ids) { 
+                /*selectManager(ids);*/
+              } ,
+              loadComplete: function(data) {
+                jQuery('#list2').setSelection (data.userdata.selId, true);
+              },
+              ondblClickRow: function (rowid,iRow,iCol,e) {
+                  var data = $('#list2').getRowData(rowid);
+                  /*navigateToManager(rowid);*/
+              }
+            });
+            }); 
+            
+        </script>
+
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form>
+            <div class="content-title">
+                <div class="content-title-left">#{masterDataController.title1}</div>
+                <div class="content-title-right">#{masterDataController.title2}</div>
+                <div class="button-container">
+                    <div class="btn-1">&nbsp;</div>
+                    <div class="btn-2"><h:commandLink action="#{masterDataController.back}"/></div>
+                    <div class="btn-3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+    <ui:define name="contentPanel">
+        <div class="content-wrapper">
+            <div class="left-part" style="background: white;">
+                <ui:include src="/pages/masterdata/navigator.xhtml" />
+            </div>
+            <div id="currency" class="center-part">
+                <div class="ui-layout-south" id="south">
+                    <div class="its-header">Details</div>
+                    <div class="content" >
+                        <div class="leftpart" style="float: left;width: 500px;height: 95%;">
+                            <h:panelGrid columns="2" >
+                                <h:outputLabel value="#{managerBundle.name}" styleClass="label"/>
+                                <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.name}" />
+                            </h:panelGrid>
+
+                        </div>
+                        <div class="rightpart" style="float: right;width: 120px;height: 95%;">
+                            <h:panelGrid columns="1" >
+                                <a4j:commandButton style="#{managerController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                                   disabled="#{not managerController.modeHandler.editButtonEnabled}" value="#{managerBundle.edit}" 
+                                                   action="#{managerController.edit}"  styleClass="button" />
+                                <a4j:commandButton 
+                                    disabled="#{not managerController.modeHandler.saveButtonEnabled}"  
+                                    value="#{managerBundle.save}" 
+                                    styleClass="button" render="out4"
+                                    oncomplete="#{rich:component('confirmSavePopup')}.show();return false"  >
+                                </a4j:commandButton>
+                                <a4j:jsFunction name="submitSave" action="#{managerController.save}" >
+                                </a4j:jsFunction>
+                                <a4j:commandButton disabled="#{not managerController.modeHandler.cancelButtonEnabled}"  value="#{managerBundle.cancel}" 
+                                                   styleClass="button" 
+                                                   oncomplete="#{rich:component('confirmCancelPopup')}.show();return false" >
+
+                                </a4j:commandButton>
+                                <a4j:jsFunction name="submitCancel" action="#{managerController.cancel}" />
+
+                            </h:panelGrid>
+                        </div>
+                    </div>
+                </div>
+                <div id="mainContent" >
+                    <table id="list2" ></table> 
+                </div>
+            </div>
+        </div>
+        <div class="window-footer"></div>
+    </ui:define>
+
+</ui:composition>

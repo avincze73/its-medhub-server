@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="radiologistmodule.dto.RadCompetenceDTO" table="RadCompetence">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <many-to-one access="field" column="modalityId" name="modality" not-null="true"/>
+    <many-to-one access="field" column="bodyRegionId" name="bodyRegion" not-null="true"/>
+    <property access="field" name="addingDateTime" not-null="true"/>
+    <property access="field" name="competenceLevel" not-null="true"/>
+    <property access="field" name="valid" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="radiologistmodule.dto.RegLicQualOwnershipDTO" table="RegLicQualOwnership">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="validBegin" not-null="true" type="date"/>
+    <property access="field" name="validEnd" not-null="true" type="date"/>
+    <property access="field" name="certificateNumber" not-null="true"/>
+    <property access="field" name="active" not-null="true"/>
+    <many-to-one access="field" column="regLicQualId" name="regLicQual" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="radiologistmodule.dto.TDSRadiologistDTO" table="TDSRadiologist">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="reportSendingCode" not-null="true"/>
+    <property access="field" name="creditPoints" not-null="true"/>
+    <property access="field" name="creditValidity" not-null="true" type="date"/>
+    <property access="field" name="lastCheck" not-null="true" type="date"/>
+    <property access="field" name="defaultNormalAvailabilityHrsPerWeekDay" not-null="true"/>
+    <property access="field" name="defaultMaxAvailabilityHrsPerWeekDay" not-null="true"/>
+    <property access="field" name="defaultNormalAvailabilityHrsPerWeekendDay" not-null="true"/>
+    <property access="field" name="defaultMaxAvailabilityHrsPerWeekendDay" not-null="true"/>
+    <property access="field" name="workDemandPriority" not-null="true"/>
+    <property access="field" name="englishLanguageCompetence" not-null="true"/>
+    <property access="field" name="hungarianLanguageCompetence" not-null="true"/>
+    <property access="field" name="englishAllowed" not-null="true"/>
+    <property access="field" name="accountNumber"/>
+    <property access="field" name="hungarianSalaryRate" not-null="true"/>
+    <property access="field" name="englishSalaryRate" not-null="true"/>
+    <property access="field" name="radInvoiceClosingDay" not-null="true"/>
+    <property access="field" name="radPaymentDay" not-null="true"/>
+    <property access="field" name="inProbation" not-null="true"/>
+    <property access="field" name="canReport" not-null="true"/>
+    <many-to-one access="field" cascade="save-update" column="userId" name="userInfo" not-null="true" unique="true"/>
+    <bag access="field" inverse="true" name="roleAssignmentList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="usermodule.dto.TDSRadiologistRoleAssignmentDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="radCompetenceList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="radiologistmodule.dto.RadCompetenceDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="regLicQualOwnershipList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="radiologistmodule.dto.RegLicQualOwnershipDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="reportingList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="reportingmodule.dto.ReportingDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="consultationList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="reportingmodule.dto.ConsultationDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="commentList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="reportingmodule.dto.CommentDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="workScrutinyList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="reportingmodule.dto.WorkScrutinyDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="workPlaceList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="radiologistmodule.dto.WorkPlaceDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="supervisedRadList">
+      <key column="supervisorId" not-null="true"/>
+      <one-to-many class="radiologistmodule.dto.SuperVisionDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="availabilityList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="radiologistmodule.dto.RadAvailabilityDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="companyAssignmentList">
+      <key column="tdsRadiologistId" not-null="true"/>
+      <one-to-many class="radiologistmodule.dto.CompanyAssignmentDTO"/>
+    </bag>
+  </class>
+  <class name="radiologistmodule.dto.WorkPlaceDTO" table="WorkPlace">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="fromDate" not-null="true" type="date"/>
+    <property access="field" name="toDate" type="date"/>
+    <property access="field" name="added" not-null="true"/>
+    <many-to-one access="field" column="hospitalId" name="hospital" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="radiologistmodule.dto.SuperVisionDTO" table="SuperVision">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="started" not-null="true"/>
+    <property access="field" name="ended"/>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="active" not-null="true"/>
+    <many-to-one access="field" column="supervisorId" insert="false" name="supervisor" not-null="true" update="false"/>
+    <many-to-one access="field" column="supervisedId" insert="false" name="supervised" not-null="true" update="false"/>
+  </class>
+  <class name="radiologistmodule.dto.RadAvailabilityDTO" table="RadAvailability">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="fromDate" not-null="true" type="date"/>
+    <property access="field" name="toDate" not-null="true" type="date"/>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="valid" not-null="true"/>
+    <property access="field" name="confirmedByPM" not-null="true"/>
+    <property access="field" name="confirmedByRad" not-null="true"/>
+    <many-to-one access="field" cascade="save-update" column="normalAvailabilityPerWeekkId" name="normalAvailabilityPerWeek" not-null="true" unique="true"/>
+    <many-to-one access="field" cascade="save-update" column="maxAvailabilityPerWeekkId" name="maxAvailabilityPerWeek" not-null="true" unique="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="radiologistmodule.dto.CompanyDTO" table="Company">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="address" not-null="true"/>
+    <property access="field" name="taxAuthorityNumber" not-null="true"/>
+    <property access="field" name="accountNumber" not-null="true"/>
+    <many-to-one access="field" column="countryId" name="country" not-null="true"/>
+  </class>
+  <class name="radiologistmodule.dto.CompanyAssignmentDTO" table="CompanyAssignment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="started" not-null="true" type="date"/>
+    <property access="field" name="ended" type="date"/>
+    <property access="field" name="active" not-null="true"/>
+    <many-to-one access="field" column="companyId" name="company" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <!--class name="radiologistmodule.RegLicQualType" table="RegLicQualType">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="name" access="field" not-null="true"/>
+    </class>
+
+
+    <class name="radiologistmodule.RegLicQual" table="RegLicQual">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="name" access="field" not-null="true"/>
+        <many-to-one name="country" column="countryId" access="field" not-null="true"/>
+        <many-to-one name="type" column="regLicQualTypeId" access="field" not-null="true"/>
+    </class-->
+</hibernate-mapping>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="reportingmodule" id="{UMLID=_IQilYOz9Ed-Zuby-62RsuA,JavaID=reportingmodule.dto}" metadata="uml2-1.0" initialized="true" tag="100" key="32303037303632392054445353657276696365496E74657266616365">
+  <children xsi:type="editmodel:ClassEditModel" name="ReportingDTO" location="50,50" size="224,252" timstampe="5" stereotype="" id="{UMLID=_JQuQAOz9Ed-Zuby-62RsuA,JavaID=reportingmodule.dto/ReportingDTO}" runTimeClassModel="tdsRadiologist,unfinishedText,done,assigned,finishedAndSignedText,active,wayOfClosing,caseItBelongsTo,doneConfirmed,opened">
+    <children xsi:type="editmodel:CompartmentEditModel" size="201,213">
+      <children xsi:type="editmodel:AttributeEditModel" name="assigned" size="101,16" id="{UMLID=_JYHRcOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="opened" size="109,16" id="{UMLID=_JYBK0uz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="active" size="102,16" id="{UMLID=_JYMJ8Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="done" size="81,16" id="{UMLID=_JYEOIOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="doneConfirmed" size="130,16" id="{UMLID=_JYRpgOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wayOfClosing" size="200,21" id="{UMLID=_JYJGoOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="unfinishedText" size="133,16" id="{UMLID=_JYDAAez9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="finishedAndSignedText" size="174,16" id="{UMLID=_JYGDUez9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseItBelongsTo" size="166,21" id="{UMLID=_JYN_IOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsRadiologist" size="201,21" id="{UMLID=_JXTZIOz9Ed-Zuby-62RsuA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="168,480"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="WorkScrutinyDTO" location="504,50" size="224,252" timstampe="4" stereotype="" id="{UMLID=_JxpLwOz9Ed-Zuby-62RsuA,JavaID=reportingmodule.dto/WorkScrutinyDTO}" runTimeClassModel="requested,confirmed,tdsRadiologist,accepted,unfinishedText,finishedAndSignedText,wayOfClosing,type,caseItBelongsTo,outcome,opened">
+    <children xsi:type="editmodel:CompartmentEditModel" size="201,213">
+      <children xsi:type="editmodel:AttributeEditModel" name="requested" size="106,16" id="{UMLID=_JygHYOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="opened" size="109,16" id="{UMLID=_JyoDMOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="type" size="84,16" id="{UMLID=_Jyuw4ez9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="accepted" size="102,16" id="{UMLID=_Jym1EOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="confirmed" size="105,16" id="{UMLID=_Jyk_4Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="outcome" size="104,16" id="{UMLID=_JywmEOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wayOfClosing" size="200,21" id="{UMLID=_JysUoOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="unfinishedText" size="133,16" id="{UMLID=_JypRUOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="finishedAndSignedText" size="174,16" id="{UMLID=_Jyqfcez9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseItBelongsTo" size="166,21" id="{UMLID=_JytiwOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsRadiologist" size="201,21" id="{UMLID=_JyjxwOz9Ed-Zuby-62RsuA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="126,54"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CommentDTO" location="717,50" size="224,211" timstampe="4" stereotype="" id="{UMLID=_J1X1MOz9Ed-Zuby-62RsuA,JavaID=reportingmodule.dto/CommentDTO}" runTimeClassModel="title,confirmed,tdsRadiologist,unfinishedText,attached,finishedAndSignedText,type,caseItBelongsTo,opened">
+    <children xsi:type="editmodel:CompartmentEditModel" size="201,172">
+      <children xsi:type="editmodel:AttributeEditModel" name="title" size="79,16" id="{UMLID=_J17O0Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="attached" size="99,16" id="{UMLID=_J2DKoOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="confirmed" size="105,16" id="{UMLID=_J19rEOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="unfinishedText" size="133,16" id="{UMLID=_J1_gQOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="finishedAndSignedText" size="174,16" id="{UMLID=_J2BVcOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseItBelongsTo" size="166,21" id="{UMLID=_J2EYwOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsRadiologist" size="201,21" id="{UMLID=_J18c8Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="type" size="84,16" id="{UMLID=_Iz3S4O0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="opened" size="109,16" id="{UMLID=_Iz6WMO0TEd-KxvyOzxc86A}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="105,54"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ConsultationDTO" location="291,50" size="224,252" timstampe="4" stereotype="" id="{UMLID=_J4LRkOz9Ed-Zuby-62RsuA,JavaID=reportingmodule.dto/ConsultationDTO}" runTimeClassModel="requested,tdsRadiologist,requestText,accepted,unfinishedText,done,finishedAndSignedText,wayOfClosing,caseItBelongsTo,doneConfirmed,opened">
+    <children xsi:type="editmodel:CompartmentEditModel" size="201,213">
+      <children xsi:type="editmodel:AttributeEditModel" name="requested" size="106,16" id="{UMLID=_J41_8Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="requestText" size="120,16" id="{UMLID=_J464cOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="opened" size="109,16" id="{UMLID=_J48GkOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="accepted" size="102,16" id="{UMLID=_J45DQOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="done" size="81,16" id="{UMLID=_J4-i0Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="doneConfirmed" size="130,16" id="{UMLID=_J5ECYOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wayOfClosing" size="200,21" id="{UMLID=_J5BmIOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="unfinishedText" size="133,16" id="{UMLID=_J49UsOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="finishedAndSignedText" size="174,16" id="{UMLID=_J4_w8Oz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseItBelongsTo" size="166,21" id="{UMLID=_J5C0QOz9Ed-Zuby-62RsuA}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsRadiologist" size="201,21" id="{UMLID=_J431IOz9Ed-Zuby-62RsuA}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="120,54"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:EnumerationEditModel" name="CommentType" location="154,378" size="176,107" timstampe="2" id="{UMLID=_RTACYO0TEd-KxvyOzxc86A,JavaID=reportingmodule.dto/CommentType}" runTimeClassModel="telephoneConsultationLog%,voluntary%,supervisory%">
+    <children xsi:type="editmodel:CompartmentEditModel" size="153,54">
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="telephoneConsultationLog" size="153,16" id="{UMLID=_RUa-sO0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="supervisory" size="87,16" id="{UMLID=_RUcM0O0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="voluntary" size="74,16" id="{UMLID=_RUcM0e0TEd-KxvyOzxc86A}"/>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" enumerationClassMode="false" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:EnumerationEditModel" name="WorkScrutinyType" location="364,378" size="157,125" timstampe="2" id="{UMLID=_RWNHYO0TEd-KxvyOzxc86A,JavaID=reportingmodule.dto/WorkScrutinyType}" runTimeClassModel="other%,initial%,requested%,random%">
+    <children xsi:type="editmodel:CompartmentEditModel" size="78,72">
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="initial" size="52,16" id="{UMLID=_RWrBcO0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="requested" size="78,16" id="{UMLID=_RWpMQO0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="random" size="65,16" id="{UMLID=_RWrogO0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="other" size="54,16" id="{UMLID=_RWpzUO0TEd-KxvyOzxc86A}"/>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" enumerationClassMode="false" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:EnumerationEditModel" name="WorkScrutinyOutcome" location="546,378" size="184,107" timstampe="2" id="{UMLID=_RYDhgO0TEd-KxvyOzxc86A,JavaID=reportingmodule.dto/WorkScrutinyOutcome}" runTimeClassModel="ok%,needsFurtherCheck%,problem%">
+    <children xsi:type="editmodel:CompartmentEditModel" size="124,54">
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="needsFurtherCheck" size="124,16" id="{UMLID=_RYdKIO0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="ok" size="40,16" id="{UMLID=_RYeYQO0TEd-KxvyOzxc86A}"/>
+      <children xsi:type="editmodel:EnumerationLiteralEditModel" name="problem" size="67,16" id="{UMLID=_RYdxMO0TEd-KxvyOzxc86A}"/>
+    </children>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" enumerationClassMode="false" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="14,14" gridOrigin="546,378" rulerUnit="cm" gridShow="true">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true" showAttributeParameterType="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+</editmodel:ClassDiagramEditModel>

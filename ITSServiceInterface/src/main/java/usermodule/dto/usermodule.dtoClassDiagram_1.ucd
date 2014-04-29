@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="usermodule.dtoClassDiagram_1" description="" id="{UMLID=_QQZkBddpEd-Kl-oKFn9Egg,JavaID=usermodule.dto}" metadata="uml2-1.0" initialized="true" scrolledX="836" scrolledY="1234" tag="100" key="32303037303632392054445353657276696365496E74657266616365">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.1" name="TDSRadiologistDTO" location="685,518" size="317,547" timstampe="10" stereotype="" id="{UMLID=_JX_8sOz9Ed-Zuby-62RsuA,JavaID=radiologistmodule.dto/TDSRadiologistDTO}" runTimeClassModel="defaultMaxAvailabilityHrsPerWeekendDay,creditPoints,roleAssignmentList,consultationList,hungarianLanguageCompetence,workScrutinyList,englishSalaryRate,accountNumber,defaultNormalAvailabilityHrsPerWeekendDay,inProbation,lastCheck,userInfo,defaultMaxAvailabilityHrsPerWeekDay,hungarianSalaryRate,englishAllowed,defaultNormalAvailabilityHrsPerWeekDay,radInvoiceClosingDay,radCompetenceList,englishLanguageCompetence,regLicQualOwnershipList,creditValidity,reportingList,workDemandPriority,radPaymentDay,reportSendingCode,commentList">
+    <children xsi:type="editmodel:CompartmentEditModel" size="243,324">
+      <children xsi:type="editmodel:AttributeEditModel" name="reportSendingCode" size="122,16" id="{UMLID=_ZX5vsO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="creditPoints" size="85,16" id="{UMLID=_ZXECMO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="creditValidity" size="90,16" id="{UMLID=_ZXya8O2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="lastCheck" size="76,16" id="{UMLID=_ZXZZYO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="defaultNormalAvailabilityHrsPerWeekDay" size="225,16" id="{UMLID=_ZXjKYO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="defaultMaxAvailabilityHrsPerWeekDay" size="212,16" id="{UMLID=_ZXe48O2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="defaultNormalAvailabilityHrsPerWeekendDay" size="243,16" id="{UMLID=_ZXXkMO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="defaultMaxAvailabilityHrsPerWeekendDay" size="230,16" id="{UMLID=_ZXC0EO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workDemandPriority" size="126,16" id="{UMLID=_ZX2FUe2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="englishLanguageCompetence" size="171,16" id="{UMLID=_ZXsUUO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hungarianLanguageCompetence" size="185,16" id="{UMLID=_ZXQ2gO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="englishAllowed" size="103,16" id="{UMLID=_ZXh8QO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="accountNumber" size="105,16" id="{UMLID=_ZXWWEO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hungarianSalaryRate" size="130,16" id="{UMLID=_ZXgHEO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="englishSalaryRate" size="116,16" id="{UMLID=_ZXUg4O2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="radInvoiceClosingDay" size="133,16" id="{UMLID=_ZXk_kO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="radPaymentDay" size="105,16" id="{UMLID=_ZX36gO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="inProbation" size="82,16" id="{UMLID=_ZXbOkO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="userInfo" size="75,21" id="{UMLID=_ZXdDwO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="roleAssignmentList" size="127,21" id="{UMLID=_1c8AEAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="radCompetenceList" size="128,21" id="{UMLID=_ZXm0wO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="regLicQualOwnershipList" size="158,21" id="{UMLID=_ZXuwkO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="reportingList" size="95,21" id="{UMLID=_ZX0QIO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="consultationList" size="110,21" id="{UMLID=_ZXGecO2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="commentList" size="95,21" id="{UMLID=_ZX7k4O2REd-2dYv3LwZB8g}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workScrutinyList" size="117,21" id="{UMLID=_ZXSrsO2REd-2dYv3LwZB8g}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_ZgqqIO2REd-2dYv3LwZB8g}" source="//@children.0" target="//@children.4" targetEnd="//@children.0/@sourceConnections.0/@children.2" label="//@children.0/@sourceConnections.0/@children.0" sourceEnd="//@children.0/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="177,0" id="{UMLID=_ZgqqIe2REd-2dYv3LwZB8g}" attachSource="true" multiplicityLabel="//@children.0/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="869,497" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="userInfo" location="69,350" id="{UMLID=_ZXdDwO2REd-2dYv3LwZB8g}" multiplicityLabel="//@children.0/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.0/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="849,399" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- userInfo" location="869,399" size="47,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="HospitalStaffDTO" location="1259,52" size="150,190" timstampe="30" stereotype="" id="{UMLID=_QQZkBtdpEd-Kl-oKFn9Egg,JavaID=usermodule.dto/HospitalStaffDTO}" runTimeClassModel="obsLanguageList,roleAssignmentList,languageList,positionInHosp,roleWithTDS,userInfo,hospital">
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="hospital" size="72,21" id="{UMLID=_P51BotdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="positionInHosp" size="99,16" id="{UMLID=_P5rQp9dqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="roleWithTDS" size="88,16" id="{UMLID=_P5rQpddqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="userInfo" size="75,21" id="{UMLID=_P5rQqddqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="languageList" size="96,21" id="{UMLID=_P5rQoNdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="roleAssignmentList" size="127,21" id="{UMLID=_1WNtAAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="obsLanguageList" size="118,21" id="{UMLID=_clPwsOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_P-Sq5NdqEd-Kl-oKFn9Egg}" source="//@children.1" target="//@children.4" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,94" id="{UMLID=_P-Sq5ddqEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1246,125" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="userInfo" location="139,104" id="{UMLID=_P5rQqddqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.1/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.1/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="939,153" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- userInfo" location="939,125" size="47,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_5YsuMAxHEeCoCJFwkxct7w}" source="//@children.1" target="//@children.9" targetEnd="//@children.1/@sourceConnections.1/@children.2" label="//@children.1/@sourceConnections.1/@children.0" sourceEnd="//@children.1/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalStaff" location="74,190" id="{UMLID=_5WDC0AxHEeCoCJFwkxct7w}" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.1/@sourceConnections.1/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1320,249" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalStaff" location="1340,249" size="68,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="roleAssignmentList" location="126,0" id="{UMLID=_1WNtAAxDEeCoCJFwkxct7w}" multiplicityLabel="//@children.1/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.1/@sourceConnections.1/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1310,356" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- roleAssignmentList" location="1340,356" size="99,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="TDSManagerDTO" location="224,420" size="151,85" timstampe="13" stereotype="" id="{UMLID=_0KybsAxDEeCoCJFwkxct7w,JavaID=usermodule.dto/TDSManagerDTO}" runTimeClassModel="roleAssignmentList,userInfo">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="userInfo" size="75,21" id="{UMLID=_0LV1UAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="roleAssignmentList" size="127,21" id="{UMLID=_eIXJgAxHEeCoCJFwkxct7w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="156,146"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_0OfP8AxDEeCoCJFwkxct7w}" source="//@children.2" target="//@children.4" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="151,9" id="{UMLID=_0OfP8QxDEeCoCJFwkxct7w}" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="382,436" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="userInfo" location="0,205" id="{UMLID=_0LV1UAxDEeCoCJFwkxct7w}" multiplicityLabel="//@children.2/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.2/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="780,254" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- userInfo" location="739,226" size="47,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_FPaoEAxJEeCv_8PGZPxCEQ}" source="//@children.2" target="//@children.8" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="tdsManager" location="75,85" id="{UMLID=_FMcMkAxJEeCv_8PGZPxCEQ}" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="286,512" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- tdsManager" location="306,512" size="64,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="roleAssignmentList" location="134,0" id="{UMLID=_eIXJgAxHEeCoCJFwkxct7w}" multiplicityLabel="//@children.2/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.2/@sourceConnections.1/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="276,678" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- roleAssignmentList" location="306,678" size="99,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0" name="SessionDTO" location="363,42" size="161,211" timstampe="5" stereotype="" id="{UMLID=_0-fJgAxDEeCoCJFwkxct7w,JavaID=usermodule.dto/SessionDTO}" runTimeClassModel="clientHostIpAddress,tdsApplication,clientHostName,tdsUser,clientHostMacAddress,started,ended,entryList,endingType">
+    <children xsi:type="editmodel:CompartmentEditModel" size="138,126">
+      <children xsi:type="editmodel:AttributeEditModel" name="started" size="63,16" id="{UMLID=_0_LtEAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="ended" size="59,16" id="{UMLID=_0_J34AxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="endingType" size="84,16" id="{UMLID=_0_RMoAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsUser" size="73,21" id="{UMLID=_0_G0kAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="clientHostName" size="103,16" id="{UMLID=_0_FmcAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="clientHostIpAddress" size="126,16" id="{UMLID=_0_EYUAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="clientHostMacAddress" size="138,16" id="{UMLID=_0_IpwAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsApplication" size="97,16" id="{UMLID=_0_DKMAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="entryList" size="77,21" id="{UMLID=_0_NiQAxDEeCoCJFwkxct7w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0 //@children.1/@sourceConnections.0 //@children.0/@sourceConnections.0" name="UserDTO" location="793,42" size="139,350" timstampe="10" stereotype="" id="{UMLID=_P51BoNdqEd-Kl-oKFn9Egg,JavaID=usermodule.dto/UserDTO}" runTimeClassModel="tdsEmail,sex,msn,sessionList,addingDateTime,password,userType,workEmail,getsSystemEmails,workTel,placeOfFax,name,timeZoneGmt,active,workFax,skype,loginName">
+    <children xsi:type="editmodel:CompartmentEditModel" size="116,288">
+      <children xsi:type="editmodel:AttributeEditModel" name="loginName" size="78,16" id="{UMLID=_1lv90AxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="password" size="79,16" id="{UMLID=_1ldp8AxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_1lp3MAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sex" size="47,16" id="{UMLID=_1lVHEAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsEmail" size="68,16" id="{UMLID=_1lT48AxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workEmail" size="78,16" id="{UMLID=_1lh7YAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workTel" size="67,16" id="{UMLID=_1lmM0AxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workFax" size="72,16" id="{UMLID=_1luvsAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="placeOfFax" size="85,16" id="{UMLID=_1lopEAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="skype" size="58,16" id="{UMLID=_1lxL8AxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="msn" size="49,16" id="{UMLID=_1lWVMAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="addingDateTime" size="105,16" id="{UMLID=_1lbNsAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="timeZoneGmt" size="92,16" id="{UMLID=_1lthkAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="active" size="58,16" id="{UMLID=_1lrsYAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="getsSystemEmails" size="116,16" id="{UMLID=_1lkXoAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="userType" size="74,16" id="{UMLID=_1lffIAxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sessionList" size="90,21" id="{UMLID=_1lYxcAxDEeCoCJFwkxct7w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="144,676"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_1q8m4AxDEeCoCJFwkxct7w}" source="//@children.4" target="//@children.3" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="tdsUser" location="0,105" id="{UMLID=_0_G0kAxDEeCoCJFwkxct7w}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="780,154" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- tdsUser" location="741,126" size="45,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="sessionList" location="161,105" id="{UMLID=_1lYxcAxDEeCoCJFwkxct7w}" multiplicityLabel="//@children.4/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.4/@sourceConnections.0/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="531,154" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- sessionList" location="531,126" size="62,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.10/@sourceConnections.0" name="TDSRadiologistRoleDTO" location="1259,1022" size="195,49" timstampe="4" stereotype="" id="{UMLID=_07CM4AxDEeCoCJFwkxct7w,JavaID=usermodule.dto/TDSRadiologistRoleDTO}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.9/@sourceConnections.0" name="HospitalStaffRoleDTO" location="1231,616" size="178,49" timstampe="3" stereotype="" id="{UMLID=_0pfJ4AxDEeCoCJFwkxct7w,JavaID=usermodule.dto/HospitalStaffRoleDTO}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="TDSManagerRoleDTO" location="183,895" size="180,49" timstampe="5" stereotype="" id="{UMLID=_03P5EAxDEeCoCJFwkxct7w,JavaID=usermodule.dto/TDSManagerRoleDTO}" runTimeClassModel="">
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1" name="TDSManagerRoleAssignmentDTO" location="165,699" size="253,85" timstampe="8" stereotype="" id="{UMLID=_4vlDQAxIEeCv_8PGZPxCEQ,JavaID=usermodule.dto/TDSManagerRoleAssignmentDTO}" runTimeClassModel="tdsManagerRole,tdsManager">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsManagerRole" size="113,21" id="{UMLID=_FMeo0AxJEeCv_8PGZPxCEQ}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsManager" size="92,21" id="{UMLID=_FMcMkAxJEeCv_8PGZPxCEQ}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_FPVIgAxJEeCv_8PGZPxCEQ}" source="//@children.8" target="//@children.7" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="107,85" id="{UMLID=_FPVIgQxJEeCv_8PGZPxCEQ}" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="279,791" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="tdsManagerRole" location="89,0" id="{UMLID=_FMeo0AxJEeCv_8PGZPxCEQ}" multiplicityLabel="//@children.8/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.8/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="259,874" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- tdsManagerRole" location="279,874" size="85,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.1" name="HospitalStaffRoleAssignmentDTO" location="1207,377" size="251,85" timstampe="5" stereotype="" id="{UMLID=_1WQwUAxDEeCoCJFwkxct7w,JavaID=usermodule.dto/HospitalStaffRoleAssignmentDTO}" runTimeClassModel="hospitalStaffRole,hospitalStaff">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalStaffRole" size="117,21" id="{UMLID=_5WBNoAxHEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalStaff" size="96,21" id="{UMLID=_5WDC0AxHEeCoCJFwkxct7w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_5YsHIAxHEeCoCJFwkxct7w}" source="//@children.9" target="//@children.6" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="112,85" id="{UMLID=_5YsHIQxHEeCoCJFwkxct7w}" attachSource="true" multiplicityLabel="//@children.9/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1326,469" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalStaffRole" location="88,0" id="{UMLID=_5WBNoAxHEeCoCJFwkxct7w}" multiplicityLabel="//@children.9/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.9/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1306,595" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalStaffRole" location="1326,595" size="89,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="TDSRadiologistRoleAssignmentDTO" location="1230,798" size="268,85" timstampe="4" stereotype="" id="{UMLID=_06nWIAxDEeCoCJFwkxct7w,JavaID=usermodule.dto/TDSRadiologistRoleAssignmentDTO}" runTimeClassModel="tdsRadiologist,tdsRadiologistRole">
+    <children xsi:type="editmodel:CompartmentEditModel">
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsRadiologistRole" size="123,21" id="{UMLID=_06_JkQxDEeCoCJFwkxct7w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tdsRadiologist" size="102,21" id="{UMLID=_0697cAxDEeCoCJFwkxct7w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_09ttcAxDEeCoCJFwkxct7w}" source="//@children.10" target="//@children.5" targetEnd="//@children.10/@sourceConnections.0/@children.2" label="//@children.10/@sourceConnections.0/@children.0" sourceEnd="//@children.10/@sourceConnections.0/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="126,85" id="{UMLID=_09ttcQxDEeCoCJFwkxct7w}" attachSource="true" multiplicityLabel="//@children.10/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1363,890" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="tdsRadiologistRole" location="97,0" id="{UMLID=_06_JkQxDEeCoCJFwkxct7w}" multiplicityLabel="//@children.10/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.10/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1343,1001" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- tdsRadiologistRole" location="1363,1001" size="95,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_1kjrAAxDEeCoCJFwkxct7w}" source="//@children.10" target="//@children.0" targetEnd="//@children.10/@sourceConnections.1/@children.2" label="//@children.10/@sourceConnections.1/@children.0" sourceEnd="//@children.10/@sourceConnections.1/@children.1" connectionRouterKind="Manual">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="roleAssignmentList" location="0,42" id="{UMLID=_1c8AEAxDEeCoCJFwkxct7w}" attachSource="true" multiplicityLabel="//@children.10/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.10/@sourceConnections.1/@children.1/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1207,847" size="16,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- roleAssignmentList" location="1124,819" size="99,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="tdsRadiologist" location="317,322" id="{UMLID=_0697cAxDEeCoCJFwkxct7w}" multiplicityLabel="//@children.10/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.10/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1009,847" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- tdsRadiologist" location="1009,819" size="74,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=0" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="14,14" gridOrigin="838,1790" rulerUnit="cm" gridShow="true">
+    <leftRuler>
+      <guides position="1129"/>
+    </leftRuler>
+    <topRuler>
+      <guides position="1600"/>
+    </topRuler>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+</editmodel:ClassDiagramEditModel>

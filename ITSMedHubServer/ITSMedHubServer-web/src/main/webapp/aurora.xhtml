@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/auroramenu.css" />
+
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-cookie.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/auroramenu.js"/>
+
+        <style>
+            .aurorahide
+            {
+                position: absolute;
+                right: 7px;
+                top: 3px;
+                display: none;
+                width: 17px;
+                height: 17px;
+                background: url('./resources/images/aurora_minus_icon.gif') no-repeat right;
+                border: none !important;
+            }
+
+            .aurorashow
+            {
+                position: absolute;
+                right: 7px;
+                top: 3px;
+                display: none;
+                width: 17px;
+                height: 17px;
+                background: url('./resources/images/aurora_plus_icon.gif') no-repeat right;
+                border: none !important;
+            }
+
+            #menu1
+            {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+                width: 150px;
+            }
+
+            #menu1 li
+            {
+                padding: 0;
+                background-color: #ddd;
+            }
+
+            #menu1 li a
+            {
+                color: #666;
+                display: block;
+                padding: 4px 7px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            #menu1 li a:hover
+            {
+                color: #222;
+            }
+
+            #menu1 ul
+            {
+                margin: 0;
+                padding: 0;
+                list-style-type: none;
+            }
+
+            #menu1 ul li
+            {
+                border: none;
+                background-color: #eee;
+                border: none !important;
+            }
+
+            #menu1 ul li a
+            {
+                padding: 6px 20px;
+                border: none;
+            }
+
+            #menu1 ul li a:hover
+            {
+                padding-left: 25px;
+            }
+
+        </style>
+
+    </h:head>
+    <h:body>
+        <ul id="menu1" class="auroramenu">
+            <li>
+                <a href="#">Főmenü 1</a>
+                <a style="display: none;" class="aurorashow" href="#"></a>
+                <a style="display: inline;" class="aurorahide" href="#"></a>
+                <ul>
+                    <li><a href="#">Lorem</a></li>
+                    <li><a href="#">Ipsum</a></li>
+                    <li><a href="#">Dolor sit amit</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Főmenü 2</a>
+                <a style="display: none;" class="aurorashow" href="#"></a>
+                <a style="display: inline;" class="aurorahide" href="#"></a>
+                <ul>
+                    <li><a href="#">Pellentesque</a></li>
+                    <li><a href="#">Porta eu</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Főmenü 3</a>
+                <a style="display: none;" class="aurorashow" href="#"></a>
+                <a style="display: inline;" class="aurorahide" href="#"></a>
+                <ul>
+                    <li><a href="#">Fermentum lacus</a></li>
+                    <li><a href="#">Maecenas</a></li>
+                    <li><a href="#">Consectetur </a></li>
+                    <li><a href="#">Adipiscing elit</a></li>
+                </ul>
+            </li>
+        </ul>
+
+
+    </h:body>
+</html>
+

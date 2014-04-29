@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>ITS MedHub Application</title>
+
+
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/layout.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/template.css" rel="stylesheet" type="text/css" />
+
+
+        <!--h:outputStylesheet library="primefaces" name="jquery/jquery.js" /-->
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+        <!--link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" /-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/-->
+        <script type="text/javascript" src="/itsmedhub/resources/js/itsListView.js"></script>
+
+        <script type="text/javascript" >
+        $(document).ready( function() {
+                
+                var managerLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsManager').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsManager" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsManager').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsManager" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsManager', 			
+                    onresize_end:	function () { 
+                        $('#list\\:edtManagerList').height($('#mainContentItsManager').height() - 25);
+                        $('#list\\:edtManagerList\\:b').height($('#list\\:edtManagerList').height() - 64);
+                    }
+                  }
+                });
+                
+                var radiologistLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsRadiologist').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsRadiologist" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsRadiologist').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsRadiologist" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsRadiologist', 			
+                    onresize_end:	function () { 
+                        $('#listRadiologist\\:edtRadiologistList').height($('#mainContentItsRadiologist').height() - 25);
+                        $('#listRadiologist\\:edtRadiologistList\\:b').height($('#listRadiologist\\:edtRadiologistList').height() - 64);
+                    }
+                  }
+                });
+                
+                var hospitalStaffLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchHospitalStaff').length==0){
+                            $('.resizer-north-closed').append('<div id="searchHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsHospitalStaff').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentHospitalStaff', 			
+                    onresize_end:	function () { 
+                        $('#listHospitalStaff\\:edtHospitalStaffList').height($('#mainContentHospitalStaff').height() - 25);
+                        $('#listHospitalStaff\\:edtHospitalStaffList\\:b').height($('#listHospitalStaff\\:edtHospitalStaffList').height() - 64);
+                    }
+                  }
+                });
+                var userLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchUser').length==0){
+                            $('.resizer-north-closed').append('<div id="searchUser" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsUser').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsUser" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentUser', 			
+                    onresize_end:	function () { 
+                        $('#listUser\\:edtUserList').height($('#mainContentUser').height() - 25);
+                        $('#listUser\\:edtUserList\\:b').height($('#listUser\\:edtUserList').height() - 64);
+                    }
+                  }
+                });
+                
+                //
+                //
+                //createTabLayout('User', userLayoutOptions);
+                createTabLayout('ItsManager', managerLayoutOptions);
+                //createTabLayout('ItsRadiologist', radiologistLayoutOptions);
+                createTabLayout('HospitalStaff', hospitalStaffLayoutOptions);
+                
+                
+               
+                
+            });
+            </script>
+        <ui:insert name="extraStyle"></ui:insert>
+    </h:head>
+
+    <h:body>
+        <div id="maincontainer">
+            <div id="topsection">
+                <div class="innertube4">
+                    <div class="window_header"><img src="./../resources/images/icon_l.png" width="22" height="18" align="texttop" />MedHub application</div>
+                    <div id="menubar">
+                        <h:form>
+                            <p:growl id="messages"/>  
+
+                            <p:menubar >  
+
+                                <p:submenu label="System" icon="ui-icon ui-icon-pencil">  
+                                    <p:menuitem value="Logout" onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/j_spring_security_logout'" icon="ui-icon ui-icon-arrowreturnthick-1-w" ></p:menuitem>  
+                                </p:submenu>  
+
+                                <p:submenu label="ITS" icon="ui-icon ui-icon-pencil">  
+                                    <!--p:menuitem value="Masterdata" ajax="false" action="#{menuController.masterData}" icon="ui-icon ui-icon-arrowreturnthick-1-w" ></p:menuitem>  
+                                    <p:menuitem value="Manager list" ajax="false" action="#{menuController.managerList}" icon="ui-icon ui-icon-arrowreturnthick-1-w" ></p:menuitem-->  
+                                    <p:menuitem value="Test list" ajax="false" action="#{menuController.testList}" icon="ui-icon ui-icon-arrowreturnthick-1-w" ></p:menuitem>  
+                                </p:submenu>  
+
+
+                            </p:menubar> 
+                            <p:toolbar style="border-top-width: 0px;">  
+                                <p:toolbarGroup align="left">  
+                                    <p:commandButton type="push" title="Save" image="ui-icon-disk" action="#{menuController.testList}"/>  
+                                    <p:commandButton type="push" title="Delete" image="ui-icon-trash"/>  
+                                    <p:commandButton type="push" title="Print" image="ui-icon-print"/>  
+                                </p:toolbarGroup>  
+                            </p:toolbar>  
+                        </h:form>
+                    </div>    
+                    <div id="infoPanel">
+                        <ui:insert name="infoPanel"></ui:insert>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <ui:insert name="content"></ui:insert>
+            </div>
+        </div>
+    </h:body>
+
+</html>

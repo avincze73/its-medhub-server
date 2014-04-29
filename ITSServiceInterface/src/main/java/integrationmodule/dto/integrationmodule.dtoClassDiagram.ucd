@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="integrationmodule.dtoClassDiagram" id="{UMLID=_ao9DcGhJEeCeLd5oFMHC5w,JavaID=integrationmodule.dto}" metadata="uml2-1.0" initialized="true" tag="100" key="32303037303632392054445353657276696365496E74657266616365">
+  <children xsi:type="editmodel:ClassEditModel" name="PAXConnectionDTO" location="14,238" size="237,291" timstampe="2" stereotype="" id="{UMLID=_eM_x8GhJEeCeLd5oFMHC5w,JavaID=integrationmodule.dto/PAXConnectionDTO}" runTimeClassModel="port,getPacsServerIpAddress(),setAutoCaseUpdateType(I),fixRunMinute,getPacsServerAETitle(),getPdataTimeout(),setIpAddress(Ljava.lang.String;),associationMessageResponseTimeout,runPeriod,getAssociationMessageResponseTimeout(),setMinOldStudy(I),aeTitle,getIpAddress(),setPacsServerIpAddress(Ljava.lang.String;),pacsServerAETitle,equals(Ljava.lang.Object;),getPort(),setFixRunMinute(I),setFixRunHour(I),pacsServerIpAddress,setPacsServerAETitle(Ljava.lang.String;),ipAddress,getPacsServerPort(),pdataTimeout,setPacsServerPort(I),getAutoCaseUpdateType(),setAeTitle(Ljava.lang.String;),setPdataTimeout(J),autoCaseUpdateType,setRunPeriod(I),getMinOldStudy(),getAeTitle(),getFixRunMinute(),pacsServerPort,PAXConnectionDTO(),getRunPeriod(),setServiceMessageResponseTimeout(J),serviceMessageResponseTimeout,clone(),PAXConnectionDTO(J),getFixRunHour(),setPort(I),getServiceMessageResponseTimeout(),setAssociationMessageResponseTimeout(J),fixRunHour,minOldStudy">
+    <children xsi:type="editmodel:CompartmentEditModel" size="214,252">
+      <children xsi:type="editmodel:AttributeEditModel" name="ipAddress" size="79,16" id="{UMLID=_eO-u8GhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="port" size="48,16" id="{UMLID=_eOhb8GhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="aeTitle" size="60,16" id="{UMLID=_eOtCIGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pacsServerIpAddress" size="136,16" id="{UMLID=_eO9g0GhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pacsServerPort" size="105,16" id="{UMLID=_eOnikGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pacsServerAETitle" size="119,16" id="{UMLID=_eOuQQGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="associationMessageResponseTimeout" size="214,16" id="{UMLID=_eOpXwGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="serviceMessageResponseTimeout" size="195,16" id="{UMLID=_eO4oUGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="pdataTimeout" size="93,16" id="{UMLID=_eOjRIGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="autoCaseUpdateType" size="132,16" id="{UMLID=_eOkfQGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="runPeriod" size="75,16" id="{UMLID=_eOrM8GhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="minOldStudy" size="89,16" id="{UMLID=_eO6dgGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fixRunHour" size="83,16" id="{UMLID=_eO7roGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fixRunMinute" size="91,16" id="{UMLID=_eOmUcGhJEeCeLd5oFMHC5w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="242,576"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.1" name="CaseUploadErrorLogDTO" location="14,28" size="200,134" timstampe="2" stereotype="" id="{UMLID=_eF7goGhJEeCeLd5oFMHC5w,JavaID=integrationmodule.dto/CaseUploadErrorLogDTO}" runTimeClassModel="exceptionMessage,added,setStacktrace(Ljava.lang.String;),setAdded(Ljava.util.Date;),getExceptionMessage(),setExceptionMessage(Ljava.lang.String;),CaseUploadErrorLogDTO(J),exceptionName,setExceptionName(Ljava.lang.String;),clone(),setCaseUploadLog(Lintegrationmodule.dto.CaseUploadLogDTO;),getCaseUploadLog(),caseUploadLog,equals(Ljava.lang.Object;),getAdded(),stacktrace,getStacktrace(),getExceptionName()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="120,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="added" size="59,16" id="{UMLID=_eGgIYGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="exceptionName" size="103,16" id="{UMLID=_eGdsIGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="exceptionMessage" size="120,16" id="{UMLID=_eGceAGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="stacktrace" size="80,16" id="{UMLID=_eGjLsGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseUploadLog" size="110,21" id="{UMLID=_eGhWgGhJEeCeLd5oFMHC5w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="161,244"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="CaseUploadLogDTO" location="406,28" size="169,152" timstampe="3" stereotype="" id="{UMLID=_dZM9gGhJEeCeLd5oFMHC5w,JavaID=integrationmodule.dto/CaseUploadLogDTO}" runTimeClassModel="setUploadDate(Ljava.util.Date;),succeeded,getPatientId(),studyList,getUploadType(),setStudyList(LCollection;),setSucceeded(Z),patientId,uploadType,getStudyList(),patientName,getUploadDate(),clone(),isSucceeded(),setUploadType(Ljava.lang.String;),setPatientName(Ljava.lang.String;),setPatientId(Ljava.lang.String;),getPatientName(),CaseUploadLogDTO(J),equals(Ljava.lang.Object;),uploadDate">
+    <children xsi:type="editmodel:CompartmentEditModel" size="88,90">
+      <children xsi:type="editmodel:AttributeEditModel" name="uploadDate" size="83,16" id="{UMLID=_djlBgGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="uploadType" size="84,16" id="{UMLID=_djceoGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="succeeded" size="83,16" id="{UMLID=_disQsGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="patientId" size="69,16" id="{UMLID=_djapcGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="patientName" size="88,16" id="{UMLID=_djeT0GhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="studyList" size="79,21" id="{UMLID=_djgJAGhJEeCeLd5oFMHC5w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="137,280"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_eDhF0GhJEeCeLd5oFMHC5w}" source="//@children.2" target="//@children.3" targetEnd="//@children.2/@sourceConnections.0/@children.2" label="//@children.2/@sourceConnections.0/@children.0" sourceEnd="//@children.2/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="caseUploadLog" location="84,152" id="{UMLID=_d_VwcGhJEeCeLd5oFMHC5w}" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.2/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="477,187" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- caseUploadLog" location="497,187" size="82,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="studyList" location="98,0" id="{UMLID=_djgJAGhJEeCeLd5oFMHC5w}" multiplicityLabel="//@children.2/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.2/@sourceConnections.0/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="467,329" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- studyList" location="497,329" size="51,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_eKc0QGhJEeCeLd5oFMHC5w}" source="//@children.2" target="//@children.1" targetEnd="//@children.2/@sourceConnections.1/@children.2" label="//@children.2/@sourceConnections.1/@children.0" sourceEnd="//@children.2/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="caseUploadLog" location="0,67" id="{UMLID=_eGhWgGhJEeCeLd5oFMHC5w}" attachSource="true" multiplicityLabel="//@children.2/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.2/@sourceConnections.1/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="393,102" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- caseUploadLog" location="317,74" size="82,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="200,67" id="{UMLID=_eKc0QWhJEeCeLd5oFMHC5w}" multiplicityLabel="//@children.2/@sourceConnections.1/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="221,74" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.2/@sourceConnections.0" name="IntegrationHandledStudyDTO" location="392,350" size="227,134" timstampe="2" stereotype="" id="{UMLID=_djilQGhJEeCeLd5oFMHC5w,JavaID=integrationmodule.dto/IntegrationHandledStudyDTO}" runTimeClassModel="succeeded,getDataSetCount(),setDataSetCount(I),getInstanceUid(),IntegrationHandledStudyDTO(J),studyDateTime,instanceUid,setSucceeded(Z),getStudyDateTime(),dataSetCount,clone(),isSucceeded(),getCaseUploadLog(),setInstanceUid(Ljava.lang.String;),setCaseUploadLog(Lintegrationmodule.dto.CaseUploadLogDTO;),caseUploadLog,equals(Ljava.lang.Object;),setStudyDateTime(Ljava.util.Date;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="instanceUid" size="85,16" id="{UMLID=_d_YMsGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="studyDateTime" size="100,16" id="{UMLID=_d_W-kGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="succeeded" size="83,16" id="{UMLID=_d_SGEGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataSetCount" size="94,16" id="{UMLID=_d_T7QGhJEeCeLd5oFMHC5w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseUploadLog" size="110,21" id="{UMLID=_d_VwcGhJEeCeLd5oFMHC5w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="178,244"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=2" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="14,14" gridOrigin="14,224" rulerUnit="cm" gridShow="true">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true" showMethodAssociationMember="false" showAccessorsMember="false"/>
+</editmodel:ClassDiagramEditModel>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="reportingmodule.dto.ReportingDTO" table="Reporting">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="assigned" not-null="true"/>
+    <property access="field" name="active" not-null="true"/>
+    <property access="field" name="done"/>
+    <property access="field" name="doneConfirmed"/>
+    <property access="field" name="unfinishedText"/>
+    <property access="field" name="finishedAndSignedText"/>
+    <property access="field" name="opened"/>
+    <property access="field" name="ready"/>
+    <property access="field" name="technicalDetails"/>
+    <property access="field" name="medicalHistory"/>
+    <property access="field" name="description"/>
+    <property access="field" name="conclusion"/>
+    <many-to-one access="field" column="wayOfClosingId" name="wayOfClosing"/>
+    <many-to-one access="field" column="caseId" name="caseItBelongsTo" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="reportingmodule.dto.ConsultationDTO" table="Consultation">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="requested" not-null="true"/>
+    <property access="field" name="requestText" not-null="true"/>
+    <property access="field" name="accepted"/>
+    <property access="field" name="done"/>
+    <property access="field" name="doneConfirmed"/>
+    <property access="field" name="unfinishedText"/>
+    <property access="field" name="finishedAndSignedText"/>
+    <property access="field" name="opened"/>
+    <many-to-one access="field" column="wayOfClosingId" name="wayOfClosing"/>
+    <many-to-one access="field" column="caseId" name="caseItBelongsTo" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="reportingmodule.dto.CommentDTO" table="Comment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="title" not-null="true"/>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="type"/>
+    <property access="field" name="finishedAndSignedText"/>
+    <property access="field" name="opened"/>
+    <many-to-one access="field" column="caseId" name="caseItBelongsTo" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="reportingmodule.dto.WorkScrutinyDTO" table="WorkScrutiny">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="requested" not-null="true"/>
+    <property access="field" name="type" not-null="true"/>
+    <property access="field" name="accepted"/>
+    <property access="field" name="confirmed"/>
+    <property access="field" name="outcome"/>
+    <property access="field" name="unfinishedText"/>
+    <property access="field" name="finishedAndSignedText"/>
+    <property access="field" name="opened"/>
+    <many-to-one access="field" column="wayOfClosingId" name="wayOfClosing"/>
+    <many-to-one access="field" column="caseId" name="caseItBelongsTo" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="reportingmodule.dto.AutoFunctionTypeDTO" table="AutoFunctionType">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="typeClass" not-null="true"/>
+  </class>
+  <class name="reportingmodule.dto.AutoFunctionLogEntryDTO" table="AutoFunctionLogEntry">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="added" not-null="true"/>
+    <many-to-one access="field" column="autoFunctionTypeId" name="autoFunction" not-null="true"/>
+  </class>
+</hibernate-mapping>

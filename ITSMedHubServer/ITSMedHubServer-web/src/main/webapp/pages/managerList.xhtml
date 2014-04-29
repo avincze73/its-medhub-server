@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>TODO supply a title</title>
+    </h:head>
+    <h:body>
+
+
+        <a4j:status onstart="#{rich:component('statPane')}.show()"
+                    onstop="#{rich:component('statPane')}.hide()" />
+
+        <h:form id="form">
+            <rich:dataTable value="#{managerController.entityList}" var="manager"
+                            iterationStatusVar="it" id="table" rows="15" >
+                <rich:column>
+                    <f:facet name="header">Name</f:facet>
+                    <h:outputText value="#{manager.itsUser.name}" />
+                </rich:column>
+                <rich:column>
+                    <h:commandLink  action="#{managerController.select(manager.itsUser.id)}">
+                        <h:graphicImage value="/resources/images/listedit.gif" alt="edit"/>
+                    </h:commandLink>
+                </rich:column>
+            </rich:dataTable>
+
+
+            <rich:popupPanel id="statPane" autosized="true">
+                <h:graphicImage value="/resources/images/waiting2.gif" alt="waiting2" />
+                #{applicationBundle.pleaseWait}
+            </rich:popupPanel>
+
+            <a4j:jsFunction name="remove" action="#{carsBean.remove}"
+                            render="table" execute="@this"
+                            oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+            <rich:popupPanel id="confirmPane" autosized="true">
+                Are you sure you want to delete the row?
+                <a4j:commandButton value="Cancel"
+                                   onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+                <a4j:commandButton value="Delete" onclick="remove(); return false;" />
+            </rich:popupPanel>
+        </h:form>
+    </h:body>
+</html>

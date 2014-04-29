@@ -1,0 +1,116 @@
+/* 
+    Document   : richFaces
+    Created on : Jan 12, 2012, 5:35:33 PM
+    Author     : tds
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+
+.rf-sel-inp {
+    width: 185px !important;
+    height: 22px;
+    padding-left: 5px !important;
+}
+
+.rf-sel-btn {
+    height: 22px;
+}
+
+.rf-sel-btn-arrow {
+    padding-top: 5px;
+}
+
+.rf-sel-cntr {
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius:3px !important; 
+}
+.rf-sel {
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius:3px !important; 
+}
+
+.rf-sel-sel {
+    border: none !important;
+    padding-left: 4px !important;
+}
+
+/*.rf-sel-lst-scrl,*/ 
+/*.rf-sel-lst-dcrtn,*/
+.rf-sel-lst-cord {
+    padding-left: 4px !important;
+}
+
+.rf-sel-opt {
+    padding: 4px !important;
+}
+
+.rf-msg-err {
+    background-image: none !important;
+    padding-left: 2px !important;
+    width: 14px !important;
+    font-weight: bolder;
+}
+
+.rf-msgs-err {
+    background-image: none !important;
+    padding-left: 2px !important;
+    font-weight: bolder;
+}
+
+.rf-tb {
+    background-image:url('../images/toolbarKep.png') !important;
+}
+
+.rf-ddm-lbl-dec {
+    font-weight: normal !important;
+}
+
+.barsearchbutton {
+    border-width: 1px;
+    /*background-color: #{ a4jSkin.generalBackgroundColor};*/
+}
+
+.rf-pp-cnt-scrlr {
+    background-color: #EEF3FA;
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+}
+
+.rf-pp-cntr {
+    -moz-border-radius: 3px !important;
+    -webkit-border-radius: 3px !important;
+    border-radius:3px !important; 
+    z-index: 1100 !important;
+}
+
+.rf-pp-hdr {
+    -moz-border-radius: 3px 3px 0px 0px !important;
+    -webkit-border-radius: 3px 3px 0px 0px!important;
+    background: url(../images/collapse_closed.png) repeat-x center !important;
+}
+
+.rf-tb-itm, .rf-ddm-itm-lbl  {
+    color: #413839 !important;
+}
+
+.rf-pp-shade {
+    opacity: 0.5 !important;
+    z-index: 1100 !important;
+    background: #3366cc !important;
+    /*width: 1024px !important;
+    height: 820px !important;
+    margin-left: 0px auto; 
+    margin-right: 0px auto;
+    margin-top:5px;
+    display: block;*/
+    
+}
+

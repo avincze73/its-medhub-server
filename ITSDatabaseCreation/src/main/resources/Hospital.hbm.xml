@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="hospitalmodule.dto.AvailabilityPerWeekDTO" table="AvailabilityPerWeek">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="sunday" not-null="true"/>
+    <property access="field" name="monday" not-null="true"/>
+    <property access="field" name="tuesday" not-null="true"/>
+    <property access="field" name="wednesday" not-null="true"/>
+    <property access="field" name="thursday" not-null="true"/>
+    <property access="field" name="friday" not-null="true"/>
+    <property access="field" name="saturday" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.AvailabilityPerPeriodDTO" table="AvailabilityPerPeriod">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="sunday" not-null="true"/>
+    <property access="field" name="monday" not-null="true"/>
+    <property access="field" name="tuesday" not-null="true"/>
+    <property access="field" name="wednesday" not-null="true"/>
+    <property access="field" name="thursday" not-null="true"/>
+    <property access="field" name="friday" not-null="true"/>
+    <property access="field" name="saturday" not-null="true"/>
+    <property access="field" name="started" not-null="true"/>
+    <property access="field" name="ended" not-null="true"/>
+    <many-to-one access="field" column="hospitalContractId" name="hospitalContract" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.HospitalDTO" table="Hospital">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="officialName" not-null="true"/>
+    <property access="field" name="shortName" not-null="true"/>
+    <property access="field" name="abbrevName"/>
+    <property access="field" name="address" not-null="true"/>
+    <property access="field" name="govBody" not-null="true"/>
+    <property access="field" name="addingDate" not-null="true"/>
+    <property access="field" name="active" not-null="true"/>
+    <property access="field" name="qualityRequirements" not-null="true"/>
+    <property access="field" name="timeZoneGmt"/>
+    <many-to-one access="field" column="regionId" name="region" not-null="true"/>
+    <many-to-one access="field" column="governingAuthorityId" name="govAuthority" not-null="true"/>
+    <bag access="field" cascade="save-update" inverse="true" name="hospitalContractList">
+      <key column="hospitalId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.HospitalContractDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="hospitalStaffList">
+      <key column="hospitalId" not-null="true"/>
+      <one-to-many class="usermodule.dto.HospitalStaffDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="contactPersonList">
+      <key column="hospitalId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.ContactPersonDTO"/>
+    </bag>
+  </class>
+  <class name="hospitalmodule.dto.HospitalContractDTO" table="HospitalContract">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="contractCode"/>
+    <property access="field" name="signedDate" not-null="true" type="date"/>
+    <property access="field" name="startDateTime" not-null="true"/>
+    <property access="field" name="lastCaseAcceptanceDateTime" not-null="true"/>
+    <property access="field" name="intendedEndDateTime" not-null="true"/>
+    <property access="field" name="stopDateTime"/>
+    <property access="field" name="active" not-null="true"/>
+    <property access="field" name="signersName" not-null="true"/>
+    <property access="field" name="normalWorkTimeDays" not-null="true"/>
+    <property access="field" name="workTimeDaysWithConsultation" not-null="true"/>
+    <property access="field" name="normalClosenessToDeadlineDaysHosp" not-null="true"/>
+    <property access="field" name="closenessToDeadlineDaysWithConsHosp" not-null="true"/>
+    <many-to-one access="field" cascade="save-update" column="minRequiredAvailabilityPerWeekId" name="minRequiredAvailabilityPerWeek" not-null="true" unique="true"/>
+    <many-to-one access="field" cascade="save-update" column="maxRequiredAvailabilityPerWeekId" name="maxRequiredAvailabilityPerWeek" not-null="true" unique="true"/>
+    <property access="field" name="credit" not-null="true"/>
+    <property access="field" name="invoicePeriodDay" not-null="true"/>
+    <property access="field" name="invoiceProductionDay" not-null="true"/>
+    <property access="field" name="adminFeeForCheckingUselessCase" not-null="true"/>
+    <property access="field" name="adminFeeForManuallyEnteringData" not-null="true"/>
+    <property access="field" name="lateReportingMultiplier"/>
+    <many-to-one access="field" column="contractTypeId" name="contractType" not-null="true"/>
+    <many-to-one access="field" column="currencyId" name="currency" not-null="true"/>
+    <many-to-one access="field" column="hospitalId" name="hospital" not-null="true"/>
+    <!--many-to-one name="workBandTable" column="workBandTableId" access="field" not-null="true"
+            unique="true" cascade="save-update"/-->
+    <bag access="field" cascade="save-update" inverse="true" name="optionList">
+      <key column="hospitalContractId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.OptionAssignmentDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="contactPersonAssignmentList">
+      <key column="hospitalContractId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.ContactPersonAssignmentDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="invoiceList">
+      <key column="hospitalContractId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.MonthlyInvoiceDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="workBandTableList">
+      <key column="hospitalContractId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.WorkBandTableDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="availabilityPerPeriodList">
+      <key column="hospitalContractId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.AvailabilityPerPeriodDTO"/>
+    </bag>
+    <!--many-to-one name="hospital" column="hospitalId" access="field" not-null="true"/>
+        <many-to-one name="workBandTable" column="workbandTableId" access="field"  not-null="true"/-->
+  </class>
+  <class name="hospitalmodule.dto.OptionAssignmentDTO" table="OptionAssignment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="validStart" not-null="true"/>
+    <property access="field" name="inactivation"/>
+    <many-to-one access="field" column="hospContrOptionId" name="option" not-null="true"/>
+    <many-to-one access="field" column="hospitalContractId" name="hospitalContract" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.WorkBandTableDTO" table="WorkBandTable">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="bandNumber" not-null="true"/>
+    <many-to-one access="field" column="hospitalContractId" name="hospitalContract" not-null="true"/>
+    <many-to-one access="field" column="modalityId" name="modality" not-null="true"/>
+    <bag access="field" cascade="save-update" inverse="true" name="bodyRegionWithBandList">
+      <key column="workBandTableId"/>
+      <one-to-many class="hospitalmodule.dto.BodyRegionWithBandDTO"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="bandInfoList">
+      <key column="workBandTableId"/>
+      <one-to-many class="hospitalmodule.dto.BandInfoDTO"/>
+    </bag>
+  </class>
+  <class name="hospitalmodule.dto.BodyRegionWithBandDTO" table="BodyRegionWithBand">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="bandAssignment" not-null="true"/>
+    <many-to-one access="field" column="bodyRegionId" name="bodyRegion" not-null="true"/>
+    <many-to-one access="field" column="workBandTableId" name="workBandTable" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.BandInfoDTO" table="BandInfo">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="bandNumber" not-null="true"/>
+    <property access="field" name="workTimeMinute" not-null="true"/>
+    <property access="field" name="priceForNormalWork" not-null="true"/>
+    <property access="field" name="priceForPayAsYouGoWork" not-null="true"/>
+    <property access="field" name="priceForExtraWork" not-null="true"/>
+    <many-to-one access="field" column="workBandTableId" name="workBandTable" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.ContactPersonDTO" table="ContactPerson">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="department" not-null="true"/>
+    <property access="field" name="positionInDept" not-null="true"/>
+    <property access="field" name="tel" not-null="true"/>
+    <property access="field" name="fax" not-null="true"/>
+    <property access="field" name="placeOfFax" not-null="true"/>
+    <property access="field" name="email" not-null="true"/>
+    <property access="field" name="skype" not-null="true"/>
+    <property access="field" name="correspAddress" not-null="true"/>
+    <many-to-one access="field" column="hospitalId" name="hospital" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.ContactPersonAssignmentDTO" table="ContactPersonAssignment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="contactPosition" not-null="true"/>
+    <property access="field" name="contactType" not-null="true"/>
+    <property access="field" name="started" not-null="true"/>
+    <property access="field" name="finished" not-null="true"/>
+    <property access="field" name="inactivation"/>
+    <many-to-one access="field" column="contactPersonId" name="contactPerson" not-null="true"/>
+    <many-to-one access="field" column="hospitalContractId" name="hospitalContract" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.StudyLevelInvoiceElementDTO" table="StudyLevelInvoiceElement">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="fellIntoAvailability" not-null="true"/>
+    <property access="field" name="sumValue" not-null="true"/>
+    <many-to-one access="field" column="studyId" name="study" not-null="true"/>
+    <many-to-one access="field" column="seriesId" name="series" not-null="true"/>
+    <many-to-one access="field" column="caseLevelInvoiceElementId" name="caseLevelInvoiceElement" not-null="true"/>
+  </class>
+  <class name="hospitalmodule.dto.CaseLevelInvoiceElementDTO" table="CaseLevelInvoiceElement">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="sumValue" not-null="true"/>
+    <property access="field" name="caseReceived" not-null="true"/>
+    <property access="field" name="reportSent" not-null="true"/>
+    <property access="field" name="reportBecameAvailable" not-null="true"/>
+    <property access="field" name="consulted" not-null="true"/>
+    <property access="field" name="workloadOnDayBeforeThis" not-null="true"/>
+    <property access="field" name="normalWorkload" not-null="true"/>
+    <property access="field" name="paygWorkload" not-null="true"/>
+    <property access="field" name="extraWorkload" not-null="true"/>
+    <property access="field" name="estimatedWorkTime" not-null="true"/>
+    <property access="field" name="workTime" not-null="true"/>
+    <property access="field" name="workloadCategory" not-null="true"/>
+    <property access="field" name="allowedReportingTime" not-null="true"/>
+    <property access="field" name="reportingTime" not-null="true"/>
+    <many-to-one access="field" column="caseId" name="caseItBelongsTo" not-null="true"/>
+    <many-to-one access="field" column="monthlyInvoiceId" name="monthlyInvoice" not-null="true"/>
+    <bag access="field" cascade="save-update" inverse="true" name="studyLevelInvoiceElementList">
+      <key column="caseLevelInvoiceElementId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.StudyLevelInvoiceElementDTO"/>
+    </bag>
+  </class>
+  <class name="hospitalmodule.dto.MonthlyInvoiceDTO" table="MonthlyInvoice">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="started" not-null="true"/>
+    <property access="field" name="ended" not-null="true"/>
+    <property access="field" name="calculation"/>
+    <property access="field" name="sentToHospital"/>
+    <property access="field" name="paid"/>
+    <property access="field" name="invoiceClosingSum"/>
+    <property access="field" name="statement"/>
+    <property access="field" name="detailedPreview"/>
+    <property access="field" name="briefPreview"/>
+    <many-to-one access="field" column="hospitalContractId" name="hospitalContract" not-null="true"/>
+    <bag access="field" cascade="save-update" inverse="true" name="caseLevelInvoiceElementList">
+      <key column="monthlyInvoiceId" not-null="true"/>
+      <one-to-many class="hospitalmodule.dto.CaseLevelInvoiceElementDTO"/>
+    </bag>
+  </class>
+  <!--class name="hospitalmodule.HospContrOption" table="HospContrOption">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="optionName" access="field" not-null="true"/>
+    </class>
+
+    <class name="hospitalmodule.WorkBandTable" table="WorkBandTable">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <set name="modalityList" access="field" table="WorkbandTableModalities" cascade="all">
+            <key column="workbandTableId" />
+            <many-to-many column="modalityId"  class="commonmodule.Modality" />
+        </set>
+        <set name="bodyRegionList" access="field" table="WorkbandTableBodyRegions" cascade="all">
+            <key column="workbandTableId" />
+            <many-to-many column="bodyRegionId"  class="commonmodule.BodyRegion" />
+        </set>
+        <set name="sequenceCategoryList" access="field" table="WorkbandTableSequeceCategories" cascade="all">
+            <key column="workbandTableId" />
+            <many-to-many column="sequenceCategoryId"  class="commonmodule.SequenceCategory" />
+        </set>
+        <many-to-one name="hospitalContract" column="hospitalContractId" access="field"  not-null="true"/>
+        <property name="table3Dnormal" access="field" not-null="true"/>
+        <property name="table3Dextra" access="field" not-null="true"/>
+    </class-->
+</hibernate-mapping>

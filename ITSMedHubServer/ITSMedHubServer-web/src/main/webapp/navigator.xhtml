@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" />
+
+        <style>
+            table.layout-grid a.disabled, table.layout-grid a.disabled:hover {
+                color: #aaa;
+                cursor: default;
+                text-decoration: line-through;
+            }
+
+            .layout-grid {
+                width: 100%;
+            }
+
+            .layout-grid td {
+                vertical-align: top;
+            }
+
+            .layout-grid td.left-nav {
+                width: 200px;
+            }
+
+            .layout-grid td.normal {
+                border-left: 1px solid #eee;
+                padding: 20px 24px;
+                font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+            }
+
+
+            .demos-nav, 
+            .left-nav .demos-nav dt, 
+            .left-nav .demos-nav dd, 
+            .left-nav .demos-nav ul, 
+            .left-nav .demos-nav li {
+                margin: 0;
+                padding: 0
+            }
+
+            .left-nav .demos-nav {
+                float: left;
+                width: 155px;
+                font-size: 0.9em;
+                padding:14px 23px 8px 22px;
+            }
+
+            .left-nav .demos-nav dt,
+            .left-nav .demos-nav h4 {
+                margin: 0;
+                padding: 0;
+                font: normal 1.0em "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+                color: #e87b10;
+            }
+
+            .left-nav .demos-nav dt,
+            .left-nav .demos-nav h4 {
+                margin-top: 1.5em;
+                margin-bottom: 0;
+                padding-left: 8px;
+                padding-bottom:5px;
+                line-height: 1.2em;
+                border-bottom: 1px solid #F4F4F4;
+            }
+
+            .left-nav .demos-nav dd a,
+            .left-nav .demos-nav li a {
+                border-bottom: 1px solid #F4F4F4;
+                display:block;
+                padding: 2px 3px 2px 8px;
+                font-size: 90%;
+                text-decoration: none;
+                color: #555 ;
+                margin:0px 0;
+                height:13px;
+            }
+
+            .left-nav .demos-nav dd a:hover,
+            .left-nav .demos-nav dd a:focus,
+            .left-nav .demos-nav li a:hover,
+            .left-nav .demos-nav li a:focus {
+                background: #f3f3f3;
+                color:#000;
+                -moz-border-radius: 3px; -webkit-border-radius: 3px;
+            }
+            .demos-nav dd a.selected {
+                background: #555;
+                color:#ffffff;
+                -moz-border-radius: 3px; -webkit-border-radius: 3px;
+            }
+
+
+            .demos-nav a:link,
+            .demos-nav a:visited,
+            #demo-notes a:link,
+            #demo-notes a:visited,
+            #demo-source a:link,
+            #demo-source a:visited,
+            #widget-docs a:link,
+            #widget-docs a:visited { color:#1b75bb; text-decoration:none; }
+
+
+
+        </style>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <table class="layout-grid" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="left-nav">
+                    <dl class="demos-nav">
+                        <dt>Interactions</dt>
+
+                        <dd><a href="/demos/draggable">Draggable</a></dd>
+                        <dd><a href="/demos/droppable">Droppable</a></dd>
+                        <dd><a href="/demos/resizable">Resizable</a></dd>
+                        <dd><a href="/demos/selectable">Selectable</a></dd>
+                        <dd><a href="/demos/sortable">Sortable</a></dd>
+                        <dt>Widgets</dt>
+
+                        <dd><a href="/demos/accordion">Accordion</a></dd>
+                        <dd><a href="/demos/autocomplete">Autocomplete</a></dd>
+                        <dd><a href="/demos/button">Button</a></dd>
+                        <dd><a href="/demos/datepicker">Datepicker</a></dd>
+                        <dd><a href="/demos/dialog">Dialog</a></dd>
+                        <dd><a href="/demos/progressbar">Progressbar</a></dd>
+
+                        <dd><a href="/demos/slider">Slider</a></dd>
+                        <dd><a href="/demos/tabs">Tabs</a></dd>
+                        <dt>Effects</dt>
+                        <dd><a href="/demos/animate">Color Animation</a></dd>
+                        <dd><a href="/demos/toggleClass">Toggle Class</a></dd>
+                        <dd><a href="/demos/addClass">Add Class</a></dd>
+
+                        <dd><a href="/demos/removeClass">Remove Class</a></dd>
+                        <dd><a href="/demos/switchClass">Switch Class</a></dd>
+                        <dd><a href="/demos/effect">Effect</a></dd>
+                        <dd><a href="/demos/toggle">Toggle</a></dd>
+                        <dd><a href="/demos/hide">Hide</a></dd>
+                        <dd><a href="/demos/show">Show</a></dd>
+
+                    </dl>
+                </td>
+            </tr>
+        </table>
+    </h:body>
+</html>
+

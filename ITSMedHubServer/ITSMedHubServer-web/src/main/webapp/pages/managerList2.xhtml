@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui" 
+                template="./../templates/mainTemplate.xhtml">
+
+    <ui:define name="infoPanel">
+        <h:form>
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content" >
+        <div id="contentwrapper">
+            <!--a4j:status onstart="#{rich:component('statPane')}.show()"
+                        onstop="#{rich:component('statPane')}.hide()" /-->
+
+            <h:form id="form">
+                <rich:panel header="Search">
+                    <a4j:outputPanel id="out2">
+                        <h:panelGrid columns="4" >
+                            <a4j:status name="searchStatus" onstart="#{rich:component('statPane')}.show()"
+                                        onstop="#{rich:component('statPane')}.hide()" />
+                            <h:outputLabel value="#{managerBundle.name}" />
+                            <h:inputText value="#{managerController.searchName}"/>
+                            <a4j:commandButton value="Search" action="#{managerController.search}"
+                                               styleClass="button" render="apManagerList" execute="@this">
+                                <a4j:ajax status="searchStatus" event="click" />
+                            </a4j:commandButton>
+                        </h:panelGrid>
+                    </a4j:outputPanel>
+                </rich:panel>
+
+
+                <a4j:outputPanel ajaxRendered="true" id="apManagerList" rendered="true" >
+                    <h:panelGrid columns="2" columnClasses="cs1,cs2">
+                        <rich:extendedDataTable style="height:300px; width: 900px;" value="#{managerController.entityList}" var="manager"
+                                                iterationStatusVar="it" id="tblManager" 
+                                                selectionMode="single" selection="#{managerController.selection}"
+                                                rowClasses="odd-row, even-row" onrowdblclick="window.alert(row)" rowKeyVar="row" >
+                            <a4j:ajax execute="@form"
+                                      event="selectionchange"
+                                      listener="#{managerController.selectionListener}" render=":details" />
+                            
+                            <f:facet name="header"  >
+                                <a4j:commandButton value="hello"/>
+                                <h:outputText value="Search criteria..." style="font-weight: normal;"/>
+                                <h:outputText value="name = 'hello'"/>
+                                
+                            </f:facet>
+                            <f:facet name="footer">
+
+                            </f:facet>
+                            <rich:column width="50px">
+                                <f:facet name="header">
+                                </f:facet>
+                                <h:commandLink  action="#{managerController.select(manager)}">
+                                    <h:graphicImage value="/resources/images/listedit.gif" alt="edit"/>
+                                </h:commandLink>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Name" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.name}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Login name" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.loginName}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Added" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.addingDateTime}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="ITS Email" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.itsEmail}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Work email" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.workEmail}"/>
+                            </rich:column>
+                        </rich:extendedDataTable>
+                        <a4j:jsFunction name="doubleClick" action="#{managerController.select(manager)}" />
+                        <h:commandButton value="Add" action="#{managerController.insert}" styleClass="button"></h:commandButton>
+                    </h:panelGrid>
+                </a4j:outputPanel>
+
+                <rich:popupPanel id="statPane" autosized="true">
+                    <h:graphicImage value="/resources/images/waiting2.gif" alt="waiting2" />
+                    #{applicationBundle.pleaseWait}
+                </rich:popupPanel>
+
+                <a4j:jsFunction name="remove" action="#{carsBean.remove}"
+                                render="table" execute="@this"
+                                oncomplete="#{rich:component('confirmPane')}.hide();" />
+
+                <rich:popupPanel id="confirmPane" autosized="true">
+                    Are you sure you want to delete the row?
+                    <a4j:commandButton value="Cancel"
+                                       onclick="#{rich:component('confirmPane')}.hide(); return false;" />
+                    <a4j:commandButton value="Delete" onclick="remove(); return false;" />
+                </rich:popupPanel>
+            </h:form>
+            <a4j:outputPanel id="details">
+                <rich:panel style="height: 200px; width: 1020px; padding-right: 1px; margin-right: 1px;">
+                    <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3, colStyle4">
+                        <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.name}" />
+                        <h:outputLabel value="#{managerBundle.loginName}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.loginName}" />
+                        <h:outputLabel value="#{managerBundle.sex}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.sex}" />
+                        <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.addingDateTime}" />
+                        <h:outputLabel value="#{managerBundle.tdsEmail}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.itsEmail}" />
+                        <h:outputLabel value="#{managerBundle.workEmail}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workEmail}" />
+                        <h:outputLabel value="#{managerBundle.workTel}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workTel}" />
+                        <h:outputLabel value="#{managerBundle.workFax}" styleClass="data_label"/>
+                        <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workFax}" />
+                    </h:panelGrid>
+                </rich:panel>
+            </a4j:outputPanel>
+        </div>
+        <rich:jQuery selector=".stable tr:odd" query="addClass('odd-row')" />
+        <rich:jQuery selector=".stable tr:even" query="addClass('even-row')" />
+        <div id="footer">&nbsp;</div>
+        <ui:include src="/pages/confirmPopup.xhtml"/>
+    </ui:define>
+
+</ui:composition>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>ITSMedHubServer</artifactId>
+        <groupId>its.medhub</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>its.medhub</groupId>
+    <artifactId>ITSMedHubServer-ear</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>ear</packaging>
+
+    <name>ITSMedHubServer-ear</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <netbeans.compile.on.save>all</netbeans.compile.on.save>
+        <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <version>6</version>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <webModule>
+                            <groupId>its.medhub</groupId>
+                            <artifactId>ITSMedHubServer-web</artifactId>
+                            <contextRoot>/itsmedhub</contextRoot>
+                        </webModule>
+                        <!--webModule>
+                            <groupId>its.medhub</groupId>
+                            <artifactId>ITSDoctorClient-web</artifactId>
+                            <contextRoot>/itsdoctorclientappwebstart</contextRoot>
+                        </webModule-->
+                        <ejbModule>
+                            <groupId>its.medhub</groupId>
+                            <artifactId>ITSMedHubServer-ejb</artifactId>
+                        </ejbModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>its.medhub</groupId>
+            <artifactId>ITSMedHubServer-ejb</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <!--dependency>
+            <groupId>its.medhub</groupId>
+            <artifactId>ITSDoctorClient-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency-->
+        <dependency>
+            <groupId>its.medhub</groupId>
+            <artifactId>ITSMedHubServer-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        
+    </dependencies>
+</project>
+

@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<faces-config version="2.0"
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+
+    <application>
+        <resource-bundle>
+            <base-name>common/bundle/application</base-name>
+            <var>applicationBundle</var>
+        </resource-bundle>
+        <!--Login module-->
+        <resource-bundle>
+            <base-name>common/bundle/login</base-name>
+            <var>loginBundle</var>
+        </resource-bundle>
+        <!--User module-->
+        <resource-bundle>
+            <base-name>usermodule/bundle/manager</base-name>
+            <var>managerBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>bundle/usermodule/radiologist</base-name>
+            <var>radiologistBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>bundle/usermodule/hospitalStaff</base-name>
+            <var>hospitalStaffBundle</var>
+        </resource-bundle>
+        <!--MasterData module-->
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/masterData</base-name>
+            <var>masterDataBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/currency</base-name>
+            <var>currencyBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/country</base-name>
+            <var>countryBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/itsLanguage</base-name>
+            <var>itsLanguageBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/region</base-name>
+            <var>regionBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/itsConstant</base-name>
+            <var>itsConstantBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/caseStatus</base-name>
+            <var>caseStatusBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/bodyRegion</base-name>
+            <var>bodyRegionBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/modality</base-name>
+            <var>modalityBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/modeOfAcquisition</base-name>
+            <var>modeOfAcquisitionBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/hospContrOption</base-name>
+            <var>hospContrOptionBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/wayOfClosing</base-name>
+            <var>wayOfClosingBundle</var>
+        </resource-bundle>
+         <resource-bundle>
+            <base-name>masterdatamodule/bundle/regLicQualType</base-name>
+            <var>regLicQualTypeBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/regLicQual</base-name>
+            <var>regLicQualBundle</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>masterdatamodule/bundle/scenario</base-name>
+            <var>scenarioBundle</var>
+        </resource-bundle>
+    </application>
+</faces-config>

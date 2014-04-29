@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="integrationmodule.dto.CaseUploadAttributeDTO" table="CaseUploadAttribute">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="ipAddress"/>
+    <property access="field" name="port"/>
+    <property access="field" name="aeTitle"/>
+    <property access="field" name="pacsServerIpAddress"/>
+    <property access="field" name="pacsServerPort"/>
+    <property access="field" name="pacsServerAETitle"/>
+    <property access="field" name="associationMessageResponseTimeout"/>
+    <property access="field" name="serviceMessageResponseTimeout"/>
+    <property access="field" name="pdataTimeout"/>
+    <property access="field" name="autoCaseUpdateType"/>
+    <property access="field" name="runPeriod"/>
+    <property access="field" name="minOldStudy"/>
+    <property access="field" name="fixRunHour"/>
+    <property access="field" name="fixRunMinute"/>
+  </class>
+  <class name="integrationmodule.dto.IntegrationHandledStudyDTO" table="IntegrationHandledStudy">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="instanceUid" not-null="true"/>
+    <property access="field" name="studyDateTime" not-null="true"/>
+    <property access="field" name="succeeded"/>
+    <property access="field" name="dataSetCount"/>
+    <many-to-one access="field" column="caseUploadLogId" name="caseUploadLog" not-null="true"/>
+  </class>
+  <class name="integrationmodule.dto.CaseUploadLogDTO" table="CaseUploadLog">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="uploadDate" not-null="true"/>
+    <property access="field" name="uploadType" not-null="true"/>
+    <property access="field" name="succeeded"/>
+    <property access="field" name="patientId"/>
+    <property access="field" name="patientName"/>
+    <bag access="field" cascade="save-update" inverse="true" name="studyList">
+      <key column="caseUploadLogId" not-null="true"/>
+      <one-to-many class="integrationmodule.dto.IntegrationHandledStudyDTO"/>
+    </bag>
+  </class>
+  <class name="integrationmodule.dto.CaseUploadErrorLogDTO" table="CaseUploadErrorLog">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="exceptionName"/>
+    <property access="field" name="exceptionMessage"/>
+    <property access="field" name="stacktrace"/>
+    <many-to-one access="field" column="caseUploadLogId" name="caseUploadLog" not-null="true"/>
+  </class>
+</hibernate-mapping>

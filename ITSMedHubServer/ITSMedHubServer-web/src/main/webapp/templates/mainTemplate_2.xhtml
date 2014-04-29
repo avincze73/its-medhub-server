@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <h:head>
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/cssStyle_1.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/cssLayout_1.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/richFaces.css" rel="stylesheet" type="text/css" media="screen" />
+        <title>ITS MedHub Application</title>
+        <script>
+            function waitPreloadPage() { //DOM
+                if (document.getElementById){
+                    document.getElementById('prepage').style.visibility='hidden';
+                }else{
+                    if (document.layers){ //NS4
+                        document.prepage.visibility = 'hidden';
+                    }
+                    else { //IE4
+                        document.all.prepage.style.visibility = 'hidden';
+                    }
+                }
+            }
+        </script>
+        <ui:insert name="extraHead"></ui:insert>
+    </h:head>
+
+    <h:body>
+        <div class="main-container" id="itsMainContainer"  >
+            <div class="top-section">
+                <div class="top-section-inner">
+                    <div class="window-header"><img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon_l.png" width="22" height="18" align="texttop" />
+                        ITS MedHub Application
+                    </div>
+                    <div class="main-bar-blocked"  >
+                        
+                    </div>
+                    <div class="main-bar">
+                        <div id="menubarMain" class="menu-bar">
+                            <h:form>
+                                <rich:toolbar style="height: 26px; border-bottom-width: 0px;" >
+                                    <rich:dropDownMenu label="System"   >
+                                        <rich:menuItem label="Logout"  
+                                                       onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/j_spring_security_logout'" 
+                                                       mode="client" />
+                                    </rich:dropDownMenu>
+                                    <rich:dropDownMenu label="Administration" >
+                                        <rich:menuItem   label="Master data" action="#{menuController.masterData}" /> >
+                                        <rich:menuItem label="User list" action="#{menuController.userList}" />
+                                    </rich:dropDownMenu>
+                                </rich:toolbar>
+                            </h:form>
+                        </div>
+                        <div id="toolbarMain" class="tool-bar">
+                            <h:form>
+                                <rich:toolbar itemSeparator="line" style="padding-left: 7px; height: 37px;">
+                                    <rich:toolbarGroup >
+                                        <h:commandButton styleClass="barsearchbutton" action="#{menuController.masterData}" image="/resources/images/masterData16.png"/>
+                                    </rich:toolbarGroup>
+                                    <rich:toolbarGroup location="center" >
+                                        #{menuController.navigationPath}
+                                    </rich:toolbarGroup>
+                                </rich:toolbar>
+                            </h:form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div id="itsContentContainerGlass" class="content-container-blocked" ></div>
+            <div id="itsContentContainer" class="content-container" style="position: absolute;">
+                <ui:insert name="infoPanel">
+                    <ui:include src="/pages/include/infoPanel.xhtml" />
+                </ui:insert>
+                <ui:insert name="contentPanel"></ui:insert>
+                <div class="window-footer"></div>
+            </div>
+
+
+        </div>
+    </h:body>
+
+</html>

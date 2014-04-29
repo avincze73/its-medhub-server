@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:p="http://primefaces.prime.com.tr/ui"
+                template="./mainTemplate_1.xhtml">
+
+    <ui:define name="extraStyle">
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form>
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <div id="contentwrapper">
+            <div class="bgdiv">
+                <div id="contentcolumn">
+                    <div class="innertube">
+                        <!--div  class="tdstitle">TDS Állandók</div>
+                        <div id="splitterContainer" style="height:88%">
+
+                            <div id="rightTopPane">
+
+                                <div id="resizable">
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+
+                                </div>
+                                <input type="button" class="button5" value="    " />
+                            </div>
+
+                            <div id="rightBottomPane">
+                                <div class="collapsibleContainer_2" title="Részletek"  ></div>
+                                <div  class="uresdiv2">
+                                    <div class="compnents_contrainer">
+                                        <label class="data_label3">Név</label><input name="" type="text" class="input3" />
+                                        <label class="data_label3">Leirás</label><input name="" type="text" class="input3" />
+                                        <input type="button" class="button4" value="Szerkeztés" />
+                                    </div>
+                                    <div class="compnents_contrainer">
+                                        <label class="data_label3">Név</label><input name="" type="text" class="input3" />
+                                        <label class="data_label3">Leirás</label><input name="" type="text" class="input3" />
+                                        <input type="button" class="button4" value="Mentés" />
+                                    </div>
+                                    <div class="compnents_contrainer">
+
+                                        <input type="button" class="button6" value="Mégsem" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div-->
+                        <!--ui:insert name="masterData"></ui:insert-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="leftcolumn">
+            <div class="innertube2">
+                <h:form>  
+                    <p:growl id="messages"/>  
+                    <p:menu style="height: 464px;">  
+                        <p:submenu label="Ajax Menuitems">  
+                            <p:menuitem value="Save"  update="messages" icon="ui-icon ui-icon-disk"/>  
+                            <p:menuitem value="Update"  update="messages" icon="ui-icon ui-icon-arrowrefresh-1-w"/>  
+                        </p:submenu>  
+                        <p:submenu label="Non-Ajax Menuitem">  
+                            <p:menuitem value="Delete" update="messages" ajax="false" icon="ui-icon ui-icon-close"/>  
+                        </p:submenu>  
+                        <p:submenu label="Navigations">  
+                            <p:menuitem value="Home" url="http://www.primefaces.org" icon="ui-icon ui-icon-home"/>  
+                            <p:menuitem value="TouchFaces" url="#{request.contextPath}/touch" icon="ui-icon ui-icon-star"/>  
+                        </p:submenu>  
+                    </p:menu>  
+                </h:form>
+            </div>
+        </div>
+
+
+        <div id="footer"></div>
+    </ui:define>
+
+</ui:composition>

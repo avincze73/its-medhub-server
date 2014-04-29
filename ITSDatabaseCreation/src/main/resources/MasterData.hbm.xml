@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="masterdatamodule.dto.LanguageDTO" table="Language">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true" unique="true"/>
+    <property access="field" name="hungarianName" not-null="true" unique="true"/>
+  </class>
+  <class name="masterdatamodule.dto.ModalityDTO" table="Modality">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true" unique="true"/>
+  </class>
+  <class name="masterdatamodule.dto.BodyRegionDTO" table="BodyRegion">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true"/>
+    <property access="field" name="hungarianName" not-null="true"/>
+    <property access="field" name="dicomName"/>
+    <property access="field" name="snomedCode"/>
+    <property access="field" name="groupNumber"/>
+  </class>
+  <class name="masterdatamodule.dto.SequenceCategoryDTO" table="SequenceCategory">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="categorisation" not-null="true"/>
+    <property access="field" name="bounds" not-null="true"/>
+    <property access="field" name="borders" not-null="true"/>
+    <property access="field" name="multipliers" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.HospContrOptionDTO" table="HospContrOption">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="types" not-null="true"/>
+    <property access="field" name="explanation" not-null="true"/>
+    <property access="field" name="longParameter"/>
+    <property access="field" name="stringParameter"/>
+    <property access="field" name="doubleParameter"/>
+  </class>
+  <class name="masterdatamodule.dto.RegLicQualTypeDTO" table="RegLicQualType">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true" unique="true"/>
+  </class>
+  <class name="masterdatamodule.dto.CaseFlagDTO" table="CaseFlag">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true" unique="true"/>
+    <property access="field" name="hungarianName" not-null="true" unique="true"/>
+  </class>
+  <class name="masterdatamodule.dto.ModeOfAcquisitionDTO" table="ModeOfAcquisition">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="code" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.ReportTemplateDTO" table="ReportTemplate">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="description"/>
+  </class>
+  <class name="masterdatamodule.dto.CaseStatusDTO" table="CaseStatus">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true" unique="true"/>
+    <property access="field" name="hungarianName" not-null="true" unique="true"/>
+    <property access="field" name="tdsManagerSeesEng"/>
+    <property access="field" name="tdsRadiologistSeesEng"/>
+    <property access="field" name="hospitalSeesEng1"/>
+    <property access="field" name="hospitalSeesEng2"/>
+  </class>
+  <class name="masterdatamodule.dto.WayOfClosingDTO" table="WayOfClosing">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true" unique="true"/>
+  </class>
+  <class name="masterdatamodule.dto.ScenarioDTO" table="Scenario">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true" unique="true"/>
+    <property access="field" name="hungarianName" not-null="true" unique="true"/>
+    <property access="field" name="radiologistStarts" not-null="true"/>
+    <property access="field" name="category" not-null="true"/>
+    <property access="field" name="behaviour" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.ScenarioPolicyDTO" table="ScenarioPolicy">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="policyText" not-null="true"/>
+    <property access="field" name="added" not-null="true"/>
+    <many-to-one access="field" column="scenarioId" name="scenario" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.CurrencyDTO" table="Currency">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true" unique="true"/>
+  </class>
+  <class name="masterdatamodule.dto.CountryDTO" table="Country">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true" unique="true"/>
+    <property access="field" name="hungarianName" not-null="true" unique="true"/>
+    <many-to-one access="field" column="currencyId" name="currency" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.RegLicQualDTO" table="RegLicQual">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <many-to-one access="field" column="regionId" name="region"/>
+    <many-to-one access="field" column="reqLicQualTypeId" name="type" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.RegionDTO" table="Region">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+    <many-to-one access="field" column="countryId" name="country" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.GoverningAuthorityDTO" table="GoverningAuthority">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true"/>
+  </class>
+  <class name="masterdatamodule.dto.ContractTypeDTO" table="ContractType">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="englishName" not-null="true" unique="true"/>
+    <property access="field" name="hungarianName" not-null="true" unique="true"/>
+  </class>
+</hibernate-mapping>

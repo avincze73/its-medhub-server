@@ -1,0 +1,388 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                template="./../templates/mainTemplate.xhtml">
+
+
+
+    <ui:define name="extraHead">
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/ui.jqgrid.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+
+        <style>
+            .ui-widget {
+                font-size: 0.9em;
+            }
+
+            .ui-tabs {
+                border-width: 0px !important;
+                padding: 0px;
+            }
+            .ui-layout-container, ui-tabs-panel {
+                padding: 20px !important;
+                background: #EEF3FA !important;
+                border-left-width: 1px !important;
+                border-right-width: 1px !important;
+                border-bottom-width: 1px !important;
+            }
+
+            .ui-tabs-nav {
+                border-top-width: 0px !important;
+                border-left-width: 0px !important;
+                border-right-width: 0px !important;
+                background: #CEE1F4 !important;
+                padding-left: 0px !important;
+
+            }
+
+            .jqgrow{
+                cursor:pointer;
+            }
+
+        </style>
+
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/>
+        <script src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListView.js"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready( function(){
+               var managerLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsManager').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsManager" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsManager').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsManager" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsManager', 			
+                    onresize_end:	function () { 
+                        $('#list\\:edtManagerList').height($('#mainContentItsManager').height() - 25);
+                        $('#list\\:edtManagerList\\:b').height($('#list\\:edtManagerList').height() - 64);
+                    }
+                  }
+                });
+                
+                var radiologistLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsRadiologist').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsRadiologist" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsRadiologist').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsRadiologist" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsRadiologist', 			
+                    onresize_end:	function () { 
+                        $('#listRadiologist\\:edtRadiologistList').height($('#mainContentItsRadiologist').height() - 25);
+                        $('#listRadiologist\\:edtRadiologistList\\:b').height($('#listRadiologist\\:edtRadiologistList').height() - 64);
+                    }
+                  }
+                });
+                
+                var hospitalStaffLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchHospitalStaff').length==0){
+                            $('.resizer-north-closed').append('<div id="searchHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsHospitalStaff').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentHospitalStaff', 			
+                    onresize_end:	function () { 
+                        $('#listHospitalStaff\\:edtHospitalStaffList').height($('#mainContentHospitalStaff').height() - 25);
+                        $('#listHospitalStaff\\:edtHospitalStaffList\\:b').height($('#listHospitalStaff\\:edtHospitalStaffList').height() - 64);
+                    }
+                  }
+                });
+                var userLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchUser').length==0){
+                            $('.resizer-north-closed').append('<div id="searchUser" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsUser').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsUser" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentUser', 			
+                    onresize_end:	function () { 
+                        $('#listUser\\:edtUserList').height($('#mainContentUser').height() - 25);
+                        $('#listUser\\:edtUserList\\:b').height($('#listUser\\:edtUserList').height() - 64);
+                    }
+                  }
+                });
+                
+                createTabLayout('User', userLayoutOptions);
+                createTabLayout('ItsManager', managerLayoutOptions);
+                createTabLayout('ItsRadiologist', radiologistLayoutOptions);
+                createTabLayout('HospitalStaff', hospitalStaffLayoutOptions);  
+                
+              $('#tabs').tabs();
+              $('#list1').jqGrid({
+                url:'#{facesContext.externalContext.requestContextPath}/pages/ManagerListServlet',
+                datatype: 'json',
+                mtype: 'GET',
+                colNames:['Name','Login name', 'Added', 'ITS email', 'Work email'],
+                colModel :[ 
+                  {name:'name', index:'name'}, 
+                  {name:'loginName', index:'loginName'}, 
+                  {name:'added', index:'added'} ,
+                  {name:'itsEmail', index:'itsEmail'}, 
+                  {name:'workEmail', index:'workEmail'} 
+                ],
+                shrinkToFit: false,
+                height: 110,
+                width: 952,
+                hidegrid: false,
+                caption: 'ITS Managers',
+                onSelectRow: function(ids) { 
+                //        alert(ids);
+                } 
+                
+              });
+              
+              $('#list2').jqGrid({
+                url:'#{facesContext.externalContext.requestContextPath}/pages/ManagerListServlet',
+                datatype: 'json',
+                mtype: 'GET',
+                //loadonce: true,
+                colNames:['ID', 'Name','Login name', 'Added', 'ITS email', 'Work email'],
+                colModel :[ 
+                  {name:'id', index:'id', key: true, hidden: true },   
+                  {name:'name', index:'name'}, 
+                  {name:'loginName', index:'loginName'}, 
+                  {name:'added', index:'added'} ,
+                  {name:'itsEmail', index:'itsEmail'}, 
+                  {name:'workEmail', index:'workEmail'} 
+                ],
+                loadtext: 'Loading...',
+                shrinkToFit: false,
+                viewrecords: true,
+                hidegrid: false,
+                height: 110,
+                width: 952,
+                caption: 'My second grid',
+                onSelectRow: function(ids) { 
+                  selectManager(ids);
+                  
+                } ,
+                loadComplete: function(data) {
+                  jQuery('#list2').setSelection (data.userdata.selId, true);
+                },
+                ondblClickRow: function (rowid,iRow,iCol,e) {
+                    var data = $('#list2').getRowData(rowid);
+                    navigateToManager(rowid);
+                }
+
+
+                
+              });
+             // $('#list2').getDataIds()[0];
+
+
+              
+              $('#list3').jqGrid({
+                url:'#{facesContext.externalContext.requestContextPath}/pages/ManagerListServlet',
+                datatype: 'json',
+                mtype: 'GET',
+                colNames:['Name','Login name'],
+                
+                colModel :[ 
+                  {name:'invdate', index:'invdate'}, 
+                  {name:'note', index:'note'} 
+                ],
+                shrinkToFit: false,
+                hidegrid: false,
+                height: 110,
+                width: 952,
+                caption: 'My third grid',
+                onSelectRow: function(ids) { 
+                    //    alert(ids);
+                } 
+                
+              });
+            }); 
+            
+        </script>
+
+        
+        <a4j:jsFunction name="selectManager" action="#{managerController.select}" render="details1" >
+            <a4j:param name="id" assignTo="#{managerController.selectedId}" />
+        </a4j:jsFunction>
+        <a4j:jsFunction name="navigateToManager" action="#{managerController.navigateToEdit}">
+            <a4j:param name="id" assignTo="#{managerController.selectedId}" />
+        </a4j:jsFunction>
+
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <a4j:outputPanel>
+            <h:form>
+                <div id="content_title">
+                    
+                    <div id="TDS_left">#{managerController.title1}</div>
+                    <div id="TDS_right">#{managerController.title2}</div>
+                    <div id="btn_contreiner">
+                        <div id="btn_1">&nbsp;</div>
+                        <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                        <div id="btn_3"><a href="#"></a></div>
+                    </div>
+                </div>
+            </h:form>
+        </a4j:outputPanel>
+    </ui:define>
+
+    <ui:define name="content">
+        <div id="contentwrapper" style="padding: 10px;" >
+            <div id="tabs" style="width: 1000px; height: 520px; ">
+                <ul>
+                    <li><a href="#tabUser" style="width: 100px;">Users</a></li>
+                    <li><a href="#tabItsManager" style="width: 100px;">ITS Managers</a></li>
+                    <li><a href="#tabItsRadiologist" style="width: 100px;">ITS Radiologists</a></li>
+                    <li><a href="#tabHospitalStaff" style="width: 100px;">Hospital Staffs</a></li>
+                </ul>
+                <div id="tabUser" style="height: 442px;">
+                    <div class="ui-layout-north" id="northUser">
+                        <div class="its-header">Search</div>
+                        <div class="content">
+                        </div>
+
+                    </div>
+                    <div class="ui-layout-south" id="southUser">
+                        <div class="its-header">Details</div>
+                        <div class="content" style="margin-bottom: 10px;">
+                        </div>
+                    </div>
+                    <div id="mainContentUser" >
+                        <table id="list1" ></table> 
+                    </div>
+                </div>
+                <div id="tabItsManager" style="height: 442px;">
+                    <div class="ui-layout-north" id="northItsManager">
+                        <div class="its-header">Search</div>
+                        <div class="content">
+                            <h:form id="frmSearch">
+                                <h:panelGrid columns="3" >
+                                    <h:panelGroup>
+                                        <h:panelGrid columns="2"  >
+                                            <h:outputLabel value="#{managerBundle.name}" styleClass="data_label" />
+                                            <h:inputText value="#{managerController.searchName}" styleClass="input"/>
+                                        </h:panelGrid>
+                                    </h:panelGroup>
+                                    <h:panelGroup>
+                                        <a4j:commandButton value="Search" action="#{managerController.search}" 
+                                                           styleClass="imagebutton" render=":details1" execute="@form" 
+                                                           image="./../resources/images/search.png"
+                                                           oncomplete="$('#list2').trigger('reloadGrid');">
+                                        </a4j:commandButton>
+                                    </h:panelGroup>
+                                    <h:panelGroup>
+                                    </h:panelGroup>
+                                </h:panelGrid>
+                            </h:form>
+                        </div>
+
+                    </div>
+                    <div class="ui-layout-south" id="southItsManager">
+                        <div class="its-header">Details</div>
+                        <div class="content" style="margin-bottom: 10px;">
+                            <a4j:outputPanel id="details1" rendered="true" ajaxRendered="true">
+                                <h:form>
+                                    <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3, colStyle4">
+                                        <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                                        <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.name}" />
+                                        <h:outputLabel value="#{managerBundle.loginName}" styleClass="data_label"/>
+                                        <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.loginName}" />
+                                        <h:outputLabel value="#{managerBundle.sex}" styleClass="data_label"/>
+                                        <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.sex}" />
+                                        <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="data_label"/>
+                                        <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.addingDateTime}" />
+                                        <h:outputLabel value="#{managerBundle.itsEmail}" styleClass="data_label"/>
+                                        <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.itsEmail}" />
+                                        <h:outputLabel value="#{managerBundle.workEmail}" styleClass="data_label"/>
+                                        <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.workEmail}" />
+                                    </h:panelGrid>
+                                </h:form>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContentItsManager" >
+                        <table id="list2" ></table> 
+                    </div>
+                </div>
+                <div id="tabItsRadiologist" style="height: 442px;">
+                    <div class="ui-layout-north" id="northItsRadiologist">
+                        <div class="its-header">Search</div>
+                        <div class="content">
+                        </div>
+
+                    </div>
+                    <div class="ui-layout-south" id="southItsRadiologist">
+                        <div class="its-header">Details</div>
+                        <div class="content" style="margin-bottom: 10px;">
+                        </div>
+                    </div>
+                    <div id="mainContentItsRadiologist" >
+                        <table id="list3" ></table> 
+                    </div>
+                </div>
+                <div id="tabHospitalStaff" style="height: 442px;">
+                    <div class="ui-layout-north" id="northHospitalStaff">
+                        <div class="its-header">Search</div>
+                        <div class="content">
+                        </div>
+
+                    </div>
+                    <div class="ui-layout-south" id="southHospitalStaff">
+                        <div class="its-header">Details</div>
+                        <div class="content" style="margin-bottom: 10px;">
+                        </div>
+                    </div>
+                    <div id="mainContentHospitalStaff" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </ui:define>
+
+</ui:composition>

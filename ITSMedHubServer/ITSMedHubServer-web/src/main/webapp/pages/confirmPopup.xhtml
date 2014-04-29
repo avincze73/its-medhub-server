@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+    <style>
+        /*.rf-pp-cnt-scrlr {
+            background-color: #EEF3FA;
+            -moz-border-radius: 3px !important;
+            -webkit-border-radius: 3px !important;
+        }
+
+        .rf-pp-cntr {
+            -moz-border-radius: 3px !important;
+            -webkit-border-radius: 3px !important;
+            border-radius:3px !important; 
+        }
+        
+        .rf-pp-hdr {
+            -moz-border-radius: 3px 3px 0px 0px !important;
+            -webkit-border-radius: 3px 3px 0px 0px!important;
+            background: url(../resources/images/collapse_closed.png) repeat-x center !important;
+        }
+        .ppCol1 {
+            height: 24px;
+        }*/
+    </style>
+    <rich:popupPanel id="confirmSavePopup" modal="true" resizeable="true"
+                     onmaskclick="#{rich:component('confirmSavePopup')}.hide()" height="110">
+        <f:facet name="header">
+            <h:outputText value="Confirmation" />
+        </f:facet>
+        <h:panelGrid columns="1" columnClasses="ppCol1">
+            <h:outputText value="Are you sure to save?" />
+            <h:panelGroup >
+                <a4j:commandButton value="Yes" oncomplete="#{rich:component('confirmSavePopup')}.hide();submitSave();return false;" />
+                <a4j:commandButton value="No" oncomplete="#{rich:component('confirmSavePopup')}.hide();return false;" />
+            </h:panelGroup>
+        </h:panelGrid>
+    </rich:popupPanel>
+    <rich:popupPanel id="confirmCancelPopup" modal="true" resizeable="false" 
+                     onmaskclick="#{rich:component('confirmCancelPopup')}.hide()" height="110">
+        <f:facet name="header">
+            <h:outputText value="Confirmation" />
+        </f:facet>
+        <h:panelGrid columns="1" columnClasses="ppCol1">
+            <h:outputText value="Are you sure to cancel?"  />
+            <h:panelGroup>
+                <a4j:commandButton value="Yes" oncomplete="#{rich:component('confirmCancelPopup')}.hide();submitCancel();return false;" />
+                <a4j:commandButton value="No" oncomplete="#{rich:component('confirmCancelPopup')}.hide();return false;" />
+            </h:panelGroup>
+        </h:panelGrid>
+    </rich:popupPanel>
+    <rich:popupPanel id="confirmSearchPopup" modal="true" resizeable="true"
+                     onmaskclick="#{rich:component('confirmSearchPopup')}.hide()">
+        <f:facet name="header">
+            <h:outputText value="Confirmation" />
+        </f:facet>
+        <h:panelGrid>
+            <h:outputText value="Are you sure to search?"  />
+            <h:panelGroup>
+                <a4j:commandButton value="OK" oncomplete="#{rich:component('confirmSearchPopup')}.hide();submitSearch();return false;" />
+                <a4j:commandButton value="Cancel" oncomplete="#{rich:component('confirmSearchPopup')}.hide();return false;" />
+            </h:panelGroup>
+        </h:panelGrid>
+    </rich:popupPanel>
+
+    <rich:popupPanel id="confirmPasswordModificationPopup" modal="true" resizeable="true"
+                     onmaskclick="#{rich:component('confirmPasswordModificationPopup')}.hide()">
+        <f:facet name="header">
+            <h:outputText value="Confirmation" />
+        </f:facet>
+        <h:panelGrid>
+            <h:outputText value="Are you sure to save?"  />
+            <h:panelGroup>
+                <a4j:commandButton value="OK" oncomplete="#{rich:component('confirmPasswordModificationPopup')}.hide();submitPasswordModification();return false;" />
+                <a4j:commandButton value="Cancel" oncomplete="#{rich:component('confirmPasswordModificationPopup')}.hide();return false;" />
+            </h:panelGroup>
+        </h:panelGrid>
+    </rich:popupPanel>
+    
+    
+</ui:composition>

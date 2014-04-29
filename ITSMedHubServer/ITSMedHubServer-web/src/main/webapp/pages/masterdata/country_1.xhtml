@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml">
+
+    <ui:define name="extraHead">
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/ui.jqgrid.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterDataNavigator.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterData.css" />
+
+
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.jqGrid.min.js" ></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListViewWithoutSearch.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.i18n.properties.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.blockUI.js"/>
+
+        <script>
+            var isSelected = false;
+            $(document).ready( function(){
+                
+
+              var userLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                    south: {
+                        onclose_end: function () { 
+                            if ($('#details').length==0){
+                                $('.resizer-south-closed').append('<div id="details" style="font-size: 11px; font-weight: bold; padding: 5px 5px;">Details</div>');
+                            }
+                        }
+                    },
+                    center: {
+                        paneSelector: '#mainContent', 			
+                        onresize_end:	function () { 
+                            $('#masterDataGrid').setGridHeight($('#mainContent').height() - 54);
+                        }
+                    }
+                });
+
+             createLayout('currency', userLayoutOptions);
+             });
+             
+            
+        </script>
+
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form>
+            <div class="content-title">
+                <div class="content-title-left">#{masterDataController.title1}</div>
+                <div class="content-title-right">#{masterDataController.title2}</div>
+                <div class="button-container">
+                    <div class="btn-1">&nbsp;</div>
+                    <div class="btn-2"><h:commandLink action="#{masterDataController.back}"/></div>
+                    <div class="btn-3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+    <ui:define name="contentPanel">
+        <div class="content-wrapper">
+            <div id="leftPart" class="left-part" style="background: white;">
+                <ui:include src="/pages/masterdata/navigator.xhtml" />
+            </div>
+            <div id="currency" class="center-part">
+                <h:form id="frmMasterData">
+                    <div class="ui-layout-south" id="south">
+                        <div class="its-header">Details</div>
+                        <div class="content" >
+                            <a4j:outputPanel id="detail">
+                                <div class="masterdata-left-part" >
+                                    <rich:message/>
+                                    <h:panelGrid columns="2" >
+                                        <h:inputText styleClass="input" value="#{testController.selectedEntity.name}" />
+                                        <h:selectOneMenu converter="currencyConverter" immediate="true" id="combo"  value="#{testController.selectedEntity}">
+                                            <f:selectItems id="myid" value="#{testController.entityList}" 
+                                                           var="currency" itemLabel="#{currency.name}" itemValue="#{currency}" /> 
+                                        </h:selectOneMenu>
+                                    </h:panelGrid>
+                                </div>
+                                <div class="masterdata-right-part" >
+                                    <h:panelGrid columns="1" >
+                                        <a4j:commandButton 
+                                            value="#{applicationBundle.saveButton}" 
+                                            styleClass="button" 
+                                            render="detail"
+                                            action="#{testController.save}"/>
+                                    </h:panelGrid>
+                                </div>
+                                </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContent" >
+                        <div style="float: left; width: 95%; height: 98%;">
+                        </div>
+                        <div style="float:right;width: 4%; height: 98%;">
+
+                        </div>
+                    </div>
+                </h:form>
+            </div>
+        </div>
+        <div class="window-footer"></div>
+    </ui:define>
+
+</ui:composition>

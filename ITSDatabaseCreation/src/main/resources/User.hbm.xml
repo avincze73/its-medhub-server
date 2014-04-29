@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="usermodule.dto.RoleDTO" table="TDSRole">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <discriminator column="canHave" type="string"/>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="hungarianPublicAlias"/>
+    <property access="field" name="englishPublicAlias"/>
+    <property access="field" name="abbreviation"/>
+    <!--property name="canHave" access="field" /-->
+    <property access="field" name="description"/>
+    <property access="field" name="roleBoundaries"/>
+    <bag access="field" cascade="all" name="whoCanAssignThisRoleToUser" table="RoleWhoCanAssignThisRoleToUser">
+      <key column="roleId"/>
+      <many-to-many class="usermodule.dto.RoleDTO" column="whoCanAssignThisRoleToUserId"/>
+    </bag>
+    <bag access="field" cascade="all" name="prerequisites" table="RolePrerequisites">
+      <key column="roleId"/>
+      <many-to-many class="usermodule.dto.RoleDTO" column="prerequisiteId"/>
+    </bag>
+    <subclass discriminator-value="tdsManager" name="usermodule.dto.TDSManagerRoleDTO"/>
+    <subclass discriminator-value="hospitalStaff" name="usermodule.dto.HospitalStaffRoleDTO"/>
+    <subclass discriminator-value="tdsRadiologist" name="usermodule.dto.TDSRadiologistRoleDTO"/>
+  </class>
+  <!--class name="usermodule.dto.RoleAssignmentDTO" table="RoleAssignment">
+        <id name="id" access="field">
+            <generator class="native"/>
+        </id>
+        <property name="added" access="field" not-null="true"/>
+        <property name="started" access="field"/>
+        <property name="ended" access="field"/>
+        <property name="active" access="field" not-null="true"/>
+        <many-to-one name="tdsRole" column="roleId" access="field" not-null="true"/>
+        <many-to-one name="tdsUser" column="userId" access="field" not-null="true"/>
+    </class-->
+  <class name="usermodule.dto.HospitalStaffRoleAssignmentDTO" table="HospitalStaffRoleAssignment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="ended"/>
+    <property access="field" name="assignmentStart"/>
+    <property access="field" name="plannedEnd"/>
+    <property access="field" name="active" not-null="true"/>
+    <many-to-one access="field" column="hospitalStaffRoleId" name="hospitalStaffRole" not-null="true"/>
+    <many-to-one access="field" column="hospitalStaffId" name="hospitalStaff" not-null="true"/>
+  </class>
+  <class name="usermodule.dto.TDSManagerRoleAssignmentDTO" table="TDSManagerRoleAssignment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="ended"/>
+    <property access="field" name="assignmentStart"/>
+    <property access="field" name="plannedEnd"/>
+    <property access="field" name="active" not-null="true"/>
+    <many-to-one access="field" column="tdsManagerRoleId" name="tdsManagerRole" not-null="true"/>
+    <many-to-one access="field" column="tdsManagerId" name="tdsManager" not-null="true"/>
+  </class>
+  <class name="usermodule.dto.TDSRadiologistRoleAssignmentDTO" table="TDSRadiologistRoleAssignment">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="added" not-null="true"/>
+    <property access="field" name="ended"/>
+    <property access="field" name="assignmentStart"/>
+    <property access="field" name="plannedEnd"/>
+    <property access="field" name="active" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistRoleId" name="tdsRadiologistRole" not-null="true"/>
+    <many-to-one access="field" column="tdsRadiologistId" name="tdsRadiologist" not-null="true"/>
+  </class>
+  <class name="usermodule.dto.SessionLogEntryDTO" table="TDSSessionLogEntry">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="logged" not-null="true"/>
+    <property access="field" name="actionType" not-null="true"/>
+    <property access="field" name="tableName"/>
+    <property access="field" name="columnName"/>
+    <property access="field" name="fromValue"/>
+    <property access="field" name="toValue"/>
+    <property access="field" name="recordId"/>
+    <property access="field" name="note"/>
+    <many-to-one access="field" column="sessionId" name="session" not-null="true"/>
+  </class>
+  <class name="usermodule.dto.SessionDTO" table="TDSSession">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="started" not-null="true"/>
+    <property access="field" name="ended"/>
+    <property access="field" name="endingType"/>
+    <property access="field" name="clientHostName"/>
+    <property access="field" name="clientHostIpAddress"/>
+    <property access="field" name="clientHostMacAddress"/>
+    <property access="field" name="tdsApplication"/>
+    <many-to-one access="field" column="userId" name="tdsUser" not-null="true"/>
+    <bag access="field" inverse="true" name="entryList">
+      <key column="sessionId" not-null="true"/>
+      <one-to-many class="usermodule.dto.SessionLogEntryDTO"/>
+    </bag>
+  </class>
+  <class name="usermodule.dto.UserDTO" table="TDSUser">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="loginName" not-null="true" unique="true"/>
+    <property access="field" name="password" not-null="true"/>
+    <property access="field" name="name" not-null="true"/>
+    <property access="field" name="userType"/>
+    <property access="field" name="sex" not-null="true"/>
+    <property access="field" name="tdsEmail" not-null="true"/>
+    <property access="field" name="workEmail" not-null="true"/>
+    <property access="field" name="workTel" not-null="true"/>
+    <property access="field" name="workFax"/>
+    <property access="field" name="placeOfFax"/>
+    <property access="field" name="skype"/>
+    <property access="field" name="msn"/>
+    <property access="field" name="addingDateTime" not-null="true"/>
+    <property access="field" name="active" not-null="true"/>
+    <property access="field" name="getsSystemEmails" not-null="true"/>
+    <property access="field" name="timeZoneGmt"/>
+    <bag access="field" inverse="true" name="sessionList">
+      <key column="userId" not-null="true"/>
+      <one-to-many class="usermodule.dto.SessionDTO"/>
+    </bag>
+    <!--bag name="roleAssignmentList" access="field" inverse="true">
+            <key column="userId" not-null="true"/>
+            <one-to-many class="usermodule.dto.RoleAssignmentDTO"/>
+        </bag-->
+    <!--joined-subclass name="usermodule.dto.HospitalStaffDTO" table="HospitalStaff">
+            <key column="userId"/>
+            <set name="languageList" access="field" table="HospitalStaffLanguages" cascade="all">
+                <key column="hospitalStaffId" />
+                <many-to-many column="languageId" class="masterdatamodule.dto.LanguageDTO" />
+            </set>
+            <property name="positionInHosp" access="field" not-null="true"/>
+            <property name="roleWithTDS" access="field" not-null="true"/>
+            <many-to-one name="hospital" column="hospitalId" access="field" not-null="true"/>
+        </joined-subclass-->
+    <!--joined-subclass name="usermodule.dto.TDSManagerDTO" table="TDSManager">
+            <key column="userId"/>
+        </joined-subclass-->
+    <!--set name="workplaceList" access="field">
+                <key column="tdsRadiologistId" not-null="true"/>
+                <one-to-many class="radiologistmodule.WorkPlace"/>
+            </set>
+            <set name="availabilityList" access="field">
+                <key column="tdsRadiologistId" not-null="true"/>
+                <one-to-many class="radiologistmodule.Availability"/>
+            </set>
+            <many-to-one name="companyAssignment" column="tdsRadiologistId" access="field" not-null="true"/>
+            
+            <set name="supervisedRadList" access="field" inverse="true">
+                <key column="supervisorTDSRadiologistId" not-null="true"/>
+                <one-to-many class="radiologistmodule.SuperVision"/>
+            </set>
+            <set name="supervisedByRadList" access="field" inverse="true">
+                <key column="supervisedTDSRadiologistId" not-null="true"/>
+                <one-to-many class="radiologistmodule.SuperVision"/>
+            </set-->
+    <!--/joined-subclass-->
+  </class>
+  <class name="usermodule.dto.TDSManagerDTO" table="TDSManager">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <many-to-one access="field" cascade="save-update" column="userId" name="userInfo" not-null="true" unique="true"/>
+    <bag access="field" cascade="save-update" inverse="true" name="roleAssignmentList">
+      <key column="tdsManagerId" not-null="true"/>
+      <one-to-many class="usermodule.dto.TDSManagerRoleAssignmentDTO"/>
+    </bag>
+  </class>
+  <class name="usermodule.dto.HospitalStaffDTO" table="HospitalStaff">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="positionInHosp" not-null="true"/>
+    <property access="field" name="roleWithTDS" not-null="true"/>
+    <many-to-one access="field" cascade="save-update" column="userId" name="userInfo" not-null="true" unique="true"/>
+    <many-to-one access="field" column="hospitalId" name="hospital" not-null="true"/>
+    <bag access="field" cascade="all" name="languageList" table="HospitalStaffLanguages">
+      <key column="hospitalStaffId"/>
+      <many-to-many class="masterdatamodule.dto.LanguageDTO" column="languageId"/>
+    </bag>
+    <bag access="field" cascade="save-update" inverse="true" name="roleAssignmentList">
+      <key column="hospitalStaffId" not-null="true"/>
+      <one-to-many class="usermodule.dto.HospitalStaffRoleAssignmentDTO"/>
+    </bag>
+  </class>
+</hibernate-mapping>

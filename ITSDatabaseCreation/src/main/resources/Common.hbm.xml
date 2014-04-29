@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="masterdatamodule.dto.TDSConstantDTO" table="TDSConstant">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true" unique="true"/>
+    <property access="field" name="constantValue" not-null="true"/>
+    <property access="field" name="description"/>
+  </class>
+  <class name="common.dto.TDSServiceDTO" table="TDSService">
+    <id access="field" name="id">
+      <generator class="native"/>
+    </id>
+    <property access="field" name="name" not-null="true" unique="true"/>
+    <property access="field" name="description"/>
+    <property access="field" name="tdsApplication"/>
+    <bag access="field" cascade="all" name="roleList" table="TDSServiceRoles">
+      <key column="tdsServiceId"/>
+      <many-to-many class="usermodule.dto.RoleDTO" column="roleId"/>
+    </bag>
+  </class>
+</hibernate-mapping>

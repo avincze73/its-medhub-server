@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="./../resources/css/layout_4.css" rel="stylesheet" type="text/css" />
+        <title>ITS Manager</title>
+        <style type="text/css">
+            .colStyle1 { 
+                width: 110px;padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle2 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px;
+            }
+            .colStyle3 { 
+                width: 110px; padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle4 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px; 
+            }
+            .colStyle5 { 
+                text-align:center; padding-left:23px; 
+            }
+        </style>
+    </h:head>
+
+    <h:body>
+        <div id="maincontainer">
+            <div id="topsection">
+                <div class="innertube4">
+                    <div class="window_header"><img src="./../resources/images/icon_l.png" width="22" height="18" align="texttop" />MedHub application</div>
+                    <div id="menubar">
+                        <h:form>
+                            <rich:toolbar height="26px" >
+                                <rich:dropDownMenu label="System" mode="server" >
+                                    <rich:menuItem label="Logout"  onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/j_spring_security_logout'" mode="client" ></rich:menuItem>
+                                    <!--rich:menuSeparator id="menuSeparator11" />
+                                    <rich:menuItem label="Exit"  /-->
+                                </rich:dropDownMenu>
+                                <rich:dropDownMenu label="Administration">
+                                    <rich:menuItem label="User list" action="tdsManagerList" mode="server"></rich:menuItem>
+                                </rich:dropDownMenu>
+                                <rich:dropDownMenu  label="Case Management">
+                                    <rich:menuItem label="Case list" action="caseList" mode="server"></rich:menuItem>
+                                </rich:dropDownMenu>
+                            </rich:toolbar>
+                        </h:form>
+                    </div>
+                    <div id="toolsbar">
+
+                        <rich:toolbar height="37px" itemSeparator="line" style="padding-left: 7px">
+                            <rich:toolbarGroup>
+                                <h:graphicImage value="./../resources/images/case16.png"
+                                                styleClass="pic" alt="create_doc"
+                                                onclick="document.location.href='/itsgs/index.xhtml'" />
+
+                                <h:commandButton id="cmdMasterData" styleClass="barsearchbutton"
+                                                 onclick="return false;" value="Search"
+                                                 image="./../resources/images/masterData16.png">
+                                    <rich:tooltip mode="ajax" followMouse="true" value="Ez a tooltip"></rich:tooltip>
+                                </h:commandButton>
+                            </rich:toolbarGroup>
+                            <rich:toolbarGroup location="center">
+                                <ui:insert name="navigationPath">ITS manager</ui:insert>
+                            </rich:toolbarGroup>
+                        </rich:toolbar>
+                    </div>
+                    <div id="content_title">
+                        <div id="TDS_left">#{managerBundle.title}</div>
+                        <div id="TDS_right">#{managerController.title2}</div>
+                        <div id="btn_contreiner">
+                            <div id="btn_1">&nbsp;</div>
+                            <div id="btn_2"><a href="#"></a></div>
+                            <div id="btn_3"><a href="#"></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="contentwrapper">
+                <div id="contentcolumn">
+                    <div class="innertube">
+                        <div class="data_components2">
+                            <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3">
+                                <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.loginName}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.sex}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.tdsEmail}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.workEmail}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.workTel}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.workFax}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.skype}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.msn}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.placeOfFax}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.timeZoneGmt}" styleClass="data_label"/>
+                                <h:inputText styleClass="input" />
+                                <h:outputLabel value="#{managerBundle.active}" styleClass="data_label"/>
+                                <h:selectBooleanCheckbox styleClass="checkbox" />
+                                <h:outputLabel value="#{managerBundle.getsSystemEmails}" styleClass="data_label"/>
+                                <h:selectBooleanCheckbox styleClass="checkbox" />
+                            </h:panelGrid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="leftcolumn">
+                <div class="innertube2">
+                    <a4j:outputPanel id="out">
+                        <h:panelGrid columns="1" >
+                            <h:outputLabel value="#{managerBundle.userInfo}" styleClass="data_title"/>
+                            <h:outputLabel value="#{managerController.selectedEntity.itsUser.name}" styleClass="data_data"/>
+                            <h:outputLabel value="#{managerController.selectedEntity.itsUser.loginName}" styleClass="data_data"/>
+                            <h:outputLabel value="#{managerController.selectedEntity.itsUser.itsEmail}" styleClass="data_data"/>
+                            <h:outputLabel styleClass="data_data"/>
+                        </h:panelGrid>
+                    </a4j:outputPanel>
+                </div>
+                <div><img src="images/h_splitter.png" width="150" height="15" /></div>
+                <div class="innertube3">
+                    <h:form>
+                        <a4j:outputPanel id="out2">
+                            <h:panelGrid columns="1" columnClasses="colStyle5">
+                                <a4j:commandButton style="#{managerController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" disabled="#{not managerController.modeHandler.editButtonEnabled}" value="#{managerBundle.edit}" action="#{managerController.edit}"  styleClass="button" render="out2"/>
+                                <a4j:commandButton type="submit"
+                                    disabled="#{not managerController.modeHandler.saveButtonEnabled}"  
+                                    value="#{managerBundle.save}" 
+                                    styleClass="button" render="out2"
+                                    onclick="#{rich:component('confirmation')}.show();return false" />
+                                <a4j:jsFunction name="submit" action="#{managerController.save}" render="out2" >
+                                    <a4j:param name="p" assignTo="#{managerController.saving}"/>
+                                </a4j:jsFunction>
+                                <a4j:commandButton disabled="#{not managerController.modeHandler.cancelButtonEnabled}"  value="#{managerBundle.cancel}" action="#{managerController.cancel}" styleClass="button" render="out2"/>
+                                <div>&nbsp;</div>
+                                <h:commandButton type="submit"  value="#{managerBundle.function1}" styleClass="button"/>
+
+                            </h:panelGrid>
+                        </a4j:outputPanel>
+                    </h:form>
+                </div>
+            </div>
+
+            <div id="footer">&nbsp;</div>
+
+        </div>
+        <rich:popupPanel id="confirmation" width="250" height="150">
+            <h:panelGrid>
+                <h:panelGrid columns="2">
+                    <h:graphicImage value="/alert.png" />
+                    <h:outputText value="Are you surekk?" style="FONT-SIZE: large;" />
+                </h:panelGrid>
+                <h:panelGroup>
+                    <input type="button" value="OK"
+                           onclick="#{rich:component('confirmation')}.hide();submit('true');return false" />
+                    <input type="button" value="Cancel"
+                           onclick="#{rich:component('confirmation')}.hide();submit('false');return false" />
+                </h:panelGroup>
+            </h:panelGrid>
+        </rich:popupPanel>
+        <ui:include src="/pages/confirmPopup.xhtml"/>
+    </h:body>
+
+</html>

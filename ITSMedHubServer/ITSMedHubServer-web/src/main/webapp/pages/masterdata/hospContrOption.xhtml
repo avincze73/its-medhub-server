@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml"
+                xmlns:itscomp="http://java.sun.com/jsf/composite/itscomp">
+
+    <ui:define name="extraHead">
+        <a4j:jsFunction name="selectEntity" action="#{hospContrOptionController.select}" render="apDetails" >
+            <a4j:param name="id" assignTo="#{hospContrOptionController.selectedId}" />
+        </a4j:jsFunction>
+        <ui:include src="/pages/masterdata/include/extraHead.xhtml" />
+
+        <script>
+            $(document).ready( function(){
+                $('#masterDataGrid').jqGrid({
+                    url:'#{facesContext.externalContext.requestContextPath}/pages/HospContrOptionListServlet',
+                    caption: '#{hospContrOptionBundle.gridTitle}',
+                    colNames:['#{hospContrOptionBundle.id}', '#{hospContrOptionBundle.colName}', '#{hospContrOptionBundle.colTypes}'],
+                    colModel :[ 
+                        {name:'id', index:'id', key: true, sortable: false},   
+                        {name:'name', index:'name'},
+                        {name:'types', index:'types', sortable: false}
+                    ]
+                });
+            }); 
+            
+        </script>
+
+    </ui:define>
+
+
+    <ui:define name="contentPanel">
+        <div class="content-wrapper" id="idContentWrapper">
+            <div id="leftPart" class="masterdata-left-part" >
+                <ui:include src="/pages/masterdata/include/navigator.xhtml" />
+            </div>
+            <div id="masterData" class="masterdata-center-part">
+                <h:form id="frmMasterData">
+                    <div class="ui-layout-south" id="south" style="z-index: 2000 !important;position: absolute;">
+                        <div class="its-header">
+                            <div style="margin-top: 6px;">
+                                Details
+                            </div>  
+                        </div>
+                        <div class="content" >
+
+                            <a4j:outputPanel id="apDetails" rendered="true" ajaxRendered="true">
+                                <div class="masterdata-details-left-part" >
+                                    <h:panelGrid columns="3" rendered="#{not hospContrOptionController.modeHandler.editButtonEnabled}" >
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.name}" />
+                                        <h:inputText id="itName" styleClass="input-required" 
+                                                     value="#{hospContrOptionController.selectedEntity.name}"  >
+                                        </h:inputText>
+                                        <rich:message for="itName"  />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.types}" />
+                                        <h:inputText id="itTypes" styleClass="input-required" 
+                                                     value="#{hospContrOptionController.selectedEntity.types}">
+                                        </h:inputText>
+                                        <rich:message for="itTypes"   />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.explanation}" />
+                                        <h:inputText styleClass="input" style="width:480px;" 
+                                                     value="#{hospContrOptionController.selectedEntity.explanation}"  >
+                                        </h:inputText>
+                                        <h:inputHidden/>
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.stringParameter}" />
+                                        <h:inputText styleClass="input" 
+                                                     value="#{hospContrOptionController.selectedEntity.stringParameter}"  >
+                                        </h:inputText>
+                                        <h:inputHidden/>
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.longParameter}" />
+                                        <h:inputText id="itLongParameter"  styleClass="input" validatorMessage="!" converterMessage="!"
+                                                     value="#{hospContrOptionController.selectedEntity.longParameter}"  >
+                                        </h:inputText>
+                                        <rich:message for="itLongParameter"   />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.doubleParameter}" />
+                                        <h:inputText id="itDoubleParameter"  styleClass="input" validatorMessage="!" converterMessage="!"
+                                                     value="#{hospContrOptionController.selectedEntity.doubleParameter}"  >
+                                        </h:inputText>
+                                        <rich:message for="itDoubleParameter"   />
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2" rendered="#{hospContrOptionController.modeHandler.editButtonEnabled}">
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.name}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{hospContrOptionController.selectedEntity.name}" />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.types}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{hospContrOptionController.selectedEntity.types}" />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.explanation}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{hospContrOptionController.selectedEntity.explanation}" style="width:480px;" />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.stringParameter}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{hospContrOptionController.selectedEntity.stringParameter}" />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.longParameter}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{hospContrOptionController.selectedEntity.longParameter}" />
+                                        <h:outputLabel styleClass="label" value="#{hospContrOptionBundle.doubleParameter}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{hospContrOptionController.selectedEntity.doubleParameter}" />
+                                    </h:panelGrid>
+                                </div>
+                                <div class="masterdata-details-right-part" >
+                                    <h:panelGrid columns="1" >
+                                        <a4j:commandButton 
+                                            style="#{hospContrOptionController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                            disabled="#{not hospContrOptionController.modeHandler.editButtonEnabled}" 
+                                            value="#{applicationBundle.editButton}" 
+                                            render="apDetails, apAdd"
+                                            action="#{hospContrOptionController.edit}"  
+                                            styleClass="button"
+                                            oncomplete="blockComponents();"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not hospContrOptionController.modeHandler.saveButtonEnabled}"  
+                                            value="#{applicationBundle.saveButton}" 
+                                            styleClass="button" 
+                                            render="apDetails, apAdd"
+                                            oncomplete="if( #{facesContext.maximumSeverity!='ERROR 2'}){unblockComponents();#{rich:component('saveDialog')}.show();}"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not hospContrOptionController.modeHandler.cancelButtonEnabled}"  
+                                            value="#{applicationBundle.cancelButton}" 
+                                            styleClass="button"
+                                            immediate="true"
+                                            render="apDetails, apAdd"
+                                            onclick="unblockComponents();#{rich:component('cancelDialog')}.show();return false;"
+                                            /> 
+                                    </h:panelGrid>
+                                </div>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContent" >
+                        <div class="masterdata-main-content">
+                            <div style="float: left; width: 95%; height: 98%;z-index: 2;">
+                                <table id="masterDataGrid" ></table> 
+                            </div>
+                            <div style="float:right;width: 4%; height: 98%;">
+                                <a4j:outputPanel id="apInsert" rendered="true" ajaxRendered="true">
+                                    <a4j:commandButton id="btnInsert"
+                                                       disabled="#{not hospContrOptionController.modeHandler.editButtonEnabled}" 
+                                                       action="#{hospContrOptionController.insert}" 
+                                                       styleClass="image-button" 
+                                                       render="apDetails, apAdd"
+                                                       style="float: right;"
+                                                       oncomplete="onInsertComplete()"
+                                                       image="/resources/images/new.png"/>
+                                </a4j:outputPanel>
+                            </div>
+                        </div>
+                        <div class="masterdata-main-content-blocked"></div>
+                    </div>
+                </h:form>
+                <itscomp:cancelDialog onCancelRevoke="blockComponents()" onCancelComplete="onCancelComplete()" cancelAction="#{hospContrOptionController.cancel}" />                
+                <itscomp:saveDialog onSaveRevoke="blockComponents()" onSaveComplete="onSaveComplete();"  saveAction="#{hospContrOptionController.save}" />                
+
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

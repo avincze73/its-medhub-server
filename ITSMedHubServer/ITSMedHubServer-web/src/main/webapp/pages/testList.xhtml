@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui" 
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                template="./../templates/mainTemplate.xhtml">
+
+    <ui:define name="extraStyle">
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/complex_1.css" />
+        <h:outputScript library="primefaces" name="core/core.js" target="head" />
+        <h:outputScript library="primefaces" name="jquery/jquery.js" />
+        <h:outputScript library="primefaces" name="jquery/ui/jquery-ui.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.blockUI.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/complex.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+
+        <script type="text/javascript">
+/*
+ * complex.html
+ *
+ * This is a demonstration page for the jQuery layout widget
+ *
+ *	NOTE: For best code readability, view this with a fixed-space font and tabs equal to 4-chars
+ */
+
+        var outerLayout, innerLayout;
+
+        /*
+        *#######################
+        *     ON PAGE LOAD
+        *#######################
+        */
+        $(document).ready( function() {
+                // create the OUTER LAYOUT
+                outerLayout = $('#mybgdiv').layout( layoutSettings_Outer );
+
+                /*******************************
+                 ***  CUSTOM LAYOUT BUTTONS  ***
+                 *******************************
+                 *
+                 * Add SPANs to the east/west panes for customer "close" and "pin" buttons
+                 *
+                 * COULD have hard-coded span, div, button, image, or any element to use as a 'button'...
+                 * ... but instead am adding SPANs via script - THEN attaching the layout-events to them
+                 *
+                 * CSS will size and position the spans, as well as set the background-images
+                 */
+
+                // BIND events to hard-coded buttons in the NORTH toolbar
+                /*outerLayout.addToggleBtn( '#tbarToggleNorth', 'north' );
+                outerLayout.addOpenBtn( '#tbarOpenSouth', 'south' );
+                outerLayout.addCloseBtn( '#tbarCloseSouth', 'south' );
+                outerLayout.addPinBtn( '#tbarPinWest', 'west' );
+                outerLayout.addPinBtn( '#tbarPinEast', 'east' );*/
+
+                // save selector strings to vars so we don't have to repeat it
+                // must prefix paneClass with 'body > ' to target ONLY the outerLayout panes
+                var southSelector = '#mysouth'; // outer-east pane
+                var northSelector = '#mynorth'; // outer-east pane
+
+                 // CREATE SPANs for pin-buttons - using a generic class as identifiers
+                $('<span></span>').addClass('pin-button').prependTo( southSelector );
+                $('<span></span>').addClass('pin-button').prependTo( northSelector );
+                // BIND events to pin-buttons to make them functional
+                outerLayout.addPinBtn( southSelector +' .pin-button', 'south');
+                outerLayout.addPinBtn( northSelector +' .pin-button', 'north');
+
+                 // CREATE SPANs for close-buttons - using unique IDs as identifiers
+                $('<span></span>').attr('id', 'south-closer').prependTo( southSelector );
+                $('<span></span>').attr('id', 'north-closer').prependTo( northSelector );
+                // BIND layout events to close-buttons to make them functional
+                outerLayout.addCloseBtn('#south-closer', 'south');
+                outerLayout.addCloseBtn('#north-closer', 'north');
+                                
+
+                // DEMO HELPER: prevent hyperlinks from reloading page when a 'base.href' is set
+                $('a').each(function () {
+                        var path = document.location.href;
+                        if (path.substr(path.length-1)=='#') path = path.substr(0,path.length-1);
+                        if (this.href.substr(this.href.length-1) == '#') this.href = path +'#';
+                });
+
+        });
+
+
+        /*
+        *#######################
+        * OUTER LAYOUT SETTINGS
+        *#######################
+        *
+        * This configuration illustrates how extensively the layout can be customized
+        * ALL SETTINGS ARE OPTIONAL - and there are more available than shown below
+        *
+        * These settings are set in 'sub-key format' - ALL data must be in a nested data-structures
+        * All default settings (applied to all panes) go inside the defaults:{} key
+        * Pane-specific settings go inside their keys: north:{}, south:{}, center:{}, etc
+        */
+        var layoutSettings_Outer = {
+                name: 'outerLayout' // NO FUNCTIONAL USE, but could be used by custom code to 'identify' a layout
+                // options.defaults apply to ALL PANES - but overridden by pane-specific settings
+        ,	defaults: {
+                        size:					'auto'
+                ,	minSize:				50
+                ,	paneClass:				'pane' 		// default = 'ui-layout-pane'
+                ,	resizerClass:			'resizer'	// default = 'ui-layout-resizer'
+                ,	togglerClass:			'toggler'	// default = 'ui-layout-toggler'
+                ,	buttonClass:			'button'	// default = 'ui-layout-button'
+                ,	contentSelector:		'.content'	// inner div to auto-size so only it scrolls, not the entire pane!
+                ,	contentIgnoreSelector:	'span'		// 'paneSelector' for content to 'ignore' when measuring room for content
+                ,	togglerLength_open:		35			// WIDTH of toggler on north/south edges - HEIGHT on east/west edges
+                ,	togglerLength_closed:	21			// '100%' OR -1 = full height
+                ,	hideTogglerOnSlide:		true		// hide the toggler when pane is 'slid open'
+                ,	togglerTip_open:		'Close This Pane'
+                ,	togglerTip_closed:		'Open This Pane'
+                ,	resizerTip:				'Resize This Pane'
+                //	effect defaults - overridden on some panes
+                ,	fxName:					'slide'		// none, slide, drop, scale
+                ,	fxSpeed_open:			750
+                ,	fxSpeed_close:			1500
+                ,	fxSettings_open:		{ easing: 'easeInQuint' }
+                ,	fxSettings_close:		{ easing: 'easeOutQuint' }
+        }
+        ,	north: {
+                        size:                           100
+                ,       spacing_open:			1			// cosmetic spacing
+                ,	spacing_closed:			26			// HIDE resizer toggler when 'closed'
+                ,	resizable: 				false
+                ,	slidable:				false
+                ,	togglerAlign_closed:	'right'		// align to top of resizer
+                ,	fxName:					'none'
+                //,	fxName:					'drop'
+                //,	fxSpeed:				'normal'
+                //,	fxSettings:				{ easing: '' } // nullify default easing
+                ,	onclose_end:			function () { 
+                    $('.resizer-north-closed').remove('mysearch');
+                    $('.resizer-north-closed').append('<div id="mysearch" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                }
+                }
+        ,	south: {
+                        size:                           150
+                ,       maxSize:				200
+                ,	spacing_closed:			26			// HIDE resizer toggler when 'closed'
+                ,	slidable:				false		// REFERENCE - cannot slide if spacing_closed = 0
+                ,	togglerAlign_closed:	'right'		// align to top of resizer
+                /*,	togglerContent_closed:  'Details'*/
+                ,       fxName:					'none'
+                //,	fxName:					'drop'
+                //,	fxSpeed:				'normal'
+                //,	fxSettings:				{ easing: '' } // nullify default easing
+                ,	onclose_end:			function () { 
+                    $('.resizer-south-closed').remove('mydetails');
+                    $('.resizer-south-closed').append('<div id="mydetails" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Details</div>');
+                }
+                }
+        ,	center: {
+                        paneSelector:			'#mainContent' 			// sample: use an ID to select pane instead of a class
+                ,	onresize:				'innerLayout.resizeAll'	// resize INNER LAYOUT when center pane resizes
+                ,	minWidth:				200
+                ,	minHeight:				200
+                }
+        };
+
+        </script>
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form id="fInfo">
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <div id="contentwrapper">
+            <div id="mybgdiv" class="bgdiv" style="padding: 20px !important; height: 495px;">
+                <div class="ui-layout-north" id="mynorth">
+                    <div class="header">Search</div>
+                    <div class="content">
+                    </div>
+                </div>
+                <div class="ui-layout-south" id="mysouth">
+                    <div class="header">Details</div>
+                    <div class="content">
+                    </div>
+                </div>
+                <div id="mainContent">
+                    <h:form id="form">
+                        <rich:extendedDataTable style="height:290px; width: 900px;" value="#{managerController.entityList}" var="manager"
+                                                iterationStatusVar="it" id="tblManager" 
+                                                selectionMode="single" selection="#{managerController.selection}"
+                                                rowClasses="odd-row, even-row" onrowdblclick="window.alert(row)" rowKeyVar="row" >
+                            <a4j:ajax execute="@form"
+                                      event="selectionchange"
+                                      listener="#{managerController.selectionListener}" render=":details" />
+                            
+                            <f:facet name="header"  >
+                                <a4j:commandButton value="hello"/>
+                                <h:outputText value="Search criteria..." style="font-weight: normal;"/>
+                                <h:outputText value="name = 'hello'"/>
+                                
+                            </f:facet>
+                            <f:facet name="footer">
+
+                            </f:facet>
+                            <rich:column width="50px">
+                                <f:facet name="header">
+                                </f:facet>
+                                <h:commandLink  action="#{managerController.select(manager)}">
+                                    <h:graphicImage value="/resources/images/listedit.gif" alt="edit"/>
+                                </h:commandLink>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Name" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.name}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Login name" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.loginName}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Added" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.addingDateTime}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="ITS Email" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.itsEmail}"/>
+                            </rich:column>
+                            <rich:column width="200px" >
+                                <f:facet name="header">
+                                    <h:outputText value="Work email" style="float: left;"/>
+                                </f:facet>
+                                <h:outputText value="#{manager.itsUser.workEmail}"/>
+                            </rich:column>
+                        </rich:extendedDataTable>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </ui:define>
+
+</ui:composition>

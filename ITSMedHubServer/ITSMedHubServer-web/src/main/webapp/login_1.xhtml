@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/cssStyle_1.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/login_2_1.css" rel="stylesheet" type="text/css" />
+        <title>ITS MedHub Application</title>
+    </h:head>
+
+    <h:body>
+        <div class="main-container">
+            <div class="top-section">
+                <div class="top-section-inner">Welcome to ITS MedHub application</div>
+            </div>
+            <div class="center-section">
+                <div class="center-section-inner">
+                    <div class="login-section" >
+                        <div class="component-contrainer">
+                            <c:if test="#{not empty param.login_error}">
+                                <div class="left-component" style="color: #C00">#{loginBundle.loginFailed}</div>
+                            </c:if>
+                        </div>
+                        <form action="j_spring_security_check" method="POST">
+                            <div class="component-contrainer">
+                                <div class="left-component">#{loginBundle.userName}</div>
+                                <div class="right-component">
+                                    <h:inputText id="j_username" required="true" styleClass="input"/>  
+                                </div>
+                            </div>
+                            <div class="component-contrainer">
+                                <div class="left-component">#{loginBundle.password}</div>
+                                <div class="right-component">
+                                    <h:inputSecret id="j_password" required="true" styleClass="input"/>
+                                </div>
+                            </div>
+                            <div class="component-contrainer">
+                                <div class="button-container">
+                                    <h:commandButton id="login" type="submit"  value="Login" styleClass="button"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom-section">
+                <div class="bottom-section-inner">All rights reserved</div>
+            </div>
+        </div>
+    </h:body>
+</html>

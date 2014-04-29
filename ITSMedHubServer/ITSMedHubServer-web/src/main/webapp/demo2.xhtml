@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich"
+      >  
+
+    <h:head>  
+    </h:head>  
+    <style>
+
+        .ui-layout-unit-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+
+        .ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd{
+            border: none;
+        }
+        /* Add the gripper */
+        .ui-layout-unit .yui-resize-handle-t .ui-layout-resize-knob
+        {
+            position: absolute;
+            height: 10px;
+            width: 942px;
+            top: -3px;
+            left: 5px;
+            background: transparent url(./resources/images/splitter_h.png) no-repeat;
+        }
+
+        .ui-layout-unit .yui-resize-handle-b .ui-layout-resize-knob{
+            position: absolute;
+            height: 10px;
+            width: 942px;
+            left: 5px;
+            top: 2px;
+            background: transparent url(./resources/images/splitter_h.png) no-repeat;
+        }
+
+        .ui-layout .yui-resize .yui-resize-handle {
+            background-color: transparent;
+            height: 15px;
+        }
+
+        .ui-layout .ui-layout-unit div.ui-layout-hd .collapse {
+            cursor: pointer;
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            font-size: 10px;
+        }
+
+        .ui-layout-hd {
+        }
+
+        .ui-icon-circle-triangle-n {
+            background-position: 0 -192px;
+            padding-right: 60px;
+        }
+
+        .collapse {
+            background-image: url(./resources/images/splitter_h.png) no-repeat;
+            background-color: green;
+        }
+
+        .ui-tabs{
+            border: 0px;
+
+        }
+        .ui-tabs-nav {
+            background-color: white !important;
+        }
+        .ui-tabs-panel {
+        }
+
+        .yui-skin-sam .yui-navset .yui-nav .selected a, 
+        .yui-skin-sam .yui-navset .yui-nav .selected a em { 
+            border-color:red; /* selected tab border color */ 
+        } 
+
+        .yui-skin-sam .yui-navset .yui-nav a, 
+        .yui-skin-sam .yui-navset .yui-navset-top .yui-nav a { 
+            background:#d8d8d8 url(./resources/images/splitter_h.png) repeat-x; /* tab background */ 
+            border:solid #a3a3a3; 
+            border-width:0 1px; 
+            color:#000; 
+            text-decoration:none; 
+        }
+
+
+        .yui-skin-sam .yui-navset .yui-nav .selected a, 
+        .yui-skin-sam .yui-navset .yui-nav .selected a:focus, /* no focus effect for selected */ 
+        .yui-skin-sam .yui-navset .yui-nav .selected a:hover { /* no hover effect for selected */ 
+            background:#2647a0 url(../../../../assets/skins/sam/sprite.png); /* selected tab background */ 
+            color:#fff; 
+        } 
+
+        .ui-widget, .ui-widget .ui-widget {
+            font-size: 90% !important;
+            font-weight: normal;
+        }
+
+        .ui-button {
+            height: 22px;
+            background-color: green;
+        }
+
+        .ui-button:hoover {
+
+        }
+        .ui-button-text {
+            padding-top: 2px !important;
+        }
+
+        .ui-button-text-only {
+            padding-top: 0px;
+        }
+
+        .ui-state-hover {
+            background-color: red ;
+        }
+
+    </style>
+
+    <h:body>  
+
+        <h:form>
+            <p:layout fullPage="true">  
+
+                <p:layoutUnit position="top"  header="Top" resizable="true" collapsible="true">  
+                    <h:outputText value="North unit content." />  
+                </p:layoutUnit>  
+
+                <p:layoutUnit position="bottom" header="Bottom" resizable="true" collapsible="true">  
+                    <h:outputText value="South unit content." />  
+                </p:layoutUnit>  
+
+
+                <p:layoutUnit position="center">  
+                    <p:tabView style="height: 200px;">
+
+                        <p:tab title="Godfather Part I">  
+                            <h:panelGrid columns="2" cellpadding="10">  
+                                <p:commandButton value="start"  ></p:commandButton>
+                                <p:inputText value="hello"/>
+                            </h:panelGrid>  
+                        </p:tab>  
+
+                        <p:tab title="Godfather Part II">  
+                           ad asdf 
+                        </p:tab>  
+
+                        <p:tab title="Godfather Part III">  
+                            <p:growl id="messages"/>  
+
+                            <p:menubar  >  
+                                <p:submenu label="File" icon="ui-icon ui-icon-document">  
+                                    <p:submenu label="New" icon="ui-icon ui-icon-contact">  
+                                        <p:menuitem value="Project" url="#"  />  
+                                        <p:menuitem value="Other" url="#" />  
+                                    </p:submenu>  
+                                    <p:menuitem value="Open" url="#" />  
+                                    <p:menuitem value="Quit" url="#" />  
+                                </p:submenu>  
+
+                                <p:submenu label="Edit" icon="ui-icon ui-icon-pencil">  
+                                    <p:menuitem value="Undo" url="#" icon="ui-icon ui-icon-arrowreturnthick-1-w" ></p:menuitem>  
+                                    <p:menuitem value="Redo" url="#" icon="ui-icon ui-icon-arrowreturnthick-1-e" ></p:menuitem>  
+                                </p:submenu>  
+
+                                <p:submenu label="Help" icon="ui-icon ui-icon-help">  
+                                    <p:menuitem value="Contents" url="#" />  
+                                    <p:submenu label="Search" icon="ui-icon ui-icon-search">  
+                                        <p:submenu label="Text">  
+                                            <p:menuitem value="Workspace" url="#" />  
+                                        </p:submenu>  
+                                        <p:menuitem value="File" url="#" />  
+                                    </p:submenu>  
+                                </p:submenu>  
+
+                                <p:submenu label="Actions" icon="ui-icon ui-icon-gear">  
+                                    <p:submenu label="Ajax" icon="ui-icon ui-icon-refresh">  
+                                        <p:menuitem value="Save" actionListener="#{buttonBean.save}" icon="ui-icon ui-icon-disk" update="messages"/>  
+                                        <p:menuitem value="Update" actionListener="#{buttonBean.update}" icon="ui-icon ui-icon-arrowrefresh-1-w" update="messages"/>  
+                                    </p:submenu>  
+                                    <p:submenu label="Non-Ajax" icon="ui-icon ui-icon-newwin">  
+                                        <p:menuitem value="Delete" actionListener="#{buttonBean.delete}" icon="ui-icon ui-icon-close" update="messages" ajax="false"/>  
+                                    </p:submenu>  
+                                </p:submenu>  
+
+                                <p:menuitem value="Quit" url="http://www.primefaces.org" icon="ui-icon ui-icon-close" />  
+                            </p:menubar> 
+                            <p:toolbar>  
+                                <p:toolbarGroup align="left">  
+                                    <p:commandButton type="push" value="New" image="ui-icon-document" />  
+
+                                    <p:commandButton type="push" value="Open" image="ui-icon-folder-open"/>  
+
+                                   
+
+                                    <p:commandButton type="push" title="Save" image="ui-icon-disk"/>  
+                                    <p:commandButton type="push" title="Delete" image="ui-icon-trash"/>  
+                                    <p:commandButton type="push" title="Print" image="ui-icon-print"/>  
+                                </p:toolbarGroup>  
+
+                               
+
+                                <p:toolbarGroup align="right">  
+                                    <p:menuButton value="Navigate">  
+                                        <p:menuitem value="Home" url="http://www.primefaces.org" />  
+                                        <p:menuitem value="ShowCase"  
+                                                    url="http://www.primefaces.org/showcase" />  
+                                        <p:menuitem value="TouchFaces"  
+                                                    url="http://www.primefaces.org/showcase/touch" />  
+                                    </p:menuButton>  
+                                </p:toolbarGroup>  
+
+                            </p:toolbar>  
+                        </p:tab>  
+                    </p:tabView>
+                </p:layoutUnit>  
+
+            </p:layout>  
+
+        </h:form>
+    </h:body>  
+</html> 

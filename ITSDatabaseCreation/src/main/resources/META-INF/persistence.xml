@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="ITSDatabaseCreationPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>casemodule.entity.AutoFunctionLogEntry</class>
+        <class>casemodule.entity.AutoFunctionType</class>
+        <class>casemodule.entity.DataProcLog</class>
+        <class>casemodule.entity.DataProcLogEntry</class>
+        <class>casemodule.entity.DicomImage</class>
+        <class>casemodule.entity.DicomPatientData</class>
+        <class>casemodule.entity.ElectronicPatientData</class>
+        <class>casemodule.entity.ElectronicReferral</class>
+        <class>casemodule.entity.FlagAssignment</class>
+        <class>casemodule.entity.HISReferral</class>
+        <class>casemodule.entity.HistoryCase</class>
+        <class>casemodule.entity.ImagePatientData</class>
+        <class>casemodule.entity.ImageReferral</class>
+        <class>casemodule.entity.ImageReport</class>
+        <class>casemodule.entity.RISReferral</class>
+        <class>casemodule.entity.ReferralInfo</class>
+        <class>casemodule.entity.ReportTemplate</class>
+        <class>casemodule.entity.ScannedPatientDataImage</class>
+        <class>casemodule.entity.ScannedReferralImage</class>
+        <class>casemodule.entity.ScannedReportImage</class>
+        <class>casemodule.entity.ScenarioInstance</class>
+        <class>casemodule.entity.ScenarioPolicy</class>
+        <class>casemodule.entity.Series</class>
+        <class>casemodule.entity.StudyLevelInvoiceElement</class>
+        <class>casemodule.entity.TDSCase</class>
+        <class>casemodule.entity.TDSStudy</class>
+        <class>hospitalmodule.entity.ContactPerson</class>
+        <class>hospitalmodule.entity.ContactPersonAssignment</class>
+        <class>hospitalmodule.entity.ContractType</class>
+        <class>hospitalmodule.entity.GoverningAuthority</class>
+        <class>hospitalmodule.entity.Hospital</class>
+        <class>hospitalmodule.entity.HospitalContract</class>
+        <class>hospitalmodule.entity.MonthlyInvoice</class>
+        <class>hospitalmodule.entity.OptionAssignment</class>
+        <class>integrationmodule.entity.CaseUploadAttribute</class>
+        <class>integrationmodule.entity.CaseUploadErrorLog</class>
+        <class>integrationmodule.entity.CaseUploadLog</class>
+        <class>integrationmodule.entity.IntegrationHandledStudy</class>
+        <class>integrationmodule.entity.PAXConnection</class>
+        <class>masterdatamodule.entity.BodyRegion</class>
+        <class>masterdatamodule.entity.CaseFlag</class>
+        <class>masterdatamodule.entity.CaseStatus</class>
+        <class>masterdatamodule.entity.Country</class>
+        <class>masterdatamodule.entity.Currency</class>
+        <class>masterdatamodule.entity.ITSConstant</class>
+        <class>masterdatamodule.entity.ITSLanguage</class>
+        <class>masterdatamodule.entity.HospContrOption</class>
+        <class>masterdatamodule.entity.Modality</class>
+        <class>masterdatamodule.entity.ModeOfAcquisition</class>
+        <class>masterdatamodule.entity.RegLicQual</class>
+        <class>masterdatamodule.entity.RegLicQualType</class>
+        <class>masterdatamodule.entity.Region</class>
+        <class>masterdatamodule.entity.Scenario</class>
+        <class>masterdatamodule.entity.SequenceCategory</class>
+        <class>masterdatamodule.entity.WayOfClosing</class>
+        <class>radiologistmodule.entity.AvailabilityPerPeriod</class>
+        <class>radiologistmodule.entity.AvailabilityPerWeek</class>
+        <class>radiologistmodule.entity.BandInfo</class>
+        <class>radiologistmodule.entity.BodyRegionWithBand</class>
+        <class>radiologistmodule.entity.CaseLevelInvoiceElement</class>
+        <class>radiologistmodule.entity.Comment</class>
+        <class>radiologistmodule.entity.Company</class>
+        <class>radiologistmodule.entity.CompanyAssignment</class>
+        <class>radiologistmodule.entity.Consultation</class>
+        <class>radiologistmodule.entity.ITSRadiologist</class>
+        <class>radiologistmodule.entity.RadAvailability</class>
+        <class>radiologistmodule.entity.RadCompetence</class>
+        <class>radiologistmodule.entity.RegLicQualOwnership</class>
+        <class>radiologistmodule.entity.SuperVision</class>
+        <class>radiologistmodule.entity.WorkBandTable</class>
+        <class>radiologistmodule.entity.WorkPlace</class>
+        <class>radiologistmodule.entity.WorkScrutiny</class>
+        <class>reportingmodule.entity.Reporting</class>
+        <class>systemmodule.entity.SystemMessage</class>
+        <class>systemmodule.entity.SystemMessageType</class>
+        <class>systemmodule.entity.TDSService</class>
+        <class>systemmodule.entity.TDSSystem</class>
+        <class>usermodule.entity.HospitalStaff</class>
+        <class>usermodule.entity.HospitalStaffRole</class>
+        <class>usermodule.entity.HospitalStaffRoleAssignment</class>
+        <class>usermodule.entity.ITSManager</class>
+        <class>usermodule.entity.ITSManagerRole</class>
+        <class>usermodule.entity.ITSManagerRoleAssignment</class>
+        <class>usermodule.entity.ITSRadiologistRole</class>
+        <class>usermodule.entity.ITSRadiologistRoleAssignment</class>
+        <class>usermodule.entity.ITSRole</class>
+        <class>usermodule.entity.ITSSession</class>
+        <class>usermodule.entity.ITSSessionLogEntry</class>
+        <class>usermodule.entity.ITSUser</class>
+        <class>usermodule.entity.InvalidLogin</class>
+        <shared-cache-mode>NONE</shared-cache-mode>
+        <properties>
+            <!--property name="javax.persistence.jdbc.url" value="jdbc:mysql://109.74.51.253:3306/itsmedhub"/-->
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/itsmedhub"/>
+            <property name="javax.persistence.jdbc.password" value="titkos"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="ITSDatabaseCreationGWSPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+        <class>integrationmodule.entity.CaseUploadAttribute</class>
+        <class>integrationmodule.entity.CaseUploadErrorLog</class>
+        <class>integrationmodule.entity.CaseUploadLog</class>
+        <class>integrationmodule.entity.IntegrationHandledStudy</class>
+        <class>integrationmodule.entity.PAXConnection</class>
+        <class>integrationmodule.entity.ElectronicPatientDataPackage</class>
+        <class>integrationmodule.entity.ElectronicReferralPackage</class>
+        <class>integrationmodule.entity.ITSCasePackage</class>
+        <class>integrationmodule.entity.LocalFile</class>
+        <class>integrationmodule.entity.DicomFile</class>
+        <class>integrationmodule.entity.ReferralFile</class>
+        <class>integrationmodule.entity.PatientDataFile</class>
+        <shared-cache-mode>NONE</shared-cache-mode>
+        <properties>
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/itsgws"/>
+            <property name="javax.persistence.jdbc.password" value="titkos"/>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="root"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+        </properties>
+    </persistence-unit>
+</persistence>

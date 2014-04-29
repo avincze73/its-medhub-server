@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../templates/mainTemplate.xhtml">
+
+    <ui:define name="extraHead">
+        <style>
+            .colStyle1 { 
+                width: 110px;padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle2 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px;
+            }
+            .colStyle3 { 
+                width: 110px; padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle4 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px; 
+            }
+            .colStyle5 { 
+                text-align:center; padding-left:23px; 
+            }
+
+            .rf-sel-inp {
+                width: 185px !important;
+                height: 22px;
+                padding-left: 4px !important;
+            }
+
+            .rf-sel-btn {
+                height: 22px;
+            }
+
+            .rf-sel-cntr {
+                -moz-border-radius: 3px !important;
+                -webkit-border-radius: 3px !important;
+                border-radius:3px !important; 
+            }
+            .rf-sel {
+                -moz-border-radius: 3px !important;
+                -webkit-border-radius: 3px !important;
+                border-radius:3px !important; 
+            }
+            
+            .rf-sel-sel {
+                border: none !important;
+                padding-left: 4px !important;
+            }
+            
+            /*.rf-sel-lst-scrl,*/ 
+            /*.rf-sel-lst-dcrtn,*/
+            .rf-sel-lst-cord {
+                padding-left: 4px !important;
+            }
+            
+            .rf-sel-opt {
+                padding: 4px !important;
+            }
+        </style>
+    </ui:define>
+    <ui:define name="infoPanel">
+        <h:form>
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><h:commandLink action="#{managerController.back}"/></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form>
+            <a4j:outputPanel id="managerEdit" ajaxRendered="true">
+                <div id="contentwrapper">
+                    <div id="contentcolumn">
+                        <div class="innertube">
+                            <div class="data_components2">
+                                <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3" rendered="#{not managerController.modeHandler.editButtonEnabled}">
+                                    <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.name}" />
+                                    <h:outputLabel value="#{managerBundle.loginName}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.loginName}"/>
+                                    <h:outputLabel value="#{managerBundle.sex}" styleClass="data_label"/>
+                                    <rich:select defaultLabel="Please select!" immediate="true" value="#{managerController.selectedEntity.itsUser.sex}">
+                                        <f:selectItem itemValue="male" itemLabel="male" />
+                                        <f:selectItem itemValue="female" itemLabel="female" />
+                                    </rich:select>
+                                    <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.addingDateTime}"/>
+                                    <h:outputLabel value="#{managerBundle.itsEmail}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.itsEmail}" immediate="true"/>
+                                    <h:outputLabel value="#{managerBundle.workEmail}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workEmail}"/>
+                                    <h:outputLabel value="#{managerBundle.workTel}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workTel}"/>
+                                    <h:outputLabel value="#{managerBundle.workFax}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workFax}"/>
+                                    <h:outputLabel value="#{managerBundle.skype}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.skype}" immediate="true" />
+                                    <h:outputLabel value="#{managerBundle.msn}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.msn}"/>
+                                    <h:outputLabel value="#{managerBundle.placeOfFax}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.placeOfFax}"/>
+                                    <h:outputLabel value="#{managerBundle.timeZoneGmt}" styleClass="data_label"/>
+                                    <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.timeZoneGmt}"/>
+                                    <h:outputLabel value="#{managerBundle.active}" styleClass="data_label"/>
+                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{managerController.selectedEntity.itsUser.active}" />
+                                    <h:outputLabel value="#{managerBundle.getsSystemEmails}" styleClass="data_label"/>
+                                    <h:selectBooleanCheckbox styleClass="checkbox"  value="#{managerController.selectedEntity.itsUser.getsSystemEmails}" />
+                                </h:panelGrid>
+                                <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3" rendered="#{managerController.modeHandler.editButtonEnabled}">
+                                    <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.name}" />
+                                    <h:outputLabel value="#{managerBundle.loginName}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.loginName}"/>
+                                    <h:outputLabel value="#{managerBundle.sex}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.sex}"/>
+                                    <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.addingDateTime}"/>
+                                    <h:outputLabel value="#{managerBundle.itsEmail}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.itsEmail}"/>
+                                    <h:outputLabel value="#{managerBundle.workEmail}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.workEmail}"/>
+                                    <h:outputLabel value="#{managerBundle.workTel}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.workTel}"/>
+                                    <h:outputLabel value="#{managerBundle.workFax}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.workFax}"/>
+                                    <h:outputLabel value="#{managerBundle.skype}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.skype}"/>
+                                    <h:outputLabel value="#{managerBundle.msn}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.msn}"/>
+                                    <h:outputLabel value="#{managerBundle.placeOfFax}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.placeOfFax}"/>
+                                    <h:outputLabel value="#{managerBundle.timeZoneGmt}" styleClass="data_label"/>
+                                    <h:outputLabel styleClass="data_label2" value="#{managerController.selectedEntity.itsUser.timeZoneGmt}"/>
+                                    <h:outputLabel value="#{managerBundle.active}" styleClass="data_label"/>
+                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{managerController.selectedEntity.itsUser.active}" disabled="true"/>
+                                    <h:outputLabel value="#{managerBundle.getsSystemEmails}" styleClass="data_label"/>
+                                    <h:selectBooleanCheckbox styleClass="checkbox" value="#{managerController.selectedEntity.itsUser.getsSystemEmails}" disabled="true"/>
+                                </h:panelGrid>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="leftcolumn">
+                    <div class="innertube2">
+                        <h:panelGrid columns="1" >
+                            <h:outputLabel value="#{managerBundle.userInfo}" styleClass="data_title"/>
+                            <h:outputLabel value="#{managerController.selectedEntity.itsUser.name}" styleClass="data_data"/>
+                            <h:outputLabel value="#{managerController.selectedEntity.itsUser.loginName}" styleClass="data_data"/>
+                            <h:outputLabel value="#{managerController.selectedEntity.itsUser.itsEmail}" styleClass="data_data"/>
+                            <h:outputLabel styleClass="data_data"/>
+                        </h:panelGrid>
+                    </div>
+                    <div><img src="./../resources/images/h_splitter.png" width="150" height="15" /></div>
+                    <div class="innertube3">
+
+                        <h:panelGrid columns="1" columnClasses="colStyle5">
+                            <a4j:commandButton style="#{managerController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                               disabled="#{not managerController.modeHandler.editButtonEnabled}" value="#{managerBundle.edit}" 
+                                               action="#{managerController.edit}"  styleClass="button" />
+                            <a4j:commandButton 
+                                disabled="#{not managerController.modeHandler.saveButtonEnabled}"  
+                                value="#{managerBundle.save}" 
+                                styleClass="button" render="out4"
+                                oncomplete="#{rich:component('confirmSavePopup')}.show();return false"  >
+                            </a4j:commandButton>
+                            <a4j:jsFunction name="submitSave" action="#{managerController.save}" >
+                            </a4j:jsFunction>
+                            <a4j:commandButton disabled="#{not managerController.modeHandler.cancelButtonEnabled}"  value="#{managerBundle.cancel}" 
+                                               styleClass="button" 
+                                               oncomplete="#{rich:component('confirmCancelPopup')}.show();return false" >
+
+                            </a4j:commandButton>
+                            <a4j:jsFunction name="submitCancel" action="#{managerController.cancel}" />
+                            <div>&nbsp;</div>
+                            <a4j:commandButton value="#{managerBundle.modifyPassword}" action="#{managerController.initPasswordModification}" 
+                                               styleClass="button" oncomplete="#{rich:component('modifyPassword')}.show()" >
+                            </a4j:commandButton>
+
+                        </h:panelGrid>
+
+                    </div>
+                </div>
+
+                <div id="footer">&nbsp;</div>
+
+            </a4j:outputPanel>
+        </h:form>
+        <ui:include src="/pages/confirmPopup.xhtml"/>
+        <ui:include src="/pages/user/modifyPassword.xhtml"/>
+    </ui:define>
+</ui:composition>

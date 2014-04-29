@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:form>  
+        <table id="tblNavigator" class="layout-grid" cellspacing="0" cellpadding="0">
+            <tr>
+                <td class="left-nav">
+                    <dl class="demos-nav">
+                        <dt>#{masterDataBundle.general}</dt>
+
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/currency_2.jsf" rel="external">#{masterDataBundle.currencies}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/country.jsf">#{masterDataBundle.countries}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/region.jsf">#{masterDataBundle.regions}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/language.jsf">#{masterDataBundle.languages}</a></dd>
+                        
+                        <dt>#{masterDataBundle.hospital}</dt>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/hospContrOption.jsf">#{masterDataBundle.options}</a></dd>
+
+                        <dt>#{masterDataBundle.radiologist}</dt>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/regLicQual.jsf">#{masterDataBundle.regLicQuals}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/regLicQualType.jsf">#{masterDataBundle.regLicQualTypes}</a></dd>
+                        
+                        <dt>#{masterDataBundle.case}</dt>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/modality.jsf">#{masterDataBundle.modalities}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/bodyRegion.jsf">#{masterDataBundle.bodyRegions}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/caseStatus.jsf">#{masterDataBundle.statuses}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/modeOfAcquisition.jsf">#{masterDataBundle.modeOfAcquisitions}</a></dd>
+
+                        <dt>#{masterDataBundle.its}</dt>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/scenario.jsf">#{masterDataBundle.scenarios}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/wayOfClosing.jsf">#{masterDataBundle.waysOfClosing}</a></dd>
+                        <dd><a href="#{facesContext.externalContext.requestContextPath}/pages/masterdata/itsConstant.jsf">#{masterDataBundle.itsConstants}</a></dd>
+                    </dl>
+                </td>
+            </tr>
+        </table>
+
+    </h:form>
+</ui:composition>
+
+

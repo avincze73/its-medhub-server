@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/layout_4.css" rel="stylesheet" type="text/css" />
+        <!--link href="./../resources/css/template.css" rel="stylesheet" type="text/css" /-->
+        <title>ITS MedHub Application</title>
+        <ui:insert name="extraStyle"></ui:insert>
+        <ui:insert name="extraHead"></ui:insert>
+
+    </h:head>
+    <style>
+        .rf-tb {
+            background-image:url('#{facesContext.externalContext.requestContextPath}/resources/images/toolbarKep.png');
+        }
+
+        .rf-ddm-lbl-dec {
+            font-weight: normal !important;
+        }
+
+        .barsearchbutton {
+            border-width: 1px;
+            background-color: #{ a4jSkin.generalBackgroundColor};
+        }
+    </style>
+    <h:body>
+        <div id="maincontainer">
+            <div id="topsection">
+                <div class="innertube4">
+                    <div class="window_header"><img src="#{facesContext.externalContext.requestContextPath}/resources/images/icon_l.png" width="22" height="18" align="texttop" />
+                        ITS MedHub Application
+                    </div>
+                    <div id="menubar">
+                        <!--a4j:status onstart="#{rich:component('statPane')}.show()"
+                                    onstop="#{rich:component('statPane')}.hide()" id="mainStatus"/-->
+                        <h:form>
+                            <rich:toolbar style="height: 26px; border-bottom-width: 0px;" >
+                                <rich:dropDownMenu label="System" mode="server"  >
+                                    <rich:menuItem label="Logout"  onclick="document.location.href='#{facesContext.externalContext.requestContextPath}/j_spring_security_logout'" 
+                                                   mode="client" ></rich:menuItem>
+                                </rich:dropDownMenu>
+                                <rich:dropDownMenu label="Administration">
+                                    <rich:menuItem label="Master data" action="#{menuController.masterData}" ></rich:menuItem>
+                                    <rich:menuItem label="User list" action="#{menuController.testList}" ></rich:menuItem>
+                                </rich:dropDownMenu>
+                                <!--rich:dropDownMenu  label="Case Management">
+                                    <rich:menuItem label="Case list" action="caseList" mode="server"></rich:menuItem>
+                                </rich:dropDownMenu-->
+                            </rich:toolbar>
+                        </h:form>
+                    </div>
+                    <div id="toolsbar">
+
+                        <h:form>
+                            <rich:toolbar itemSeparator="line" style="padding-left: 7px; height: 37px;">
+                                <rich:toolbarGroup >
+
+                                    <h:commandButton styleClass="barsearchbutton" action="#{menuController.testList}" 
+                                                     image="/resources/images/masterData16.png">
+                                    </h:commandButton>
+
+                                </rich:toolbarGroup>
+                                <rich:toolbarGroup location="center">
+                                    #{menuController.navigationPath}
+                                </rich:toolbarGroup>
+                            </rich:toolbar>
+                        </h:form>
+                    </div>
+                    <ui:insert name="infoPanel"></ui:insert>
+                </div>
+            </div>
+            <ui:insert name="content"></ui:insert>
+            <rich:popupPanel id="statPane" autosized="true">
+                <h:graphicImage value="#{facesContext.externalContext.requestContextPath}/resources/images/waiting2.gif" alt="waiting2" />
+                #{applicationBundle.pleaseWait}
+            </rich:popupPanel>
+        </div>
+    </h:body>
+
+</html>

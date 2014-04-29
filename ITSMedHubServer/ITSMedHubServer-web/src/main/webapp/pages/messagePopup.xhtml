@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/richFaces.css" />
+
+    <a4j:outputPanel id="apMessagePopup" ajaxRendered="true">
+        <rich:popupPanel id="messagePopup" modal="true" resizeable="false" width="300" height="120" show="#{facesContext.maximumSeverity=='ERROR 2' and managerController.errorOccured==true}" >
+            <f:facet name="header">
+                <h:outputText value="Error" />
+            </f:facet>
+            <div align="center">
+                <h:outputLabel value="#{facesContext.messageList[0].detail}" style="color: red"/>
+            </div>
+            <div style="margin-top: 30px;  " align="center" >
+                <a4j:commandButton  
+                    value="ok" 
+                    immediate="true"
+                    onclick="#{rich:component('messagePopup')}.hide();return false;" 
+                    render="apMessagePopup"
+                    styleClass="button" />
+            </div>
+        </rich:popupPanel>
+    </a4j:outputPanel>
+
+    <rich:popupPanel id="confirmPopup" modal="true" resizeable="false"
+                     onmaskclick="#{rich:component('confirmPopup')}.hide()" height="110">
+        <f:facet name="header">
+            <h:outputText id="cpHeader" value="Confirmation" />
+        </f:facet>
+        <h:panelGrid>
+            <h:inputHidden id="cpFunction" value="submit();" />
+            <h:outputText id="cpQuestion" value="Are you sure to save?" />
+            <h:panelGroup >
+                <a4j:commandButton value="Yes" oncomplete="#{rich:component('confirmPopup')}.hide();submit();return true;" />
+                <a4j:commandButton value="No" oncomplete="#{rich:component('confirmPopup')}.hide();return false;" />
+            </h:panelGroup>
+        </h:panelGrid>
+        <a4j:jsFunction name="submit" id="cpJsFunction"  >
+        </a4j:jsFunction>
+    </rich:popupPanel>
+</ui:composition>

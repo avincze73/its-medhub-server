@@ -1,0 +1,313 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:rich="http://richfaces.org/rich"
+                template="./../../templates/mainTemplate_2.xhtml"
+                xmlns:itscomp="http://java.sun.com/jsf/composite/itscomp">
+
+    <ui:define name="extraHead">
+        <h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/redmond/jquery-ui-1.8.16.custom.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/ui.jqgrid.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterDataNavigator.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="#{facesContext.externalContext.requestContextPath}/resources/css/masterData.css" />
+
+
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.jqGrid.min.js" ></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListViewWithSearch.js"></script>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.blockUI.js"/>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.easy-confirm-dialog.js"/>
+
+
+        <style>
+            .colStyle1 { 
+                width: 110px;padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle2 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 1px;
+            }
+            .colStyle2ro { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 23px;
+            }
+            .colStyle3 { 
+                width: 110px; padding-top: 3px;padding-bottom: 3px; padding-left: 20px;
+            }
+            .colStyle4 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 1px; 
+            }
+            .colStyle4ro { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 16px; 
+            }
+            .colStyle5 { 
+                text-align:center; padding-left:23px; 
+            }
+            .colValidaiton { 
+                width: 20px !important;
+            }
+
+
+        </style>
+
+        <script>
+            $(document).ready( function(){
+                initBlockUI();
+            });
+            
+            function initBlockUI(){
+                /*$.blockUI.defaults.overlayCSS.backgroundColor = '#EEF3FA';*/
+                $.blockUI.defaults.overlayCSS.backgroundColor = 'green';
+                $.blockUI.defaults.overlayCSS.opacity = 0.5;
+                $.blockUI.defaults.overlayCSS.cursor = 'default';
+                $.blockUI.defaults.css.cursor = 'default';
+                $.blockUI.defaults.message = null;
+                
+                /*$('#frmDetails\\:acbSave').easyconfirm();
+                $('#frmDetails\\:acbSave').click(function() {
+                    alert("You approved the action");
+                });
+                $('#frmDetails\\:acbEdit').easyconfirm();
+                $('#frmDetails\\:acbEdit').click(function() {
+                    alert("You approved the action");
+                });*/
+            }
+            
+            function getPasswordFromServer(){
+                var hasPass = hasPassword();
+                alert(hasPass);
+            }
+            
+            function blockComponents() {
+                
+                $('.content-container-blocked').css('z-index','1');
+                $('.main-bar-blocked').css('z-index','1');
+             
+             
+             
+                /*$('#menubarMain').block();
+                $('#toolbarMain').block();*/
+        
+                /*$('#itsContentContainer').block();*/
+                
+                /*$('#idUpperStripe').block();
+                $('#idContentTitleOuter').block();
+                $('#idLowerStripe').block();
+                $('#idRightStripe').block();
+                $('.details-view-left-part').block();*/
+                
+                
+                /* $('input').unblock();
+                 $('details-view-center-part').unblock();*/
+                /*
+                $('#idContentTitle').block();
+                $('#idCenter').block();
+                $('#frmDetails\\:acbEdit').block();
+                $('#frmDetails\\:acbModifyPassword').block();
+                $('#idContentWrapper').attr('class', 'details-view-content-wrapper-blocked');
+                $('#itsContentContainer').attr('class', 'content-container-blocked');*/
+                
+            }
+            
+            function unblockComponents() {
+                $('.content-container-blocked').css('z-index','-1');
+                $('.main-bar-blocked').css('z-index','-1');
+                
+                
+                
+                /*$('#itsContentContainer').unblock();
+                $('#menubarMain').unblock();
+                $('#toolbarMain').unblock();*/
+        
+        
+                /*
+                $('#idContentTitle').unblock();
+                $('#idCenter').unblock();
+                $('#frmDetails\\:acbEdit').unblock();
+                $('#frmDetails\\:acbModifyPassword').unblock();
+                $('#idContentWrapper').attr('class', 'details-view-content-wrapper');
+                $('#itsContentContainer').attr('class', 'content-container');*/
+            }
+        </script>
+        <a4j:jsFunction name="hasPassword" data="#{managerController.hasPassword()}"/>
+    </ui:define>
+
+    <ui:define name="contentPanel">
+
+        <div class="details-view-content-wrapper" id="idContentWrapper">
+            <!--div id="idUpperStripe" style="height: 20px; width: 1024px;"></div-->
+            <!--div id="idCenterStripe" style="overflow: auto;"-->
+            <h:form id="frmDetails">
+                <a4j:outputPanel id="apDetails" rendered="true" ajaxRendered="true">
+                    <div class="details-view-left-part">
+                        <!--div style="margin: 20px; margin-top: 0px;" -->
+                        <div class="details-view-info-part">
+                            <h:panelGrid columns="1" >
+                                <h:outputLabel value="#{managerBundle.userInfo}" styleClass="info-label1"/>
+                                <h:outputLabel value="#{managerController.selectedEntity.itsUser.name}" styleClass="info-label2"/>
+                                <h:outputLabel value="#{managerController.selectedEntity.itsUser.loginName}" styleClass="info-label2"/>
+                                <h:outputLabel value="#{managerController.selectedEntity.itsUser.itsEmail}" styleClass="info-label2"/>
+                            </h:panelGrid>
+                        </div>
+                        <div align="center" id="idCenter" ><img src="./../../resources/images/h_splitter.png" width="160" height="15" /></div>
+                        <div class="details-view-functions-part" align="center" style="z-index: 1005; position: relative;">
+                            <h:panelGrid columns="1" >
+                                <a4j:commandButton 
+                                    id="acbEdit"
+                                    style="#{managerController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                    disabled="#{not managerController.modeHandler.editButtonEnabled}" 
+                                    value="#{applicationBundle.editButton}" 
+                                    render="apDetails"
+                                    action="#{managerController.edit}"  
+                                    styleClass="button"
+                                    oncomplete="blockComponents();"
+                                    />
+                                <a4j:commandButton
+                                    id="acbSave"
+                                    disabled="#{not managerController.modeHandler.saveButtonEnabled}"  
+                                    value="#{applicationBundle.saveButton}" 
+                                    styleClass="button" 
+                                    render="apDetails"
+                                    oncomplete="if( #{facesContext.maximumSeverity!='ERROR 2'}){unblockComponents();#{rich:component('saveDialog')}.show();}else {$('.details-view-left-part').block();$('#idRightStripe').block();}"
+                                    />
+                                <a4j:commandButton
+                                    id="acbCancel"
+                                    disabled="#{not managerController.modeHandler.cancelButtonEnabled}"  
+                                    value="#{applicationBundle.cancelButton}" 
+                                    styleClass="button"
+                                    immediate="true"
+                                    render="apDetails"
+                                    onclick="unblockComponents();#{rich:component('cancelDialog')}.show();return false;"
+                                    /> 
+                                <a4j:commandButton 
+                                    id="acbModifyPassword"
+                                    rendered="#{managerController.selectedEntity.id!=null}"
+                                    disabled="#{not managerController.modeHandler.editButtonEnabled}"
+                                    value="#{managerBundle.modifyPassword}" 
+                                    action="#{managerController.initPasswordModification}" 
+                                    styleClass="button" 
+                                    oncomplete="#{rich:component('modifyPassword')}.show()" 
+                                    />
+                                <a4j:commandButton 
+                                    rendered="#{managerController.selectedEntity.id==null}"
+                                    disabled="#{not managerController.modeHandler.cancelButtonEnabled}"
+                                    value="#{managerBundle.createPassword}" 
+                                    action="#{managerController.initPasswordModification}"
+                                    immediate="true"
+                                    styleClass="button" 
+                                    oncomplete="#{rich:component('createPassword')}.show()" 
+                                    />
+                            </h:panelGrid>
+                        </div>
+                        <!--/div-->
+                    </div>
+
+                    <!--div style="height: 656px; width: 804px; float: left;" -->
+                    <div class="details-view-center-part" >
+                        <h:panelGrid columns="6" columnClasses="colStyle1,colStyle2,colValidation,colStyle3,colStyle4,colValidation" rendered="#{not managerController.modeHandler.editButtonEnabled}">
+                            <h:outputLabel value="#{managerBundle.name}" styleClass="label"/>
+                            <h:inputText id="itName" styleClass="input" value="#{managerController.selectedEntity.itsUser.name}" />
+                            <rich:message for="itName"/>
+                            <h:outputLabel value="#{managerBundle.loginName}" styleClass="label"/>
+                            <h:inputText id="itLoginName" styleClass="input" value="#{managerController.selectedEntity.itsUser.loginName}"/>
+                            <rich:message for="itLoginName"/>
+                            <h:outputLabel value="#{managerBundle.sex}" styleClass="label"/>
+                            <rich:select selectFirst="false" id="seSex" defaultLabel="Please select!" 
+                                         value="#{managerController.selectedEntity.itsUser.sex}">
+                                <f:selectItem itemValue="male" itemLabel="male" />
+                                <f:selectItem itemValue="female" itemLabel="female" />
+                            </rich:select >
+                            <rich:message for="seSex"/>
+                            <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.addingDateTime}"/>
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.itsEmail}" styleClass="label"/>
+                            <h:inputText id="itItsEmail"  styleClass="input" value="#{managerController.selectedEntity.itsUser.itsEmail}" />
+                            <rich:message for="itItsEmail"/>
+                            <h:outputLabel value="#{managerBundle.workEmail}" styleClass="label"/>
+                            <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workEmail}"/>
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.workTel}" styleClass="label"/>
+                            <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workTel}"/>
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.workFax}" styleClass="label"/>
+                            <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.workFax}"/>
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.skype}" styleClass="label"/>
+                            <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.skype}"  />
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.msn}" styleClass="label"/>
+                            <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.msn}"/>
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.placeOfFax}" styleClass="label"/>
+                            <h:inputText styleClass="input" value="#{managerController.selectedEntity.itsUser.placeOfFax}"/>
+                            <rich:message for="sbc"/>
+                            <h:outputLabel value="#{managerBundle.timeZoneGmt}" styleClass="label"/>
+                            <h:inputText id="itTimeZoneGmt" styleClass="input-required" validatorMessage="!"  
+                                         value="#{managerController.selectedEntity.itsUser.timeZoneGmt}" converterMessage="!"  >
+                            </h:inputText>
+                            <rich:message for="itTimeZoneGmt"/>
+                            <h:outputLabel value="#{managerBundle.active}" styleClass="label"/>
+                            <h:selectBooleanCheckbox styleClass="checkbox" value="#{managerController.selectedEntity.itsUser.active}" />
+                            <h:outputLabel value="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"/>
+
+                            <h:outputLabel value="#{managerBundle.getsSystemEmails}" styleClass="label"/>
+                            <h:selectBooleanCheckbox id="sbc" styleClass="checkbox"  value="#{managerController.selectedEntity.itsUser.getsSystemEmails}" />
+                            <rich:message for="sbc"/>
+                        </h:panelGrid>
+                        <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2ro,colStyle3,colStyle4ro" rendered="#{managerController.modeHandler.editButtonEnabled}">
+                            <h:outputLabel value="#{managerBundle.name}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.name}" />
+                            <h:outputLabel value="#{managerBundle.loginName}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.loginName}"/>
+                            <h:outputLabel value="#{managerBundle.sex}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.sex}"/>
+                            <h:outputLabel value="#{managerBundle.addingDateTime}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.addingDateTime}"/>
+                            <h:outputLabel value="#{managerBundle.itsEmail}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.itsEmail}"/>
+                            <h:outputLabel value="#{managerBundle.workEmail}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.workEmail}"/>
+                            <h:outputLabel value="#{managerBundle.workTel}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.workTel}"/>
+                            <h:outputLabel value="#{managerBundle.workFax}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.workFax}"/>
+                            <h:outputLabel value="#{managerBundle.skype}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.skype}"/>
+                            <h:outputLabel value="#{managerBundle.msn}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.msn}"/>
+                            <h:outputLabel value="#{managerBundle.placeOfFax}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.placeOfFax}"/>
+                            <h:outputLabel value="#{managerBundle.timeZoneGmt}" styleClass="label"/>
+                            <h:outputLabel styleClass="read-only-input" value="#{managerController.selectedEntity.itsUser.timeZoneGmt}"/>
+                            <h:outputLabel value="#{managerBundle.active}" styleClass="label"/>
+                            <h:selectBooleanCheckbox styleClass="checkbox" value="#{managerController.selectedEntity.itsUser.active}" disabled="true"/>
+                            <h:outputLabel value="#{managerBundle.getsSystemEmails}" styleClass="label"/>
+                            <h:selectBooleanCheckbox styleClass="checkbox" value="#{managerController.selectedEntity.itsUser.getsSystemEmails}" disabled="true"/>
+                        </h:panelGrid>
+                    </div>
+                    <!--div id="idRightStripe" style="float: left; width: 20px; height: 616px;"></div-->
+                    <!--/div-->
+                </a4j:outputPanel>  
+
+            </h:form>
+            <!--/div-->
+            <!--div id="idLowerStripe" style="height: 20px; width: 1024px;">
+            </div-->
+            <itscomp:cancelDialog onCancelRevoke="blockComponents()"  onCancelComplete="unblockComponents()" cancelAction="#{managerController.cancel}" />                
+            <itscomp:saveDialog onSaveRevoke="blockComponents()"  onSaveComplete="unblockComponents();"  saveAction="#{managerController.save}" />                
+
+
+        </div>
+        <ui:include src="/pages/user/modifyPassword.xhtml"/>
+        <ui:include src="/pages/user/createPassword.xhtml"/>
+        <ui:include src="/pages/messagePopup.xhtml"/>
+
+    </ui:define>
+
+</ui:composition>

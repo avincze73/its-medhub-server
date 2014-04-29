@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <h:form>
+        <div class="content-title" id="idContentTitle">
+            <div class="content-title-left">#{masterDataController.title1}</div>
+            <div class="content-title-right">#{masterDataController.title2}</div>
+            <div id="navigationbar" class="button-container">
+                <div class="btn-1">&nbsp;</div>
+                <div class="btn-2">
+                    <h:commandButton styleClass="barsearchbutton" action="#{menuController.back}" 
+                                     image="/resources/images/back24g.png"/>
+                </div>
+                <div class="btn-3"><a href="#"></a></div>
+            </div>
+        </div>
+    </h:form>
+
+
+
+</ui:composition>
+

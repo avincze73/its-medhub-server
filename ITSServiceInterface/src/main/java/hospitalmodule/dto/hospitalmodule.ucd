@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editmodel:ClassDiagramEditModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:editmodel="editmodel.xmi" xmlns:options="options.xmi" name="hospitalmodule" id="{UMLID=_QQGpE9dpEd-Kl-oKFn9Egg,JavaID=hospitalmodule.dto}" metadata="uml2-1.0" initialized="true" scrolledX="453" scrolledY="415" tag="100" key="32303037303632392054445353657276696365496E74657266616365">
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.1" name="GoverningAuthorityDTO" location="13,13" size="347,57" timstampe="7" stereotype="" id="{UMLID=_KXxToOD0Ed-3aecDKgFO1w,JavaID=masterdatamodule.dto/GoverningAuthorityDTO}" runTimeClassModel="getName(),GoverningAuthorityDTO(),setName(Ljava.lang.String;),name,equals(Ljava.lang.Object;),GoverningAuthorityDTO(Ljava.lang.String;),GoverningAuthorityDTO(ILjava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="55,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_ch5hwOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="155,108"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.3" name="OptionAssignmentDTO" location="1819,293" size="184,139" timstampe="7" stereotype="" id="{UMLID=_PsvA1ddqEd-Kl-oKFn9Egg,JavaID=hospitalmodule.dto/OptionAssignmentDTO}" runTimeClassModel="inactivation,setValidStart(Ljava.util.Date;),OptionAssignmentDTO(I),hospitalContract,getHospitalContract(),getValidEnd(),OptionAssignmentDTO(),setHospitalContract(Lhospitalmodule.dto.HospitalContractDTO;),setValidEnd(Ljava.util.Date;),setOption(Lmasterdatamodule.dto.HospContrOptionDTO;),validEnd,getOption(),equals(Ljava.lang.Object;),validStart,setInactivation(Ljava.util.Date;),option,getValidStart(),getInactivation()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="113,100">
+      <children xsi:type="editmodel:AttributeEditModel" name="validStart" size="74,16" id="{UMLID=_Z4iS0OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="validEnd" size="69,16" id="{UMLID=_Z4eBYOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="inactivation" size="83,16" id="{UMLID=_Z4czQOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="option" size="64,21" id="{UMLID=_Z4kIAOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalContract" size="113,21" id="{UMLID=_Z4gdoOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="149,254"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_Z7KwEOD0Ed-3aecDKgFO1w}" source="//@children.1" target="//@children.17" targetEnd="//@children.1/@sourceConnections.0/@children.2" label="//@children.1/@sourceConnections.0/@children.0" sourceEnd="//@children.1/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="91,0" id="{UMLID=_Z7KwEeD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.1/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1917,272" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="option" location="160,93" id="{UMLID=_Z4kIAOD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.1/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.1/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1897,156" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- option" location="1917,156" size="36,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.2 //@children.14/@sourceConnections.4" name="AvailabilityPerWeekDTO" location="756,41" size="198,165" timstampe="9" stereotype="" id="{UMLID=_Psl25tdqEd-Kl-oKFn9Egg,JavaID=hospitalmodule.dto/AvailabilityPerWeekDTO}" runTimeClassModel="monday,getTuesday(),AvailabilityPerWeekDTO(IDDDDDDD),setTuesday(D),getThursday(),getWednesday(),equals(Ljava.lang.Object;),saturday,getMonday(),getSaturday(),tuesday,friday,setFriday(D),thursday,AvailabilityPerWeekDTO(DDDDDDD),getFriday(),setMonday(D),wednesday,setSunday(D),AvailabilityPerWeekDTO(),sunday,setSaturday(D),getSunday(),AvailabilityPerWeekDTO(I),setWednesday(D),setThursday(D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="87,126">
+      <children xsi:type="editmodel:AttributeEditModel" name="sunday" size="65,16" id="{UMLID=_JdtfIOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="monday" size="67,16" id="{UMLID=_JdljUOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tuesday" size="68,16" id="{UMLID=_JeGgsOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="wednesday" size="87,16" id="{UMLID=_Jc1VYOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="thursday" size="72,16" id="{UMLID=_JdbyUOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="friday" size="57,16" id="{UMLID=_Jd8vsOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="saturday" size="72,16" id="{UMLID=_Jd1a8OD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="154,342"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="MonthlyInvoiceDTO" location="854,980" size="196,211" timstampe="3" stereotype="" id="{UMLID=_nSeS8OXXEd-y2LTtqEtU1w,JavaID=hospitalmodule.dto/MonthlyInvoiceDTO}" runTimeClassModel="caseLevelInvoiceElementList,setStatement(Ljava.lang.String;),setCalculation(Ljava.util.Date;),hospitalContract,getHospitalContract(),ended,setPaid(Ljava.util.Date;),MonthlyInvoiceDTO(I),calculation,paid,MonthlyInvoiceDTO(),getInvoiceClosingSum(),equals(Ljava.lang.Object;),getCalculation(),setCaseLevelInvoiceElementList(LCollection;),getSentToHospital(),sentToHospital,getStatement(),setHospitalContract(Lhospitalmodule.dto.HospitalContractDTO;),setEnded(Ljava.util.Date;),getPaid(),setInvoiceClosingSum(I),statement,setStarted(Ljava.util.Date;),MonthlyInvoiceDTO(Ljava.util.Date;Ljava.util.Date;),getCaseLevelInvoiceElementList(),getEnded(),getStarted(),started,invoiceClosingSum,setSentToHospital(Ljava.util.Date;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="173,172">
+      <children xsi:type="editmodel:AttributeEditModel" name="started" size="63,16" id="{UMLID=_nbnA0OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="ended" size="59,16" id="{UMLID=_nblLoOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="calculation" size="80,16" id="{UMLID=_nbZlceXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sentToHospital" size="99,16" id="{UMLID=_nbjWcOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="paid" size="49,16" id="{UMLID=_nbgTIOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="invoiceClosingSum" size="119,16" id="{UMLID=_nboO8OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="statement" size="76,16" id="{UMLID=_nayhcOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseLevelInvoiceElementList" size="173,21" id="{UMLID=_nbcBsOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalContract" size="113,21" id="{UMLID=_nbiIUOXXEd-y2LTtqEtU1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="200,416"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_qzBokOXXEd-y2LTtqEtU1w}" source="//@children.3" target="//@children.13" targetEnd="//@children.3/@sourceConnections.0/@children.2" label="//@children.3/@sourceConnections.0/@children.0" sourceEnd="//@children.3/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="monthlyInvoice" location="0,201" id="{UMLID=_qu5WgOXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.3/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="841,1188" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- monthlyInvoice" location="769,1160" size="78,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="caseLevelInvoiceElementList" location="223,0" id="{UMLID=_nbcBsOXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.3/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.3/@sourceConnections.0/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="734,1281" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- caseLevelInvoiceElementList" location="575,1281" size="145,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_oKA-8OXXEd-y2LTtqEtU1w}" source="//@children.3" target="//@children.14" targetEnd="//@children.3/@sourceConnections.1/@children.2" label="//@children.3/@sourceConnections.1/@children.0" sourceEnd="//@children.3/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="invoiceList" location="186,0" id="{UMLID=_oCrA0OXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.3/@sourceConnections.1/@children.1/@children.0" roleLabel="//@children.3/@sourceConnections.1/@children.1/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1047,959" size="16,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- invoiceList" location="975,959" size="58,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalContract" location="0,542" id="{UMLID=_nbiIUOXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.3/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.3/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1116,871" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalContract" location="1037,843" size="85,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.1" name="ModalityDTO" location="1638,1246" size="278,57" timstampe="7" stereotype="" id="{UMLID=_P_MCwddqEd-Kl-oKFn9Egg,JavaID=masterdatamodule.dto/ModalityDTO}" runTimeClassModel="ModalityDTO(Ljava.lang.String;),getName(),setName(Ljava.lang.String;),name,equals(Ljava.lang.Object;),ModalityDTO(ILjava.lang.String;),ModalityDTO()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="55,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_ZXA6IOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="100,108"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_qoE80OXXEd-y2LTtqEtU1w}" source="//@children.4" target="//@children.9" targetEnd="//@children.4/@sourceConnections.0/@children.2" label="//@children.4/@sourceConnections.0/@children.0" sourceEnd="//@children.4/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="modality" location="10,57" id="{UMLID=_qklj8OXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.4/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.4/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1635,1310" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- modality" location="1655,1310" size="46,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="238,10" id="{UMLID=_qoE80eXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.4/@sourceConnections.0/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1463,1346" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.15/@sourceConnections.0 //@children.15/@sourceConnections.1 //@children.11/@sourceConnections.2" name="HospitalStaffDTO" location="251,596" size="260,167" timstampe="20" stereotype="" id="{UMLID=_QQZkBtdpEd-Kl-oKFn9Egg,JavaID=usermodule.dto/HospitalStaffDTO}" runTimeClassModel="obsLanguageList,getUserInfo(),getLanguageList(),setObsLanguageList(Lmasterdatamodule.dto.LanguageDTO;),HospitalStaffDTO(),languageList,equals(Ljava.lang.Object;),userInfo,setHospital(Lhospitalmodule.dto.HospitalDTO;),Validate(Ljava.util.ResourceBundle;),getObsLanguageList(),getPositionInHosp(),getHospital(),setUserInfo(Lusermodule.dto.UserDTO;),setLanguageList(LCollection;),HospitalStaffDTO(I),HospitalStaffDTO(LCollection;Lhospitalmodule.dto.HospitalDTO;Ljava.lang.String;Ljava.lang.String;),HospitalStaffDTO(ILCollection;Lhospitalmodule.dto.HospitalDTO;Ljava.lang.String;Ljava.lang.String;),setPositionInHosp(Ljava.lang.String;),getRoleWithTDS(),update(Lusermodule.dto.HospitalStaffDTO;),positionInHosp,roleWithTDS,hospital,setRoleWithTDS(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="118,128">
+      <children xsi:type="editmodel:AttributeEditModel" name="hospital" size="72,21" id="{UMLID=_P51BotdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="positionInHosp" size="99,16" id="{UMLID=_P5rQp9dqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="roleWithTDS" size="88,16" id="{UMLID=_P5rQpddqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="userInfo" size="75,21" id="{UMLID=_P5rQqddqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="languageList" size="96,21" id="{UMLID=_P5rQoNdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="obsLanguageList" size="118,21" id="{UMLID=_clPwsOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="146,382"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.1" name="ContractTypeDTO" location="1708,490" size="307,75" timstampe="7" stereotype="" id="{UMLID=_Psl24tdqEd-Kl-oKFn9Egg,JavaID=masterdatamodule.dto/ContractTypeDTO}" runTimeClassModel="setEnglishName(Ljava.lang.String;),englishName,ContractTypeDTO(ILjava.lang.String;Ljava.lang.String;),equals(Ljava.lang.Object;),getEnglishName(),ContractTypeDTO(),hungarianName,getHungarianName(),ContractTypeDTO(Ljava.lang.String;Ljava.lang.String;),setHungarianName(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,36">
+      <children xsi:type="editmodel:AttributeEditModel" name="englishName" size="90,16" id="{UMLID=_ZxOJ4OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hungarianName" size="104,16" id="{UMLID=_ZxPYAOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="131,144"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="ContactPersonDTO" location="2099,630" size="161,201" timstampe="4" stereotype="" id="{UMLID=_nzsJoOXXEd-y2LTtqEtU1w,JavaID=hospitalmodule.dto/ContactPersonDTO}" runTimeClassModel="getEmail(),ContactPersonDTO(I),department,tel,setSkype(Ljava.lang.String;),getFax(),ContactPersonDTO(),setDepartment(Ljava.lang.String;),getName(),setCorrespAddress(Ljava.lang.String;),setFax(Ljava.lang.String;),getTel(),setPlaceOfFax(Ljava.lang.String;),name,setTel(Ljava.lang.String;),equals(Ljava.lang.Object;),positionInDept,getPlaceOfFax(),getPositionInDept(),fax,setName(Ljava.lang.String;),getDepartment(),setEmail(Ljava.lang.String;),correspAddress,getCorrespAddress(),ContactPersonDTO(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;),getSkype(),placeOfFax,email,setPositionInDept(Ljava.lang.String;),skype">
+    <children xsi:type="editmodel:CompartmentEditModel" size="109,162">
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_n0bJcOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="department" size="83,16" id="{UMLID=_n0YtMOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="positionInDept" size="96,16" id="{UMLID=_n0eMwOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="tel" size="40,16" id="{UMLID=_n0Z7UOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fax" size="45,16" id="{UMLID=_n0UbwOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="placeOfFax" size="85,16" id="{UMLID=_n0Vp4OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="email" size="53,16" id="{UMLID=_n0W4AOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="skype" size="58,16" id="{UMLID=_n0fa4OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="correspAddress" size="109,16" id="{UMLID=_n0c-oOXXEd-y2LTtqEtU1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="136,396"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_ppSZUOXXEd-y2LTtqEtU1w}" source="//@children.7" target="//@children.12" targetEnd="//@children.7/@sourceConnections.0/@children.2" label="//@children.7/@sourceConnections.0/@children.0" sourceEnd="//@children.7/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="contactPerson" location="0,87" id="{UMLID=_pmJlwOXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.7/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.7/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="2086,724" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- contactPerson" location="2015,696" size="77,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="234,87" id="{UMLID=_ppSZUeXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.7/@sourceConnections.0/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1948,696" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" name="WorkBandTableDTO" location="2014,896" size="183,270" timstampe="11" stereotype="" id="{UMLID=_J2vDIOD0Ed-3aecDKgFO1w,JavaID=hospitalmodule.dto/WorkBandTableDTO}" runTimeClassModel="bandPricesForExcessWork,priceMultiplierTable,bandWorkTimeMinutes,WorkBandTableDTO(I),setBandPricesForNormalWork([D),getPriceBorderTableArray(),setModalityList(LCollection;),priceBorderTable,setPriceMultiplierTableArray([B),getMinBorderTableArray(),priceBandTable,setBodyRegionList(LCollection;),getMinMultiplierTableArray(),setMinBandTable([[D),getBandPricesForNormalWorkArray(),setBandPricesForExcessWorkArray([B),getMinBandTableArray(),getPriceMultiplierTableArray(),getBandWorkTimeMinutesArray(),setMinMultiplierTableArray([B),setMinBandTableArray([B),getPriceBandTableArray(),modalityList,getPriceBandTable(),hospitalContract,getHospitalContract(),minMultiplierTable,setMinBorderTable([[D),setBandWorkTimeMinutes([D),setPriceBandTable([[D),getPriceBorderTable(),getMinBorderTable(),setBandPricesForNormalWorkArray([B),bandPricesForNormalWork,getBandPricesForExcessWork(),equals(Ljava.lang.Object;),getModalityList(),minBandTable,setPriceMultiplierTable([[D),setPriceBorderTable([[D),getBandPricesForExcessWorkArray(),setBandPricesForExcessWork([D),getBandPricesForNormalWork(),bodyRegionList,getBandWorkTimeMinutes(),setMinMultiplierTable([[D),WorkBandTableDTO(),getPriceMultiplierTable(),setPriceBorderTableArray([B),setPriceBandTableArray([B),setHospitalContract(Lhospitalmodule.dto.HospitalContractDTO;),setMinBorderTableArray([B),getMinBandTable(),getMinMultiplierTable(),setBandWorkTimeMinutesArray([B),minBorderTable,getBodyRegionList()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="160,231">
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalContract" size="113,21" id="{UMLID=_KpYBAOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modalityList" size="91,21" id="{UMLID=_KpVkwOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bodyRegionList" size="109,21" id="{UMLID=_KpA0oOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bandWorkTimeMinutes" size="137,16" id="{UMLID=_3AVaEOQCEd-b4tcg4fNgNg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bandPricesForNormalWork" size="157,16" id="{UMLID=_3AE7YOQCEd-b4tcg4fNgNg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bandPricesForExcessWork" size="160,16" id="{UMLID=_KpEfAOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="priceBandTable" size="103,16" id="{UMLID=_3BVfoOQCEd-b4tcg4fNgNg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="priceBorderTable" size="111,16" id="{UMLID=_3BCksOQCEd-b4tcg4fNgNg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="priceMultiplierTable" size="119,16" id="{UMLID=_KpNo8OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="minBandTable" size="95,16" id="{UMLID=_3BMVsOQCEd-b4tcg4fNgNg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="minBorderTable" size="103,16" id="{UMLID=_3BROMOQCEd-b4tcg4fNgNg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="minMultiplierTable" size="111,16" id="{UMLID=_3BIEQOQCEd-b4tcg4fNgNg}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="215,840"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_K0JtoOD0Ed-3aecDKgFO1w}" source="//@children.8" target="//@children.18" targetEnd="//@children.8/@sourceConnections.0/@children.2" label="//@children.8/@sourceConnections.0/@children.0" sourceEnd="//@children.8/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,167" id="{UMLID=_K0JtoeD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="2001,1042" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="bodyRegionList" location="301,55" id="{UMLID=_KpA0oOD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.8/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.8/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1903,1070" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- bodyRegionList" location="1903,1042" size="81,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_K0JGkOD0Ed-3aecDKgFO1w}" source="//@children.8" target="//@children.4" targetEnd="//@children.8/@sourceConnections.1/@children.2" label="//@children.8/@sourceConnections.1/@children.0" sourceEnd="//@children.8/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,260" id="{UMLID=_K0JGkeD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.1/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="2001,1135" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="modalityList" location="268,0" id="{UMLID=_KpVkwOD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.8/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.8/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1913,1225" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- modalityList" location="1836,1225" size="63,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_3L5w4OQCEd-b4tcg4fNgNg}" source="//@children.8" target="//@children.14" targetEnd="//@children.8/@sourceConnections.2/@children.2" label="//@children.8/@sourceConnections.2/@children.0" sourceEnd="//@children.8/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="workBandTable" location="0,10" id="{UMLID=_J2r_0OD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.8/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.8/@sourceConnections.2/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="2001,885" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- workBandTable" location="1925,913" size="82,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalContract" location="215,552" id="{UMLID=_KpYBAOD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.8/@sourceConnections.2/@children.2/@children.0" roleLabel="//@children.8/@sourceConnections.2/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="*" location="1351,881" size="4,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalContract" location="1252,881" size="85,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.4/@sourceConnections.0 //@children.18/@sourceConnections.0" name="StudyLevelInvoiceElementDTO" location="1218,1329" size="238,185" timstampe="114" stereotype="" id="{UMLID=_qkA8MOXXEd-y2LTtqEtU1w,JavaID=hospitalmodule.dto/StudyLevelInvoiceElementDTO}" runTimeClassModel="numSeries,setStudy(Lcasemodule.dto.StudyDTO;),bodyRegion,getFellIntoAvailability(),setNumSeries(I),getBodyRegion(),StudyLevelInvoiceElementDTO(I),StudyLevelInvoiceElementDTO(),study,setFellIntoAvailability(Ljava.lang.String;),getStudy(),setValue(D),getValue(),caseLevelInvoiceElement,setCaseLevelInvoiceElement(Lhospitalmodule.dto.CaseLevelInvoiceElementDTO;),getModality(),value,getNumSeries(),equals(Ljava.lang.Object;),setModality(Lmasterdatamodule.dto.ModalityDTO;),getCaseLevelInvoiceElement(),setBodyRegion(Lmasterdatamodule.dto.BodyRegionDTO;),fellIntoAvailability,modality">
+    <children xsi:type="editmodel:CompartmentEditModel" size="156,146">
+      <children xsi:type="editmodel:AttributeEditModel" name="study" size="62,21" id="{UMLID=_qkjHsOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modality" size="74,21" id="{UMLID=_qklj8OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="bodyRegion" size="92,21" id="{UMLID=_qkgEYOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="fellIntoAvailability" size="111,16" id="{UMLID=_qkkV0OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="value" size="55,16" id="{UMLID=_qkh5kOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="numSeries" size="80,16" id="{UMLID=_qkdoIOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseLevelInvoiceElement" size="156,21" id="{UMLID=_qke2QOXXEd-y2LTtqEtU1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="186,346"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_qzBBgOXXEd-y2LTtqEtU1w}" source="//@children.9" target="//@children.13" targetEnd="//@children.9/@sourceConnections.0/@children.2" label="//@children.9/@sourceConnections.0/@children.0" sourceEnd="//@children.9/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="studyLevelInvoiceElementList" location="0,76" id="{UMLID=_quyo0OXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.9/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.9/@sourceConnections.0/@children.1/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1195,1412" size="16,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- studyLevelInvoiceElementList" location="1063,1384" size="148,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="caseLevelInvoiceElement" location="233,103" id="{UMLID=_qke2QOXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.9/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.9/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="744,1412" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- caseLevelInvoiceElement" location="744,1384" size="128,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.0" name="CurrencyDTO" location="1120,41" size="281,57" timstampe="7" stereotype="" id="{UMLID=_PscF6tdqEd-Kl-oKFn9Egg,JavaID=masterdatamodule.dto/CurrencyDTO}" runTimeClassModel="getName(),setName(Ljava.lang.String;),name,equals(Ljava.lang.Object;),CurrencyDTO(),CurrencyDTO(ILjava.lang.String;),CurrencyDTO(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="55,18">
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_Z1_8MOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="106,108"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.5" name="HospitalDTO" location="476,140" size="153,275" timstampe="9" stereotype="" id="{UMLID=_PsvA3tdqEd-Kl-oKFn9Egg,JavaID=hospitalmodule.dto/HospitalDTO}" runTimeClassModel="setHospitalStaffList(LCollection;),region,hospitalContractList,getOfficialName(),setActive(Z),HospitalDTO(I),addingDate,getHospitalContractList(),getRegion(),getAddress(),govAuthority,setGovBody(Ljava.lang.String;),getHospitalStaffList(),getAbbrevName(),getShortName(),equals(Ljava.lang.Object;),abbrevName,hospitalStaffList,setAbbrevName(Ljava.lang.String;),officialName,setHospitalContractList(LCollection;),setAddress(Ljava.lang.String;),getGovBody(),Validate(Ljava.util.ResourceBundle;),HospitalDTO(),setQualityRequirements(I),qualityRequirements,setAddingDate(Ljava.util.Date;),setGovAuthority(Lmasterdatamodule.dto.GoverningAuthorityDTO;),getQualityRequirements(),address,isActive(),govBody,update(Lhospitalmodule.dto.HospitalDTO;),getAddingDate(),active,setShortName(Ljava.lang.String;),setRegion(Lmasterdatamodule.dto.RegionDTO;),getGovAuthority(),HospitalDTO(ILjava.lang.String;Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;Lmasterdatamodule.dto.RegionDTO;Ljava.lang.String;Lmasterdatamodule.dto.GoverningAuthorityDTO;Ljava.util.Date;ZI),shortName,setOfficialName(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="130,236">
+      <children xsi:type="editmodel:AttributeEditModel" name="officialName" size="88,16" id="{UMLID=_KX9g4OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="shortName" size="81,16" id="{UMLID=_KX8SwOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="abbrevName" size="90,16" id="{UMLID=_KXzv4OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="address" size="69,16" id="{UMLID=_KXkfUOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="region" size="65,21" id="{UMLID=_KXfm0eD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="govBody" size="72,16" id="{UMLID=_KXltcOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="govAuthority" size="97,21" id="{UMLID=_KXvecOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="addingDate" size="83,16" id="{UMLID=_KXiqIeD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="active" size="58,16" id="{UMLID=_KXnioOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="qualityRequirements" size="126,16" id="{UMLID=_KX0-AOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalContractList" size="130,21" id="{UMLID=_KXcjgOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalStaffList" size="113,21" id="{UMLID=_KXx6seD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="157,580"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_KoID0OD0Ed-3aecDKgFO1w}" source="//@children.11" target="//@children.16" targetEnd="//@children.11/@sourceConnections.0/@children.2" label="//@children.11/@sourceConnections.0/@children.0" sourceEnd="//@children.11/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,222" id="{UMLID=_KoID0eD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.11/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="463,341" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="region" location="269,40" id="{UMLID=_KXfm0eD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.11/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.11/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="288,369" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- region" location="288,341" size="37,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_KoJR8OD0Ed-3aecDKgFO1w}" source="//@children.11" target="//@children.0" targetEnd="//@children.11/@sourceConnections.1/@children.2" label="//@children.11/@sourceConnections.1/@children.0" sourceEnd="//@children.11/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,10" id="{UMLID=_KoJR8eD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.11/@sourceConnections.1/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="463,157" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="govAuthority" location="337,57" id="{UMLID=_KXvecOD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.11/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.11/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="357,77" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- govAuthority" location="274,77" size="69,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_KoOKcOD0Ed-3aecDKgFO1w}" source="//@children.11" target="//@children.5" targetEnd="//@children.11/@sourceConnections.2/@children.2" label="//@children.11/@sourceConnections.2/@children.0" sourceEnd="//@children.11/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospital" location="17,275" id="{UMLID=_P51BotdqEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.11/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.11/@sourceConnections.2/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="480,422" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospital" location="500,422" size="44,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalStaffList" location="242,0" id="{UMLID=_KXx6seD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.11/@sourceConnections.2/@children.2/@children.0" roleLabel="//@children.11/@sourceConnections.2/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="470,575" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalStaffList" location="500,575" size="85,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.7/@sourceConnections.0 //@children.14/@sourceConnections.6" name="ContactPersonAssignmentDTO" location="1707,630" size="234,175" timstampe="4" stereotype="" id="{UMLID=_oCpysOXXEd-y2LTtqEtU1w,JavaID=hospitalmodule.dto/ContactPersonAssignmentDTO}" runTimeClassModel="inactivation,getContactPerson(),getContactType(),hospitalContract,ContactPersonAssignmentDTO(I),getHospitalContract(),contactPosition,getContactPosition(),setContactPerson(Lhospitalmodule.dto.ContactPersonDTO;),setContactPosition(Ljava.lang.String;),setFinished(Ljava.util.Date;),ContactPersonAssignmentDTO(Lhospitalmodule.dto.HospitalContractDTO;Lhospitalmodule.dto.ContactPersonDTO;Ljava.lang.String;Ljava.lang.String;Ljava.util.Date;Ljava.util.Date;Ljava.util.Date;),setContactType(Ljava.lang.String;),equals(Ljava.lang.Object;),setInactivation(Ljava.util.Date;),getInactivation(),getFinished(),finished,setHospitalContract(Lhospitalmodule.dto.HospitalContractDTO;),setStarted(Ljava.util.Date;),ContactPersonAssignmentDTO(),contactType,getStarted(),started,contactPerson">
+    <children xsi:type="editmodel:CompartmentEditModel" size="113,136">
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalContract" size="113,21" id="{UMLID=_pmBp8OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="contactPerson" size="105,21" id="{UMLID=_pmJlwOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="contactPosition" size="102,16" id="{UMLID=_pmFUUOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="contactType" size="88,16" id="{UMLID=_pmDfIOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="started" size="63,16" id="{UMLID=_pmHwkOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="finished" size="67,16" id="{UMLID=_pmGicOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="inactivation" size="83,16" id="{UMLID=_pl_0wOXXEd-y2LTtqEtU1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="189,344"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.0 //@children.15/@sourceConnections.2 //@children.9/@sourceConnections.0" name="CaseLevelInvoiceElementDTO" location="504,1302" size="233,180" timstampe="2" stereotype="" id="{UMLID=_nbd24OXXEd-y2LTtqEtU1w,JavaID=hospitalmodule.dto/CaseLevelInvoiceElementDTO}" runTimeClassModel="studyLevelInvoiceElementList,getSumValue(),getConsulted(),CaseLevelInvoiceElementDTO(I),sumValue,CaseLevelInvoiceElementDTO(Lcasemodule.dto.CaseDTO;DLjava.util.Date;Ljava.util.Date;I),CaseLevelInvoiceElementDTO(),getCaseItBelongsTo(),setStudyLevelInvoiceElementList(LCollection;),setMonthlyInvoice(Lhospitalmodule.dto.MonthlyInvoiceDTO;),equals(Ljava.lang.Object;),getCaseSent(),getStudyLevelInvoiceElementList(),caseItBelongsTo,getCaseReceived(),setCaseReceived(Ljava.util.Date;),getMonthlyInvoice(),setCaseItBelongsTo(Lcasemodule.dto.CaseDTO;),caseSent,setCaseSent(Ljava.util.Date;),setConsulted(I),caseReceived,consulted,monthlyInvoice,setSumValue(D)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="176,141">
+      <children xsi:type="editmodel:AttributeEditModel" name="caseItBelongsTo" size="114,21" id="{UMLID=_qu8Z0OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="sumValue" size="76,16" id="{UMLID=_qu2TMOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseReceived" size="98,16" id="{UMLID=_qu3hUOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="caseSent" size="75,16" id="{UMLID=_qu1FEOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="consulted" size="76,16" id="{UMLID=_qu6koOXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="studyLevelInvoiceElementList" size="176,21" id="{UMLID=_quyo0OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="monthlyInvoice" size="106,21" id="{UMLID=_qu5WgOXXEd-y2LTtqEtU1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="203,354"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.3/@sourceConnections.1 //@children.8/@sourceConnections.2" name="HospitalContractDTO" location="1129,322" size="225,552" timstampe="51" stereotype="" id="{UMLID=_QQGpFNdpEd-Kl-oKFn9Egg,JavaID=hospitalmodule.dto/HospitalContractDTO}" runTimeClassModel="setLastCaseAcceptanceDateTime(Ljava.util.Date;),setContactPersonAssignmentList(LCollection;),setActive(Z),setStartDateTime(Ljava.util.Date;),adminFeeForManuallyEnteringData,getInvoiceList(),HospitalContractDTO(I),setMaxRequiredAvailabilityPerWeek(Lhospitalmodule.dto.AvailabilityPerWeekDTO;),setIntendedEndDateTime(Ljava.util.Date;),getContactPersonAssignmentList(),getIntendedEndDateTime(),stopDateTime,setWorkTimeDaysWithConsultation(D),setCurrency(Lmasterdatamodule.dto.CurrencyDTO;),setInvoiceList(LCollection;),contractType,setAdminFeeForCheckingUselessCase(D),getStartDateTime(),getWorkTimeDaysWithConsultation(),credit,adminFeeForCheckingUselessCase,setHospital(Lhospitalmodule.dto.HospitalDTO;),setMinRequiredAvailabilityPerWeek(Lhospitalmodule.dto.AvailabilityPerWeekDTO;),maxRequiredAvailabilityPerWeek,getStopDateTime(),Validate(Ljava.util.ResourceBundle;),getLastCaseAcceptanceDateTime(),getNormalWorkTimeDays(),invoiceProductionDay,getNormalClosenessToDeadlineDays(),getMinRequiredAvailabilityPerWeek(),lastCaseAcceptanceDateTime,HospitalContractDTO(),setNormalWorkTimeDays(D),isActive(),active,closenessToDeadlineDaysWithCons,setOptionList(LCollection;),setSignersName(Ljava.lang.String;),contractCode,hospital,setNormalClosenessToDeadlineDays(D),getInvoiceProductionDay(),invoicePeriodDay,getCurrency(),startDateTime,signedDate,setAdminFeeForManuallyEnteringData(D),signersName,invoiceList,getSignersName(),getSignedDate(),currency,getContractCode(),getOptionList(),getMaxRequiredAvailabilityPerWeek(),setWorkBandTable(Lhospitalmodule.dto.WorkBandTableDTO;),getCredit(),workBandTable,minRequiredAvailabilityPerWeek,equals(Ljava.lang.Object;),workTimeDaysWithConsultation,setInvoiceProductionDay(I),normalWorkTimeDays,optionList,setStopDateTime(Ljava.util.Date;),normalClosenessToDeadlineDays,setClosenessToDeadlineDaysWithCons(D),setCredit(I),getWorkBandTable(),getAdminFeeForCheckingUselessCase(),setContractCode(Ljava.lang.String;),getHospital(),intendedEndDateTime,setInvoicePeriodDay(I),update(Lhospitalmodule.dto.HospitalContractDTO;),getAdminFeeForManuallyEnteringData(),contactPersonAssignmentList,getInvoicePeriodDay(),getContractType(),setSignedDate(Ljava.util.Date;),setContractType(Lmasterdatamodule.dto.ContractTypeDTO;),getClosenessToDeadlineDaysWithCons()">
+    <children xsi:type="editmodel:CompartmentEditModel" size="202,513">
+      <children xsi:type="editmodel:AttributeEditModel" name="contractCode" size="94,16" id="{UMLID=_Ps4x0ddqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="signedDate" size="83,16" id="{UMLID=_PsSU5NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="startDateTime" size="95,16" id="{UMLID=_PsSU4tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="lastCaseAcceptanceDateTime" size="174,16" id="{UMLID=_PscF7NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="intendedEndDateTime" size="132,16" id="{UMLID=_PscF4tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="stopDateTime" size="94,16" id="{UMLID=_PscF5tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="active" size="58,16" id="{UMLID=_Psl26NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="signersName" size="92,16" id="{UMLID=_PscF5NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="normalWorkTimeDays" size="133,16" id="{UMLID=_PsvA2tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workTimeDaysWithConsultation" size="181,16" id="{UMLID=_Psl26tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="normalClosenessToDeadlineDays" size="189,16" id="{UMLID=_Ps4x09dqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="closenessToDeadlineDaysWithCons" size="202,16" id="{UMLID=_Psl27NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="contractType" size="98,21" id="{UMLID=_Psl24NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="minRequiredAvailabilityPerWeek" size="188,21" id="{UMLID=_Psl25NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="maxRequiredAvailabilityPerWeek" size="192,21" id="{UMLID=_PsvA2NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="credit" size="56,16" id="{UMLID=_PsvA0ddqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="currency" size="79,21" id="{UMLID=_PscF6NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="invoicePeriodDay" size="112,16" id="{UMLID=_PsSU4NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="invoiceProductionDay" size="133,16" id="{UMLID=_PscF4NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="adminFeeForCheckingUselessCase" size="199,16" id="{UMLID=_Psl27tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="adminFeeForManuallyEnteringData" size="194,16" id="{UMLID=_PsSU5tdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospital" size="72,21" id="{UMLID=_PsvA3NdqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="optionList" size="81,21" id="{UMLID=_PsvA09dqEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="contactPersonAssignmentList" size="179,21" id="{UMLID=_J17x4OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="invoiceList" size="86,21" id="{UMLID=_oCrA0OXXEd-y2LTtqEtU1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="workBandTable" size="110,21" id="{UMLID=_J2r_0OD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="229,1116"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_P5FaxtdqEd-Kl-oKFn9Egg}" source="//@children.14" target="//@children.10" targetEnd="//@children.14/@sourceConnections.0/@children.2" label="//@children.14/@sourceConnections.0/@children.0" sourceEnd="//@children.14/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="112,0" id="{UMLID=_P5Fax9dqEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1248,301" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="currency" location="121,57" id="{UMLID=_PscF6NdqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1228,105" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- currency" location="1248,105" size="51,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_P5FawNdqEd-Kl-oKFn9Egg}" source="//@children.14" target="//@children.6" targetEnd="//@children.14/@sourceConnections.1/@children.2" label="//@children.14/@sourceConnections.1/@children.0" sourceEnd="//@children.14/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="225,205" id="{UMLID=_P5FawddqEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.1/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1361,506" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="contractType" location="0,37" id="{UMLID=_Psl24NdqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1695,534" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- contractType" location="1631,506" size="70,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_P5FawtdqEd-Kl-oKFn9Egg}" source="//@children.14" target="//@children.2" targetEnd="//@children.14/@sourceConnections.2/@children.2" label="//@children.14/@sourceConnections.2/@children.0" sourceEnd="//@children.14/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,10" id="{UMLID=_P5Faw9dqEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.2/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1116,339" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="minRequiredAvailabilityPerWeek" location="188,165" id="{UMLID=_Psl25NdqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.2/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.2/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="951,213" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- minRequiredAvailabilityPerWeek" location="777,213" size="160,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_Z7LXIOD0Ed-3aecDKgFO1w}" source="//@children.14" target="//@children.1" targetEnd="//@children.14/@sourceConnections.3/@children.2" label="//@children.14/@sourceConnections.3/@children.0" sourceEnd="//@children.14/@sourceConnections.3/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalContract" location="225,54" id="{UMLID=_Z4gdoOD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.3/@children.1/@children.0" roleLabel="//@children.14/@sourceConnections.3/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1361,383" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalContract" location="1361,355" size="85,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="optionList" location="0,83" id="{UMLID=_PsvA09dqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.3/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.3/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1796,383" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- optionList" location="1759,355" size="53,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="{UMLID=_P5FaxNdqEd-Kl-oKFn9Egg}" source="//@children.14" target="//@children.2" targetEnd="//@children.14/@sourceConnections.4/@children.2" label="//@children.14/@sourceConnections.4/@children.0" sourceEnd="//@children.14/@sourceConnections.4/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,20" id="{UMLID=_P5FaxddqEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.4/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1116,349" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="maxRequiredAvailabilityPerWeek" location="188,155" id="{UMLID=_PsvA2NdqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.4/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.4/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="961,203" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- maxRequiredAvailabilityPerWeek" location="961,175" size="164,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_KoM8UOD0Ed-3aecDKgFO1w}" source="//@children.14" target="//@children.11" targetEnd="//@children.14/@sourceConnections.5/@children.2" label="//@children.14/@sourceConnections.5/@children.0" sourceEnd="//@children.14/@sourceConnections.5/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalContractList" location="0,46" id="{UMLID=_KXcjgOD0Ed-3aecDKgFO1w}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.5/@children.1/@children.0" roleLabel="//@children.14/@sourceConnections.5/@children.1/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1106,375" size="16,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalContractList" location="1020,347" size="102,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospital" location="153,228" id="{UMLID=_PsvA3NdqEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.5/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.5/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="636,375" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospital" location="636,347" size="44,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_ppRyQOXXEd-y2LTtqEtU1w}" source="//@children.14" target="//@children.12" targetEnd="//@children.14/@sourceConnections.6/@children.2" label="//@children.14/@sourceConnections.6/@children.0" sourceEnd="//@children.14/@sourceConnections.6/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalContract" location="225,395" id="{UMLID=_pmBp8OXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.6/@children.1/@children.0" roleLabel="//@children.14/@sourceConnections.6/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1361,724" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalContract" location="1361,696" size="85,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="contactPersonAssignmentList" location="0,87" id="{UMLID=_J17x4OD0Ed-3aecDKgFO1w}" multiplicityLabel="//@children.14/@sourceConnections.6/@children.2/@children.0" roleLabel="//@children.14/@sourceConnections.6/@children.2/@children.1" aggregationKind="Composition" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1..*" location="1684,724" size="16,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- contactPersonAssignmentList" location="1549,696" size="151,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_QWgMBNdpEd-Kl-oKFn9Egg}" source="//@children.14" target="//@children.15" targetEnd="//@children.14/@sourceConnections.7/@children.2" label="//@children.14/@sourceConnections.7/@children.0" sourceEnd="//@children.14/@sourceConnections.7/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="hospitalContract" location="10,552" id="{UMLID=_QQGpENdpEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.14/@sourceConnections.7/@children.1/@children.0" roleLabel="//@children.14/@sourceConnections.7/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1126,881" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- hospitalContract" location="1146,881" size="85,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="213,10" id="{UMLID=_QWgMBddpEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.14/@sourceConnections.7/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="317,898" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.14/@sourceConnections.7" name="CaseDTO" location="97,881" size="213,367" timstampe="20" stereotype="" id="{UMLID=_QO6WQNdpEd-Kl-oKFn9Egg,JavaID=casemodule.dto/CaseDTO}" runTimeClassModel="transferStarted,hospitalContract,caseStatus,acceptedAndAssigned,finalizedReport,modeOfAcquisition,senderHospitalStaff,studyList,receiverHospitalStaff,dataProcLog,rejectedByTDS,hospTakes,confirmedDone,transferredToServer,doneDisplayedOnHC,patientAndReferralInfo">
+    <children xsi:type="editmodel:CompartmentEditModel" size="144,328">
+      <children xsi:type="editmodel:AttributeEditModel" name="caseStatus" size="90,21" id="{UMLID=_QQGpF9dpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="modeOfAcquisition" size="126,21" id="{UMLID=_QQQaHNdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="transferredToServer" size="128,16" id="{UMLID=_QQjVCtdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="acceptedAndAssigned" size="140,16" id="{UMLID=_QQQaFtdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="confirmedDone" size="102,16" id="{UMLID=_QQjVCNdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="doneDisplayedOnHC" size="128,16" id="{UMLID=_QQjVDNdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospTakes" size="81,16" id="{UMLID=_QQjVBtdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="rejectedByTDS" size="101,16" id="{UMLID=_QQjVBNdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hospitalContract" size="113,21" id="{UMLID=_QQGpENdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="senderHospitalStaff" size="131,21" id="{UMLID=_QQZkAtdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="receiverHospitalStaff" size="137,21" id="{UMLID=_QQZkDtdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="finalizedReport" size="101,16" id="{UMLID=_QQQaGNdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="studyList" size="79,21" id="{UMLID=_QQZkCddpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="patientAndReferralInfo" size="144,21" id="{UMLID=_QQQaGtdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dataProcLog" size="96,21" id="{UMLID=_QQjVANdpEd-Kl-oKFn9Egg}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="transferStarted" size="103,16" id="{UMLID=_2kzGAOdiEd-5sbDBoTJBmQ}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="170,674"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" id="{UMLID=_QWgMBtdpEd-Kl-oKFn9Egg}" source="//@children.15" target="//@children.5" targetEnd="//@children.15/@sourceConnections.0/@children.2" label="//@children.15/@sourceConnections.0/@children.0" sourceEnd="//@children.15/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="0,243" id="{UMLID=_QWgMB9dpEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.15/@sourceConnections.0/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="84,1131" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="senderHospitalStaff" location="260,93" id="{UMLID=_QQZkAtdpEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.15/@sourceConnections.0/@children.2/@children.0" roleLabel="//@children.15/@sourceConnections.0/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="518,696" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- senderHospitalStaff" location="518,668" size="103,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_QWgMCNdpEd-Kl-oKFn9Egg}" source="//@children.15" target="//@children.5" targetEnd="//@children.15/@sourceConnections.1/@children.2" label="//@children.15/@sourceConnections.1/@children.0" sourceEnd="//@children.15/@sourceConnections.1/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="183,0" id="{UMLID=_QWgMCddpEd-Kl-oKFn9Egg}" attachSource="true" multiplicityLabel="//@children.15/@sourceConnections.1/@children.1/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="287,860" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="receiverHospitalStaff" location="29,167" id="{UMLID=_QQZkDtdpEd-Kl-oKFn9Egg}" multiplicityLabel="//@children.15/@sourceConnections.1/@children.2/@children.0" roleLabel="//@children.15/@sourceConnections.1/@children.2/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="267,770" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- receiverHospitalStaff" location="287,770" size="109,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_qzAacOXXEd-y2LTtqEtU1w}" source="//@children.15" target="//@children.13" targetEnd="//@children.15/@sourceConnections.2/@children.2" label="//@children.15/@sourceConnections.2/@children.0" sourceEnd="//@children.15/@sourceConnections.2/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="caseItBelongsTo" location="213,357" id="{UMLID=_qu8Z0OXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.15/@sourceConnections.2/@children.1/@children.0" roleLabel="//@children.15/@sourceConnections.2/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="317,1245" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- caseItBelongsTo" location="317,1217" size="86,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="10,0" id="{UMLID=_qzAaceXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.15/@sourceConnections.2/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="521,1281" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.11/@sourceConnections.0" name="RegionDTO" location="12,322" size="269,80" timstampe="7" stereotype="" id="{UMLID=_KXiDEOD0Ed-3aecDKgFO1w,JavaID=masterdatamodule.dto/RegionDTO}" runTimeClassModel="getName(),setName(Ljava.lang.String;),getCountry(),RegionDTO(ILjava.lang.String;Lmasterdatamodule.dto.CountryDTO;),RegionDTO(),name,setCountry(Lmasterdatamodule.dto.CountryDTO;),equals(Ljava.lang.Object;),RegionDTO(Ljava.lang.String;Lmasterdatamodule.dto.CountryDTO;),country">
+    <children xsi:type="editmodel:CompartmentEditModel" size="72,41">
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_cfJIsOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="country" size="72,21" id="{UMLID=_cfK94OD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="99,154"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.1/@sourceConnections.0" name="HospContrOptionDTO" location="1750,56" size="331,93" timstampe="7" stereotype="" id="{UMLID=_Z4nLUOD0Ed-3aecDKgFO1w,JavaID=masterdatamodule.dto/HospContrOptionDTO}" runTimeClassModel="getExplanation(),getTypes(),HospContrOptionDTO(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;),setName(Ljava.lang.String;),explanation,HospContrOptionDTO(ILjava.lang.String;Ljava.lang.String;Ljava.lang.String;),setTypes(Ljava.lang.String;),setExplanation(Ljava.lang.String;),HospContrOptionDTO(),getName(),name,equals(Ljava.lang.Object;),types">
+    <children xsi:type="editmodel:CompartmentEditModel" size="84,54">
+      <children xsi:type="editmodel:AttributeEditModel" name="name" size="55,16" id="{UMLID=_c_xwkOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="types" size="56,16" id="{UMLID=_c_y-sOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="explanation" size="84,16" id="{UMLID=_c_v7YOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="143,180"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <children xsi:type="editmodel:ClassEditModel" targetConnections="//@children.8/@sourceConnections.0" name="BodyRegionDTO" location="1595,1008" size="301,111" timstampe="7" stereotype="" id="{UMLID=_KpDQ4OD0Ed-3aecDKgFO1w,JavaID=masterdatamodule.dto/BodyRegionDTO}" runTimeClassModel="BodyRegionDTO(Ljava.lang.String;Ljava.lang.String;Ljava.lang.String;I),BodyRegionDTO(ILjava.lang.String;Ljava.lang.String;Ljava.lang.String;I),setGroupNumber(I),setDicomName(Ljava.lang.String;),getEnglishName(),groupNumber,getGroupNumber(),englishName,setEnglishName(Ljava.lang.String;),BodyRegionDTO(),dicomName,equals(Ljava.lang.Object;),getDicomName(),hungarianName,getHungarianName(),setHungarianName(Ljava.lang.String;)">
+    <children xsi:type="editmodel:CompartmentEditModel" size="104,72">
+      <children xsi:type="editmodel:AttributeEditModel" name="englishName" size="90,16" id="{UMLID=_ZZY4sOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="hungarianName" size="104,16" id="{UMLID=_ZZdKIOD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="dicomName" size="84,16" id="{UMLID=_ZZat4OD0Ed-3aecDKgFO1w}"/>
+      <children xsi:type="editmodel:AttributeEditModel" name="groupNumber" size="94,16" id="{UMLID=_ZZb8AOD0Ed-3aecDKgFO1w}"/>
+    </children>
+    <children xsi:type="editmodel:CompartmentEditModel" size="131,216"/>
+    <children xsi:type="editmodel:CompartmentEditModel"/>
+    <sourceConnections xsi:type="editmodel:AssociationEditModel" autoLocated="true" id="{UMLID=_qoFj4OXXEd-y2LTtqEtU1w}" source="//@children.18" target="//@children.9" targetEnd="//@children.18/@sourceConnections.0/@children.2" label="//@children.18/@sourceConnections.0/@children.0" sourceEnd="//@children.18/@sourceConnections.0/@children.1" connectionRouterKind="Manhattan">
+      <children xsi:type="editmodel:WireLabelEditModel" size="0,14" fontInfo="Arial-8-0" anchorKind="MiddlePart"/>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="bodyRegion" location="10,111" id="{UMLID=_qkgEYOXXEd-y2LTtqEtU1w}" attachSource="true" multiplicityLabel="//@children.18/@sourceConnections.0/@children.1/@children.0" roleLabel="//@children.18/@sourceConnections.0/@children.1/@children.1" navigable="true" flags="2">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1592,1126" size="6,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+        <children xsi:type="editmodel:LabelEditModel" name="- bodyRegion" location="1612,1126" size="64,14" fontInfo="Arial-8-0" anchorKind="FirstPart"/>
+      </children>
+      <children xsi:type="editmodel:AssociationEndEditModel" name="ownedEnd" location="238,10" id="{UMLID=_qoFj4eXXEd-y2LTtqEtU1w}" multiplicityLabel="//@children.18/@sourceConnections.0/@children.2/@children.0" flags="1">
+        <children xsi:type="editmodel:LabelEditModel" name="1" location="1463,1346" size="6,14" fontInfo="Arial-8-0" anchorKind="LastPart"/>
+      </children>
+    </sourceConnections>
+    <classifierPreferences xsi:type="editmodel:UMLClassDiagramClassifierPreference" attributeSorter="Natural" methodSorter="Natural" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showMethods="true" showAttributes="true" showLiterals="true" ShowInnerEntity="true"/>
+  </children>
+  <diagramOptions xsi:type="options:ClassDiagramOptions" properties="wireOptions=3" autoName="false"/>
+  <boardSetting snapToGeometry="true" gridEnabled="true" gridSpacing="14,14" gridOrigin="462,1148" rulerUnit="cm" gridShow="true">
+    <leftRuler/>
+    <topRuler/>
+  </boardSetting>
+  <classDiagramPreferences xsi:type="editmodel:UMLClassDiagramPreference" attributeSorter="Natural" methodSorter="Natural" shortPackageNameFormat="true" showClassStereotype="true" showPackageStereotype="true" innerClassSorter="Natural" showPrivateAttributes="true" showProtectedAttributes="true" showPublicAttributes="true" showPackageAttributes="true" showStaticAttributes="true" showProtectedInnerClasses="true" showPublicInnerClasses="true" showPackageInnerClasses="true" showPrivateInnerClasses="true" showStaticInnerClasses="true" showInterfaceStereotype="true" showMethods="true" showAttributes="true" showLiterlas="true" showInnerEntity="true"/>
+</editmodel:ClassDiagramEditModel>

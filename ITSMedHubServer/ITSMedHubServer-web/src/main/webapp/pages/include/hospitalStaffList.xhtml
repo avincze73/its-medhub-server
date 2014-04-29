@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html">
+
+    <script type="text/javascript">
+            $(document).ready( function() {
+                var hospitalStaffLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchHospitalStaff').length==0){
+                            $('.resizer-north-closed').append('<div id="searchHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsHospitalStaff').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentHospitalStaff', 			
+                    onresize_end:	function () { 
+                        $('#mainForm\\:listHospitalStaff\\:edtHospitalStaffList').height($('#mainContentHospitalStaff').height() - 25);
+                        $('#mainForm\\:listHospitalStaff\\:edtHospitalStaffList\\:b').height($('#mainForm\\:listHospitalStaff\\:edtHospitalStaffList').height() - 64);
+                    }
+                  }
+                });
+                
+                createTabLayout('HospitalStaff', hospitalStaffLayoutOptions);
+            });
+    </script>
+
+    <div id="tabHospitalStaff" style="height: 432px;">
+        <div class="ui-layout-north" id="northHospitalStaff">
+            <div class="its-header">Search</div>
+            <div class="content">
+                <a4j:outputPanel id="searchHospitalStaff">
+                    <h:form id="fSearchHospitalStaff">
+                        <a4j:status name="searchStatus" onstart="#{rich:component('statPane')}.show()"
+                                    onstop="#{rich:component('statPane')}.hide()" />
+                        <h:panelGrid columns="3" columnClasses="col5,col6,col7" width="100%" >
+
+                            <h:panelGroup>
+                                <h:panelGrid columns="2"  >
+                                    <h:outputLabel value="#{hospitalStaffBundle.name}" styleClass="data_label" />
+                                    <h:inputText value="#{hospitalStaffController.searchName}" styleClass="input"/>
+                                </h:panelGrid>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                                <a4j:commandButton value="Search" action="#{hospitalStaffController.search}" 
+                                                   styleClass="imagebutton" render=":details" execute="@form" 
+                                                   image="./../resources/images/search.png"
+                                                   oncomplete="if (#{!empty managerController.entityList}) {#{rich:component('edtHospitalStaffList')}.setActiveRow(0);}">
+
+                                </a4j:commandButton>
+                            </h:panelGroup>
+                            <h:panelGroup>
+                            </h:panelGroup>
+                        </h:panelGrid>
+                    </h:form>
+                </a4j:outputPanel>
+            </div>
+
+        </div>
+        <div class="ui-layout-south" id="southHospitalStaff">
+            <div class="its-header">Details</div>
+            <div class="content" style="margin-bottom: 10px;">
+                <a4j:outputPanel id="detailsHospitalStaff" rendered="true" ajaxRendered="true">
+                    <h:form>
+                        <h:panelGrid columns="4" columnClasses="colStyle1,colStyle2,colStyle3, colStyle4">
+                            <h:outputLabel value="#{hospitalStaffBundle.name}" styleClass="data_label"/>
+                            <h:outputLabel styleClass="data_label2" value="#{hospitalStaffController.selectedEntity.itsUser.name}" />
+                            <h:outputLabel value="#{hospitalStaffBundle.loginName}" styleClass="data_label"/>
+                            <h:outputLabel styleClass="data_label2" value="#{hospitalStaffController.selectedEntity.itsUser.loginName}" />
+                            <h:outputLabel value="#{hospitalStaffBundle.sex}" styleClass="data_label"/>
+                            <h:outputLabel styleClass="data_label2" value="#{hospitalStaffController.selectedEntity.itsUser.sex}" />
+                            <h:outputLabel value="#{hospitalStaffBundle.addingDateTime}" styleClass="data_label"/>
+                            <h:outputLabel styleClass="data_label2" value="#{hospitalStaffController.selectedEntity.itsUser.addingDateTime}" />
+                            <h:outputLabel value="#{hospitalStaffBundle.itsEmail}" styleClass="data_label"/>
+                            <h:outputLabel styleClass="data_label2" value="#{hospitalStaffController.selectedEntity.itsUser.itsEmail}" />
+                            <h:outputLabel value="#{hospitalStaffBundle.workEmail}" styleClass="data_label"/>
+                            <h:outputLabel styleClass="data_label2" value="#{hospitalStaffController.selectedEntity.itsUser.workEmail}" />
+                        </h:panelGrid>
+                    </h:form>
+                </a4j:outputPanel>
+            </div>
+        </div>
+        <div id="mainContentHospitalStaff" >
+            <a4j:outputPanel  id="apHospitalStaffList" rendered="true" >
+                <h:form id="listHospitalStaff">
+                    <h:panelGrid columns="2" columnClasses="col1,col2" width="100%" border="0"  >
+                        <a4j:region>
+                            <rich:extendedDataTable id="edtHospitalStaffList" style="width: 906px; height:170px;" 
+                                                    value="#{hospitalStaffController.entityList}" var="hospitalStaff" 
+                                                    iterationStatusVar="it" 
+                                                    selectionMode="single" 
+                                                    selection="#{hospitalStaffController.selection}"
+                                                    rowClasses="odd-row, even-row" 
+                                                    onrowdblclick="doubleClick()" 
+                                                    rowKeyVar="row"  >
+                                <a4j:ajax execute="@this" event="selectionchange"
+                                          listener="#{hospitalStaffController.selectionListener}" 
+                                          render="detailsHospitalStaff" />
+
+                                <f:facet name="header" >
+                                    <a4j:outputPanel >
+                                        <h:panelGrid rendered="#{!empty hospitalStaffController.entityList and empty hospitalStaffController.searchName}" columns="2">
+                                            <h:outputText value="All" />
+                                            <h:panelGroup/>
+                                        </h:panelGrid>
+                                        <h:panelGrid rendered="#{!empty hospitalStaffController.entityList and !empty hospitalStaffController.searchName}" columns="2">
+                                            <h:outputText value="Last search:" />
+                                            <h:outputText value="name = '#{hospitalStaffController.searchName}'" style="font-style: italic; font-weight: normal !important;" />
+                                        </h:panelGrid>
+                                        <h:panelGrid rendered="#{empty hospitalStaffController.entityList}" columns="2">
+                                            <h:outputText value="Empty" style="color: red;" />
+                                            <h:panelGroup/>
+                                        </h:panelGrid>
+                                    </a4j:outputPanel>
+                                </f:facet>
+                                <f:facet name="footer">
+
+                                </f:facet>
+                                <rich:column >
+                                    <f:facet name="header">
+                                        <h:outputText value="Name" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{hospitalStaff.itsUser.name}"/>
+                                </rich:column>
+                                <rich:column >
+                                    <f:facet name="header">
+                                        <h:outputText value="Login name" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{hospitalStaff.itsUser.loginName}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="Added" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{hospitalStaff.itsUser.addingDateTime}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="ITS Email" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{hospitalStaff.itsUser.itsEmail}"/>
+                                </rich:column>
+                                <rich:column  >
+                                    <f:facet name="header">
+                                        <h:outputText value="Work email" style="float: left;"/>
+                                    </f:facet>
+                                    <h:outputText value="#{hospitalStaff.itsUser.workEmail}"/>
+                                </rich:column>
+                            </rich:extendedDataTable>
+                        </a4j:region>
+
+                        <h:commandButton value="Add" action="#{hospitalStaffController.insert}" 
+                                         styleClass="imagebutton" 
+                                         image="./../resources/images/new.png"
+                                         ></h:commandButton>
+                        <!--rich:dataScroller for="edtHospitalStaffList" /-->
+
+                    </h:panelGrid>
+                    <h:panelGrid columns="2" columnClasses="col1b,col2b" width="100%" border="0" >
+                        <h:outputText value="Double click to select..."/>
+                        <h:panelGroup>
+
+                        </h:panelGroup>
+                    </h:panelGrid>
+                    <a4j:jsFunction name="doubleClick" immediate="true"  action="#{hospitalStaffController.select(hospitalStaff)}"  />
+                </h:form>
+            </a4j:outputPanel>
+
+        </div>
+    </div>
+
+
+</ui:composition>

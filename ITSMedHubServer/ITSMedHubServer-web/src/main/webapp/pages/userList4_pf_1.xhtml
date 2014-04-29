@@ -1,0 +1,356 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../templates/mainTemplate_1.xhtml">
+
+    <ui:define name="extraHead">
+        <!--h:outputScript library="richfaces" name="resource://jquery.js"  target="body" /-->
+        <!--h:outputScript name="jsf.js" library="javax.faces" />
+        <h:outputScript name="jquery.js" /-->
+
+        <!--h:outputScript library="jquery" name="jquery.min.js" target="head"/>
+        <h:outputScript library="jquery" name="jquery-ui.min.js" target="head"/>
+        <h:outputStylesheet library="jquery" name="ui-lightness.css" target="head"/-->
+
+
+
+<!--link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" /-->
+        <!--link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/jquery-ui-1.8.16.custom.css" /-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui-1.8.16.js"/-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.blockUI.js"/-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-1.6.4.js"/-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/complex.js"></script-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script-->
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListView.js"></script-->
+
+
+        <link rel="stylesheet" type="text/css" href="#{facesContext.externalContext.requestContextPath}/resources/css/itsListView.css" />
+        <!--script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.layout-latest.js"></script-->
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/itsListView.js"></script>
+
+
+
+        <style>
+            .colStyle1 { 
+                width: 110px;padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle2 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px;
+            }
+            .colStyle3 { 
+                width: 110px; padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle4 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px; 
+            }
+            .col5{
+                width: 90%;
+                padding: 0px;
+                vertical-align: top;
+            }
+            .col6{
+                width: 7%;
+                vertical-align: top;
+                text-align: right;
+            }
+            .col7{
+                width: 3%;
+                vertical-align: top;
+                padding: 0px;
+                text-align: center;
+            }
+            .col1{
+                padding: 0px;
+                border: 0px;
+                background-color: #EEF3FA !important;
+            }
+            .col2{
+                vertical-align: top;
+                text-align: right;
+            }
+
+            .col1b{
+                padding: 0px;
+                border: 0px;
+                background-color: #EEF3FA !important;
+                text-align: right;
+                width: 906px;
+            }
+            .col2b{
+                vertical-align: top;
+                text-align: right;
+            }
+
+            .colTableHeader1 {
+                width: 50px;
+            }
+
+            .colTableHeader2 {
+            }
+
+
+
+            .even-row {
+                background-color: #FCFFFE;
+            }
+
+            .odd-row {
+                background-color: #ECF3FE;
+            }
+
+            .active-row {
+                background-color: #FFEBDA !important;
+                cursor: pointer !important;
+            }
+
+            table{
+                border-spacing: 0px;
+            }
+
+            .rf-edt-tbl-hdr {
+                text-align: left !important;
+                /*font-weight: normal !important;*/
+
+            }
+
+            .rf-edt-r-act, .rf-edt-r-act {
+                font-weight: normal !important;
+                background: #CEE1F4 !important;
+            }
+            .rf-edt-c-cnt  {
+                cursor: default !important;
+            }
+            .rf-tbp {
+                /*margin: 10px !important;*/
+            }
+            .rf-tab-cnt {
+                height: 430px !important;
+                background: #EEF3FA !important;
+                padding: 20px !important;
+            }
+
+            .rf-tab-hdr-tabline-vis {
+                background: #CFE0F2 !important;
+                border-width: 0px !important;
+            }
+            .rf-tab-hdr-brd {
+                height: 0px !important;
+                border-width: 0 0 0 !important;
+
+            }
+            .rf-tab-hdr-spcr {
+                padding-left: 0px !important;
+                padding-right: 0px !important;
+            }
+            .rf-tab-hortab-tabspcr-wdh {
+                padding-right: 1px !important;
+            }
+
+            /*.ui-tabs-nav {
+                border-top-width: 0px !important;
+                border-left-width: 0px !important;
+                border-right-width: 0px !important;
+                background: #CEE1F4 !important;
+                padding-left: 0px !important;
+
+            }
+            .ui-widget-header {
+
+            }
+
+            .ui-tabs {
+                border-width: 0px !important;
+            }
+            .ui-layout-container, ui-tabs-panel {
+                padding: 20px !important;
+                background: #EEF3FA !important;
+                border-left-width: 1px !important;
+                border-right-width: 1px !important;
+                border-bottom-width: 1px !important;
+            }*/
+
+        </style>
+        <script type="text/javascript">
+            $(document).ready( function() {
+                
+                var managerLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsManager').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsManager" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsManager').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsManager" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsManager', 			
+                    onresize_end:	function () { 
+                        $('#list\\:edtManagerList').height($('#mainContentItsManager').height() - 25);
+                        $('#list\\:edtManagerList\\:b').height($('#list\\:edtManagerList').height() - 64);
+                    }
+                  }
+                });
+                
+                var radiologistLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchItsRadiologist').length==0){
+                            $('.resizer-north-closed').append('<div id="searchItsRadiologist" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsItsRadiologist').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsItsRadiologist" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentItsRadiologist', 			
+                    onresize_end:	function () { 
+                        $('#listRadiologist\\:edtRadiologistList').height($('#mainContentItsRadiologist').height() - 25);
+                        $('#listRadiologist\\:edtRadiologistList\\:b').height($('#listRadiologist\\:edtRadiologistList').height() - 64);
+                    }
+                  }
+                });
+                
+                var hospitalStaffLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchHospitalStaff').length==0){
+                            $('.resizer-north-closed').append('<div id="searchHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsHospitalStaff').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsHospitalStaff" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentHospitalStaff', 			
+                    onresize_end:	function () { 
+                        $('#listHospitalStaff\\:edtHospitalStaffList').height($('#mainContentHospitalStaff').height() - 25);
+                        $('#listHospitalStaff\\:edtHospitalStaffList\\:b').height($('#listHospitalStaff\\:edtHospitalStaffList').height() - 64);
+                    }
+                  }
+                });
+                var userLayoutOptions = $.extend(true, {}, defaultLayoutOptions, {
+                   north:{
+                    onclose_end: function () { 
+                        if ($('#searchUser').length==0){
+                            $('.resizer-north-closed').append('<div id="searchUser" style="font-size: 11px; font-weight: bold; padding: 1px 5px;">Search</div>');
+                        }
+                    }
+                  },    
+                  south: {
+                    onclose_end: function () { 
+                        if ($('#detailsUser').length==0){
+                            $('.resizer-south-closed').append('<div id="detailsUser" style="font-size: 11px; font-weight: bold; padding: 3px 5px;">Details</div>');
+                        }
+                    }
+                  },
+                  center: {
+                    paneSelector: '#mainContentUser', 			
+                    onresize_end:	function () { 
+                        $('#listUser\\:edtUserList').height($('#mainContentUser').height() - 25);
+                        $('#listUser\\:edtUserList\\:b').height($('#listUser\\:edtUserList').height() - 64);
+                    }
+                  }
+                });
+                
+                //
+                //
+                //createTabLayout('User', userLayoutOptions);
+                //createTabLayout('ItsManager', managerLayoutOptions);
+                //createTabLayout('ItsRadiologist', radiologistLayoutOptions);
+                createTabLayout('HospitalStaff', hospitalStaffLayoutOptions);
+                
+                
+               
+                
+            });
+        </script>
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form>
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <div id="contentwrapper" >
+            <p:tabView style="margin: 10px !important;">
+
+                <p:tab title="Godfather Part I">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage value="/images/godfather/godfather1.jpg" />
+                        <h:outputText
+                            value="The story begins as Don Vito Corleone, the head of a New York Mafia family, oversees his daughter's wedding.
+                            His beloved son Michael has just come home from the war, but does not intend to become part of his father's business. T
+                            hrough Michael's life the nature of the family business becomes clear. The business of the family is just like the head of the family, kind and benevolent to those who give respect,
+                            but given to ruthless violence whenever anything stands against the good of the family." />
+                    </h:panelGrid>
+                </p:tab>
+
+                <p:tab title="Godfather Part II">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage value="/images/godfather/godfather2.jpg" />
+                        <h:outputText value="Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather, parallels the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's depiction of the dark side of the American dream.
+                                      In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills his family. Vito struggles to make a living, legally or illegally, for his wife and growing brood in Little Italy,
+                                      killing the local Black Hand Fanucci after he demands his customary cut of the tyro's business. With Fanucci gone, Vito's communal stature grows."/>
+                    </h:panelGrid>
+                </p:tab>
+
+                <p:tab title="Godfather Part III">
+                    <div id="tabHospitalStaff" style="height: 442px;">
+                        <div class="ui-layout-north" id="northHospitalStaff">
+                            <div class="its-header">Search</div>
+                            <div class="content">
+                                
+                            </div>
+
+                        </div>
+                        <div class="ui-layout-south" id="southHospitalStaff">
+                            <div class="its-header">Details</div>
+                            <div class="content" style="margin-bottom: 10px;">
+                                
+                            </div>
+                        </div>
+                        <div id="mainContentHospitalStaff" >
+                           
+                        </div>
+                    </div>
+
+                </p:tab>
+
+            </p:tabView>
+
+
+        </div>
+        <div id="footer"></div>
+
+    </ui:define>
+
+</ui:composition>

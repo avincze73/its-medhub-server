@@ -1,0 +1,298 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.prime.com.tr/ui" 
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../templates/mainTemplate_1.xhtml">
+
+    <ui:define name="extraStyle">
+        <style type="text/css">
+            
+            
+            .ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd{
+                border: none !important;
+                padding: 0px !important;
+                background-color: #EEF3FA !important;
+            }
+            .ui-layout-unit-content{
+                background: #F5F9FE !important;
+                padding: 0px !important;
+                overflow: hidden !important ;
+                padding-bottom: 10px !important;
+            }
+            
+            .ui-layout-unit-content2{
+                background-color: #EEF3FA !important;
+                padding: 0px !important;
+                overflow: auto ;
+            }
+
+            .ui-layout-unit-header {
+                background:  url(./../resources/images/collapse_closed.png) no-repeat center !important;
+                border: none !important;
+            }
+
+            .ui-layout-pane-center {
+                background: #EEF3FA !important;
+            }
+            
+            .content-closed {
+
+            }
+
+            .ui-layout-toogler {
+                font-size: 5px;
+            }
+            .ui-layout-resizer{
+                background:  url(./../resources/images/splitter_h.png) no-repeat center;
+                height: 16px !important;
+                
+            }
+
+            .ui-layout-center {
+                padding-top: 20px !important;
+            }
+            
+            .ui-layout-resizer-closed{
+                /*background:  url(./../resources/images/splitter_h.png) no-repeat center;*/
+                height: 26px !important;
+                /*margin-top: 10px !important;*/
+                
+            }
+            
+            .ui-layout-resizer-north {
+                background:  #EEF3FA !important;
+                text-align: right !important;
+                border: none !important;
+            }
+            
+            .ui-layout-resizer-south-closed {
+                background:  url(./../resources/images/collapse_closed.png) no-repeat center !important;
+                text-align: right !important;
+                border: none !important;
+            }
+            
+            .ui-layout-resizer-north-closed {
+                background:  url(./../resources/images/collapse_closed.png) no-repeat center !important;
+                text-align: right !important;
+                border: none !important;
+            }
+            
+            .ui-layout-resizer-north-opened {
+                background:  #EEF3FA !important;;
+                text-align: right !important;
+                border: none !important;
+            }
+            
+            .ui-layout-toggler-south-closed {
+                border: none !important;
+                margin-top: 2px !important;
+                width: 922px !important;
+                color: #333333;
+                font-size: 11px !important;
+                font-weight: bold !important;
+                text-align: left !important;
+                padding-left: 8px !important;
+                padding-top: 3px !important;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+            }
+            
+            .ui-layout-toggler-north-closed {
+                border: none !important;
+                margin-top: 2px !important;
+                width: 922px !important;
+                color: #333333;
+                font-size: 11px !important;
+                font-weight: bold !important;
+                text-align: left !important;
+                padding-left: 8px !important;
+                padding-top: 3px !important;
+                text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+            }
+            
+            .ui-datatable-scrollable-body {
+                background: white !important;
+            }
+
+            .col1{
+                width: 95%;
+                padding: 0px;
+                background-color: #EEF3FA !important;
+            }
+            .col2{
+                width: 5%;
+                vertical-align: top;
+                padding: 0px;
+                text-align: center;
+                background: #EEF3FA;
+            }
+            .col3{
+                width: 80%;
+                padding: 0px;
+                vertical-align: top;
+            }
+            .col4{
+                width: 20%;
+                vertical-align: top;
+                padding: 0px;
+                text-align: center;
+            }
+            
+            .col5{
+                width: 80%;
+                padding: 0px;
+                vertical-align: top;
+            }
+            .col6{
+                width: 15%;
+                vertical-align: top;
+                padding-top: 5px;
+                text-align: right;
+            }
+            .col7{
+                width: 5%;
+                vertical-align: top;
+                padding: 0px;
+                text-align: center;
+            }
+
+            .className {
+                text-align: right;
+                width: 737px;
+                height: 20px;
+            }
+        </style>
+        
+        <h:outputScript library="primefaces" name="core/core.js" target="head" />
+        <h:outputScript library="primefaces" name="jquery/jquery.js" />
+
+        <script type="text/javascript" language="javascript">
+        function myresize() {
+        $('div.ui-datatable-scrollable-body').height($('#form\\:mycenter').height()- 55);
+        /*$('#form\\:entities').height($('#form\\:mycenter').height()- 60);*/
+        $('div.ui-layout-toggler-south-closed').html(
+        '<span class="ui-layout-unit-header-title">Details</span><a class="ui-layout-unit-header-icon ui-state-default ui-corner-all ui-state-hover" title="Collapse" href="javascript:void(0)"><span class="ui-icon ui-icon ui-icon-triangle-1-n"></span></a>'
+        );
+        $('div.ui-layout-toggler-north-closed').html(
+        '<span class="ui-layout-unit-header-title">Search</span><a class="ui-layout-unit-header-icon ui-state-default ui-corner-all ui-state-hover" title="Collapse" href="javascript:void(0)"><span class="ui-icon ui-icon ui-icon-triangle-1-s"></span></a>'
+        );
+        return true;
+        }
+        </script>
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form id="fInfo">
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <div id="contentwrapper">
+            <div id="mybgdiv" class="bgdiv" style="padding: 20px !important;">
+                <h:form id="form">
+                    <p:growl id="msg" showDetail="true" sticky="true" />  
+                    <p:layout  style="height: 495px;" closeTitle="closed" widgetVar="myLayout"  >  
+                        <p:ajax event="resize" oncomplete="myresize()" listener="#{managerController.resizeListener}" />
+                        <p:layoutUnit id="luSearch" gutter="1" header="Search" collapsible="true"  position="north" size="80" >  
+                            <p:outputPanel id="opSearch">
+
+                                <h:panelGrid width="100%" columns="3" columnClasses="col5,col6,col7" border="0" style="overflow: auto !important;">
+                                    <h:panelGroup>
+                                        <h:panelGrid columns="2"  >
+                                            <h:outputLabel value="#{currencyBundle.name}" styleClass="data_label"/>
+                                            <h:inputText  styleClass="input" value="#{currencyController.selectedEntity.name}" />
+                                        </h:panelGrid>
+                                    </h:panelGroup>
+                                    <h:panelGroup>
+                                            <p:commandButton image="ui-icon ui-icon-disk" ajax="true"/>
+                                            <p:commandButton value="All" ajax="true"/>
+                                    </h:panelGroup>
+                                    <h:panelGroup>
+                                    </h:panelGroup>
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </p:layoutUnit>
+                        <p:layoutUnit gutter="20" position="center" style="overflow: hidden !important; background: #EEF3FA !important;" id="mycenter" >
+                            <h:panelGrid columns="2" columnClasses="col1,col2" width="100%" border="0" style="background: #EEF3FA;">
+                                <p:dataTable widgetVar="mytable"  id="entities" var="entity" value="#{managerController.entityList}" rowKey="#{entity.id}"  
+                                             selection="#{managerController.selectedEntity}" selectionMode="single" 
+                                             style="background-color: white;" scrollable="true" scrollHeight="168" scrollWidth="889"  >  
+                                    <p:ajax event="rowSelect" update=":form:details" /> 
+
+                                    <f:facet name="header">  
+                                        <h:outputText value="#{managerBundle.listTitle}"></h:outputText> 
+                                    </f:facet>  
+                                    <p:column  style="width: 50px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colId}" style="float: left;" />
+                                        </f:facet>
+                                        #{entity.id}  
+                                    </p:column>  
+
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colName}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.name}  
+                                    </p:column> 
+                                    
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colLoginName}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.loginName}  
+                                    </p:column> 
+                                    
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colItsEmail}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.itsEmail}  
+                                    </p:column> 
+                                    
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colWorkEmail}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.workEmail}  
+                                    </p:column> 
+                                    
+                                </p:dataTable>
+                                <p:commandButton image="ui-icon ui-icon-disk" ajax="true" oncomplete="myresize()"></p:commandButton>
+                            </h:panelGrid>
+                        </p:layoutUnit>  
+                        <p:layoutUnit id="luDetails" gutter="20" header="Details"  position="south" size="150" collapsible="true" 
+                                      resizable="true" minSize="24" style="padding-top: 10px !important;"  >  
+                            <p:outputPanel id="details">
+
+                                <h:panelGrid columns="2" style="overflow: auto !important;">
+                                            <h:outputLabel value="#{managerBundle.name}" styleClass="data_label"/>
+                                            <h:inputText  id="mytext" styleClass="input" value="#{managerController.selectedEntity.itsUser.name}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </p:layoutUnit>  
+                    </p:layout>  
+
+                    <p:confirmDialog message="#{currencyBundle.saveMessage}"  
+                                     header="Confirmation" severity="alert" widgetVar="confirmationSave">  
+                        <p:commandButton value="Yes" oncomplete="confirmationSave.hide()"  
+                                         actionListener="#{currencyController.save}" update=":form:details" />  
+                        <p:commandButton value="No" onclick="confirmation.hide()" type="button" />   
+                    </p:confirmDialog>  
+                </h:form>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </ui:define>
+
+</ui:composition>

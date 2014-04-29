@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="./../templates/mainTemplate_1.xhtml">
+
+    <ui:define name="extraHead">
+
+        <style>
+            .colStyle1 { 
+                width: 110px;padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle2 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px;
+            }
+            .colStyle3 { 
+                width: 110px; padding-top: 3px;padding-bottom: 3px;
+            }
+            .colStyle4 { 
+                width: 200px; padding-top: 3px; padding-bottom: 3px; padding-left: 15px; padding-right: 30px; 
+            }
+            .col5{
+                width: 90%;
+                padding: 0px;
+                vertical-align: top;
+            }
+            .col6{
+                width: 7%;
+                vertical-align: top;
+                text-align: right;
+            }
+            .col7{
+                width: 3%;
+                vertical-align: top;
+                padding: 0px;
+                text-align: center;
+            }
+            .col1{
+                padding: 0px;
+                border: 0px;
+                background-color: #EEF3FA !important;
+            }
+            .col2{
+                vertical-align: top;
+                text-align: right;
+            }
+
+            .col1b{
+                padding: 0px;
+                border: 0px;
+                background-color: #EEF3FA !important;
+                text-align: right;
+                width: 906px;
+            }
+            .col2b{
+                vertical-align: top;
+                text-align: right;
+            }
+
+            .colTableHeader1 {
+                width: 50px;
+            }
+
+            .colTableHeader2 {
+            }
+
+
+
+            .even-row {
+                background-color: #FCFFFE;
+            }
+
+            .odd-row {
+                background-color: #ECF3FE;
+            }
+
+            .active-row {
+                background-color: #FFEBDA !important;
+                cursor: pointer !important;
+            }
+
+            table{
+                border-spacing: 0px;
+            }
+
+            .rf-edt-tbl-hdr {
+                text-align: left !important;
+                /*font-weight: normal !important;*/
+
+            }
+
+
+
+        </style>
+    </ui:define>
+
+    <ui:define name="infoPanel">
+        <h:form>
+            <div id="content_title">
+                <div id="TDS_left">#{managerController.title1}</div>
+                <div id="TDS_right">#{managerController.title2}</div>
+                <div id="btn_contreiner">
+                    <div id="btn_1">&nbsp;</div>
+                    <div id="btn_2"><h:commandLink action="#{managerController.back}"/></div>
+                    <div id="btn_3"><a href="#"></a></div>
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+    <ui:define name="content">
+        <div id="contentwrapper" >
+            <p:tabView style="margin: 10px !important;">
+
+                <p:tab title="Godfather Part I" >
+                    <div style="width: 755px; height: 411px;">
+                        <h:form>
+                            <p:dataTable widgetVar="mytable3"  id="entities3" var="entity" value="#{managerController.entityList}" rowKey="#{entity.id}"  
+                                         selection="#{managerController.selectedEntity}" selectionMode="single" 
+                                         style="background-color: white; width:  700px; " scrollable="true" scrollHeight="100"   >  
+                                <!--p:ajax event="rowSelect" update=":form:details" /--> 
+
+                                <f:facet name="header">  
+                                    <h:outputText value="#{managerBundle.listTitle}"></h:outputText> 
+                                </f:facet>  
+                                <p:column  style="width: 50px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{managerBundle.colId}" style="float: left;" />
+                                    </f:facet>
+                                    #{entity.id}  
+                                </p:column>  
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{managerBundle.colName}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.name}  
+                                </p:column> 
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{managerBundle.colLoginName}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.loginName}  
+                                </p:column> 
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{managerBundle.colItsEmail}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.itsEmail}  
+                                </p:column> 
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{managerBundle.colWorkEmail}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.workEmail}  
+                                </p:column> 
+
+                            </p:dataTable>
+                        </h:form>
+                    </div>
+
+                </p:tab>
+
+                <p:tab title="Godfather Part II">
+                    <div id="tabItsManager" style="height: 442px;">
+                        <div class="ui-layout-north" id="northItsManager">
+                            <div class="its-header">Search</div>
+                            <div class="content">
+
+                            </div>
+
+                        </div>
+                        <div class="ui-layout-south" id="southItsManager">
+                            <div class="its-header">Details</div>
+                            <div class="content" style="margin-bottom: 10px;">
+
+                            </div>
+                        </div>
+                        <div id="mainContentItsManager" >
+                            <h:form>
+                                <p:dataTable widgetVar="mytable2"  id="entities2" var="entity" value="#{managerController.entityList}" rowKey="#{entity.id}"  
+                                             selection="#{managerController.selectedEntity}" selectionMode="single" 
+                                             style="background-color: white; width: 700px; height: 100px;" scrollable="true" scrollRows="2" scrollWidth="700"   >  
+                                    <!--p:ajax event="rowSelect" update=":form:details" /--> 
+
+                                    <f:facet name="header">  
+                                        <h:outputText value="#{managerBundle.listTitle}"></h:outputText> 
+                                    </f:facet>  
+                                    <p:column  style="width: 50px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colId}" style="float: left;" />
+                                        </f:facet>
+                                        #{entity.id}  
+                                    </p:column>  
+
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colName}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.name}  
+                                    </p:column> 
+
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colLoginName}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.loginName}  
+                                    </p:column> 
+
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colItsEmail}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.itsEmail}  
+                                    </p:column> 
+
+                                    <p:column style="width: 200px;">  
+                                        <f:facet name="header">
+                                            <h:outputText value="#{managerBundle.colWorkEmail}" style="float: left;"/>
+                                        </f:facet>
+                                        #{entity.itsUser.workEmail}  
+                                    </p:column> 
+
+                                </p:dataTable>
+                            </h:form>
+                        </div>
+                    </div>
+                </p:tab>
+
+                <p:tab title="Godfather Part III">
+                    <div id="tabHospitalStaff" style="height: 442px;">
+                        <div class="ui-layout-north" id="northHospitalStaff">
+                            <div class="its-header">Search</div>
+                            <div class="content">
+                            </div>
+                        </div>
+                        <div class="ui-layout-south" id="southHospitalStaff">
+                            <div class="its-header">Details</div>
+                            <div class="content" style="margin-bottom: 10px;">
+                            </div>
+                        </div>
+                        <div id="mainContentHospitalStaff" >
+                            <p:dataTable widgetVar="mytable"  id="entities" var="entity" value="#{hospitalStaffController.entityList}" rowKey="#{entity.id}"  
+                                         selection="#{hospitalStaffController.selectedEntity}" selectionMode="single" 
+                                         style="background-color: white;" scrollable="true" scrollWidth="600"  >  
+                                <!--p:ajax event="rowSelect" update=":form:details" /--> 
+
+                                <f:facet name="header">  
+                                    <h:outputText value="#{hospitalStaffBundle.listTitle}"></h:outputText> 
+                                </f:facet>  
+                                <p:column  style="width: 50px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{hospitalStaffBundle.colId}" style="float: left;" />
+                                    </f:facet>
+                                    #{entity.id}  
+                                </p:column>  
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{hospitalStaffBundle.colName}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.name}  
+                                </p:column> 
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{hospitalStaffBundle.colLoginName}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.loginName}  
+                                </p:column> 
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{hospitalStaffBundle.colItsEmail}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.itsEmail}  
+                                </p:column> 
+
+                                <p:column style="width: 200px;">  
+                                    <f:facet name="header">
+                                        <h:outputText value="#{hospitalStaffBundle.colWorkEmail}" style="float: left;"/>
+                                    </f:facet>
+                                    #{entity.itsUser.workEmail}  
+                                </p:column> 
+
+                            </p:dataTable>
+
+                        </div>
+                    </div>
+
+                </p:tab>
+
+            </p:tabView>
+
+
+        </div>
+        <div id="footer"></div>
+
+    </ui:define>
+
+</ui:composition>

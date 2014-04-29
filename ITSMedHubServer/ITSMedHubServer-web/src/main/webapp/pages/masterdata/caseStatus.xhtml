@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a4j="http://richfaces.org/a4j"
+                xmlns:rich="http://richfaces.org/rich"
+                xmlns:f="http://java.sun.com/jsf/core"
+                template="./../../templates/mainTemplate_2.xhtml"
+                xmlns:itscomp="http://java.sun.com/jsf/composite/itscomp">
+
+   <ui:define name="extraHead">
+       <a4j:jsFunction name="selectEntity" action="#{caseStatusController.select}" render="apDetails" >
+            <a4j:param name="id" assignTo="#{caseStatusController.selectedId}" />
+        </a4j:jsFunction>
+        <ui:include src="/pages/masterdata/include/extraHead.xhtml" />
+
+        <script>
+            $(document).ready( function(){
+                $('#masterDataGrid').jqGrid({
+                    url:'#{facesContext.externalContext.requestContextPath}/pages/CaseStatusListServlet',
+                    caption: '#{caseStatusBundle.gridTitle}',
+                    colNames:[
+                        '#{caseStatusBundle.id}', 
+                        '#{caseStatusBundle.colEnglishName}',
+                        '#{caseStatusBundle.colHungarianName}'
+                    ],
+                    colModel :[ 
+                        {name:'id', index:'id', key: true, sortable: false},   
+                        {name:'englishName', index:'englishName'},
+                        {name:'hungarianName', index:'hungarianName'}
+                    ]
+                });
+            }); 
+            
+        </script>
+
+    </ui:define>
+
+  
+   <ui:define name="contentPanel">
+        <div class="content-wrapper" id="idContentWrapper">
+            <div id="leftPart" class="masterdata-left-part" >
+                <ui:include src="/pages/masterdata/include/navigator.xhtml" />
+            </div>
+            <div id="masterData" class="masterdata-center-part">
+                <h:form id="frmMasterData">
+                    <div class="ui-layout-south" id="south" style="z-index: 2000 !important;position: absolute;">
+                        <div class="its-header">
+                            <div style="margin-top: 6px;">
+                                Details
+                            </div>  
+                        </div>
+                        <div class="content" >
+
+                            <a4j:outputPanel id="apDetails" rendered="true" ajaxRendered="true">
+                                <div class="masterdata-details-left-part" >
+                                    <h:panelGrid columns="3" rendered="#{not caseStatusController.modeHandler.editButtonEnabled}" >
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.englishName}" />
+                                        <h:inputText id="itEnglishName" styleClass="input-required" 
+                                                     value="#{caseStatusController.selectedEntity.englishName}"  >
+                                        </h:inputText>
+                                        <rich:message for="itEnglishName"  />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.hungarianName}" />
+                                        <h:inputText id="itHungarianName" styleClass="input-required" 
+                                                     value="#{caseStatusController.selectedEntity.hungarianName}">
+                                        </h:inputText>
+                                        <rich:message for="itHungarianName"   />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.itsManagerSeesEng}" />
+                                        <h:inputText  styleClass="input" 
+                                                      value="#{caseStatusController.selectedEntity.itsManagerSeesEng}"  >
+                                        </h:inputText>
+                                        <h:inputHidden/>
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.itsRadiologistSeesEng}" />
+                                        <h:inputText styleClass="input" 
+                                                     value="#{caseStatusController.selectedEntity.itsRadiologistSeesEng}"  >
+                                        </h:inputText>
+                                        <h:inputHidden/>
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.hospitalSeesEng1}" />
+                                        <h:inputText styleClass="input" 
+                                                     value="#{caseStatusController.selectedEntity.hospitalSeesEng1}"  >
+                                        </h:inputText>
+                                        <h:inputHidden/>
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.hospitalSeesEng2}" />
+                                        <h:inputText  styleClass="input" 
+                                                      value="#{caseStatusController.selectedEntity.hospitalSeesEng2}"  >
+                                        </h:inputText>
+                                        <h:inputHidden/>
+                                    </h:panelGrid>
+                                    <h:panelGrid columns="2" rendered="#{caseStatusController.modeHandler.editButtonEnabled}">
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.englishName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{caseStatusController.selectedEntity.englishName}" />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.hungarianName}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{caseStatusController.selectedEntity.hungarianName}" />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.itsManagerSeesEng}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{caseStatusController.selectedEntity.itsManagerSeesEng}" />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.itsRadiologistSeesEng}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{caseStatusController.selectedEntity.itsRadiologistSeesEng}" />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.hospitalSeesEng1}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{caseStatusController.selectedEntity.hospitalSeesEng1}" />
+                                        <h:outputLabel styleClass="label" value="#{caseStatusBundle.hospitalSeesEng2}" />
+                                        <h:outputLabel styleClass="read-only-input" value="#{caseStatusController.selectedEntity.hospitalSeesEng2}" />
+                                    </h:panelGrid>
+                                </div>
+                                <div class="masterdata-right-part" >
+                                    <h:panelGrid columns="1" >
+                                        <a4j:commandButton 
+                                            style="#{caseStatusController.modeHandler.editButtonEnabled?'color: black':'color: gray'}" 
+                                            disabled="#{not caseStatusController.modeHandler.editButtonEnabled}" 
+                                            value="#{applicationBundle.editButton}" 
+                                            render="apDetails, apAdd"
+                                            action="#{caseStatusController.edit}"  
+                                            styleClass="button"
+                                            oncomplete="blockComponents();"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not caseStatusController.modeHandler.saveButtonEnabled}"  
+                                            value="#{applicationBundle.saveButton}" 
+                                            styleClass="button" 
+                                            render="apDetails, apAdd"
+                                            oncomplete="if( #{facesContext.maximumSeverity!='ERROR 2'}){unblockComponents();#{rich:component('saveDialog')}.show();}"
+                                            />
+                                        <a4j:commandButton 
+                                            disabled="#{not caseStatusController.modeHandler.cancelButtonEnabled}"  
+                                            value="#{applicationBundle.cancelButton}" 
+                                            styleClass="button"
+                                            immediate="true"
+                                            render="apDetails, apAdd"
+                                            onclick="unblockComponents();#{rich:component('cancelDialog')}.show();return false;"
+                                            /> 
+                                    </h:panelGrid>
+                                </div>
+                            </a4j:outputPanel>
+                        </div>
+                    </div>
+                    <div id="mainContent" >
+                        <div class="masterdata-main-content">
+                            <div style="float: left; width: 95%; height: 98%;z-index: 2;">
+                                <table id="masterDataGrid" ></table> 
+                            </div>
+                            <div style="float:right;width: 4%; height: 98%;">
+                                <a4j:outputPanel id="apInsert" rendered="true" ajaxRendered="true">
+                                    <a4j:commandButton id="btnInsert"
+                                                       disabled="#{not caseStatusController.modeHandler.editButtonEnabled}" 
+                                                       action="#{caseStatusController.insert}" 
+                                                       styleClass="image-button" 
+                                                       render="apDetails, apAdd"
+                                                       style="float: right;"
+                                                       oncomplete="onInsertComplete()"
+                                                       image="/resources/images/new.png"/>
+                                </a4j:outputPanel>
+                            </div>
+                        </div>
+                        <div class="masterdata-main-content-blocked"></div>
+                    </div>
+                </h:form>
+                <itscomp:cancelDialog onCancelRevoke="blockComponents()" onCancelComplete="onCancelComplete()" cancelAction="#{caseStatusController.cancel}" />                
+                <itscomp:saveDialog onCancelRevoke="blockComponents()" onSaveComplete="onSaveComplete();" saveAction="#{caseStatusController.save}" />                
+          
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

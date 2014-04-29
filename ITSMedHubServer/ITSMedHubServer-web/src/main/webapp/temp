@@ -1,0 +1,5 @@
+onclick="hasPasswordFromServer();if(!hasPassword()){alert('set password!'); return false;}else{ return confirm('#{applicationBundle.saveQuestion}');}"
+
+
+oncomplete="$('#cpQuestion').text('#{applicationBundle.saveQuestion}'); #{rich:component('confirmPopup')}.show();$('#cpJsFunction').attr('action','#{managerController.save()}');"
+                                    
