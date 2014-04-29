@@ -30,8 +30,8 @@ public abstract class CaseDownloader {
     }
 
     public static synchronized CaseDownloader getInstance() {
-        return RemoteCaseDownloader.getInstance();
-        //return LocalCaseDownloader.getInstance();
+        //return RemoteCaseDownloader.getInstance();
+        return LocalCaseDownloader.getInstance();
     }
 
     public abstract CaseDTO loadCase(String caseId, boolean dataOnly);
