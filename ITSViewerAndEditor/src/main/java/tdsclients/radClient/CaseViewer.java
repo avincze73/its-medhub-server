@@ -467,7 +467,8 @@ public class CaseViewer extends FrameWithMenu implements CloseFrameEventListener
 //	private static final String TAB1NAME = "      Case Data      ";
 //	private static final String TAB2NAME = "      Study Browser      ";
 	//public static final String ICONDIR = /*File.separator+*/"Icons"+File.separator;
-        public static final String ICONDIR = /*File.separator+*/"f:\\DiagDance\\ITS\\sources\\ITSViewerAndEditor\\src\\main\\resources\\Icons"+File.separator;
+        //public static final String ICONDIR = /*File.separator+*/"f:\\DiagDance\\ITS\\sources\\ITSViewerAndEditor\\src\\main\\resources\\Icons"+File.separator;
+        public static final String ICONDIR = /*File.separator+*/"./src/main/resources/Icons"+File.separator;
         //public static final String ICONDIR = /*File.separator+*/"..\\resources\\Icons"+File.separator;
 	public static final String TBIsepFN = ICONDIR+"separatorStickIcon4.png";
 	public static final String TBIfillerFN = ICONDIR+"filler2.png";
