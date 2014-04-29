@@ -70,9 +70,12 @@ public final class LocalCaseDownloader extends CaseDownloader {
      */
     protected LocalCaseDownloader() {
         try {
+            //File file = new File("./hello.txt");
             initProperties = new Properties();
             //initProperties.load(new FileInputStream((new File("f:\\DiagDance\\TDS\\TDSCaseDownloadingModule\\init.properties")).getAbsoluteFile()));
-            initProperties.load(new FileInputStream((new File("f:\\DiagDance\\ITS\\sources\\ITSCaseDownloadingModule\\src\\main\\resources\\init.properties")).getAbsoluteFile()));
+            //initProperties.load(new FileInputStream((new File("f:\\DiagDance\\ITS\\sources\\ITSCaseDownloadingModule\\src\\main\\resources\\init.properties")).getAbsoluteFile()));
+            initProperties.load(new FileInputStream((new File("./init.properties")).getAbsoluteFile()));
+            
             //initProperties.load(new FileInputStream((new File("H:\\Personal\\Biznisz\\Rendszer\\Aktualis Rendszer\\TDSCaseDownloadingModule\\init.properties")).getAbsoluteFile()));
             File folder = new File(initProperties.getProperty("dicomdir"));
             System.out.println(folder.getAbsolutePath());
